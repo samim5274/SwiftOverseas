@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#menu-section{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #f2f5f9;
+}
+
+#slide-section img{
+    height: 650px;
+}
+
+#slide-section h1{
+    font-size: 8.5rem;
+    color: #fff;
+    text-align: left;
+}
+
+#slide-section h3{
+    color: #fff;
+    text-align: left;
+}
+
+#welcome-section h3{
+    color: #319A9B;
+}
+
+#welcome-section div .text{
+  box-shadow: 10px 10px 5px 12px rgb(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.justify-text {
+  text-align: justify;
+}
+
+#our-service-section{
+  background: #f2f5f9;
+}
+
+#our-service-section .title{
+  text-transform: uppercase;
+  color: #319A9B;
+}
+
+#our-service-section .card{
+  width: 18rem;
+}
+
+
