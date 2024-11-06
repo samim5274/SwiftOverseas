@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 #menu-section{
@@ -58,7 +59,7 @@
   background-position: center;
   background-attachment: fixed;
   width: 100%;
-  height: 70vh;  
+  height: 75vh;  
 }
 
 #county-recuritment-section .title{
@@ -73,34 +74,39 @@
 }
 
 
+/* Position the image container (needed to position the left and right arrows) */
 
-/* flag image slide css section start */
+#flag-image-section{
+  background-image: linear-gradient(rgba(49, 255, 245, 0.425), rgba(50, 112, 131, 0.219)), url("../img/img-1.2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 110vh;
+  background-attachment: fixed;
+}
 
-
-img {
+.flag-image-section img {
   vertical-align: middle;
 }
 
-/* Position the image container (needed to position the left and right arrows) */
-.container {
+.flag-image-section .container {
   position: relative;
+  padding: 80px;
 }
 
-/* Hide the images by default */
-.mySlides {
+.flag-image-section .mySlides {
   display: none;
 }
 
-/* Add a pointer when hovering over the thumbnail images */
-.cursor {
+.flag-image-section .cursor {
   cursor: pointer;
 }
 
-/* Next & previous buttons */
-.prev,
-.next {
+.flag-image-section .prev, .next {
   cursor: pointer;
   position: absolute;
+  text-decoration: none;
   top: 40%;
   width: auto;
   padding: 16px;
@@ -113,54 +119,48 @@ img {
   -webkit-user-select: none;
 }
 
-/* Position the "next button" to the right */
-.next {
+.flag-image-section .next {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
 
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover,
+.flag-image-section .prev:hover,
 .next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #17f9fd;
 }
 
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
+.flag-image-section .numbertext {
+  color: #ffffff;
+  font-size: 1.3rem;
   padding: 8px 12px;
   position: absolute;
   top: 0;
 }
 
-/* Container for image text */
-.caption-container {
+.flag-image-section .caption-container {
   text-align: center;
   background-color: #222;
   padding: 2px 16px;
   color: white;
 }
 
-.row:after {
+.flag-image-section .row:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* Six columns side by side */
-.column {
+
+.flag-image-section .column {
   float: left;
   width: 16.66%;
 }
-
-/* Add a transparency effect for thumnbail images */
-.demo {
+ 
+.flag-image-section .demo {
   opacity: 0.6;
 }
 
-.active,
+.flag-image-section .active,
 .demo:hover {
   opacity: 1;
 }
-/* flg image slide css section end */

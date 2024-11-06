@@ -220,7 +220,7 @@ include "menu.php";
             </div>
         </div>
         <div class="row">
-        <!-- <section id="second-slide-section">
+            <section id="second-slide-section">
                 <div class="container" >
                     <div class="card__container swiper">
                         <div class="card__content">
@@ -265,39 +265,43 @@ include "menu.php";
                     <div class="swiper-pagination"></div>
                     </div>
                 </div>
-            </section> -->
-        
-            <div class="container">
+            </section>    
+        </div>
+    </div>
+</section>
+
+<section id="flag-image-section" class="flag-image-section">
+    <div class="container">
         <div class="mySlides">
             <div class="numbertext">1 / 6</div>
-            <img src="img_woods_wide.jpg" style="width:100%">
+            <img src="img/img-2.2 (1).jpg" style="width:100%">
         </div>
 
         <div class="mySlides">
             <div class="numbertext">2 / 6</div>
-            <img src="img_5terre_wide.jpg" style="width:100%">
+            <img src="img/img-2.2 (2).jpg" style="width:100%">
         </div>
 
         <div class="mySlides">
             <div class="numbertext">3 / 6</div>
-            <img src="img_mountains_wide.jpg" style="width:100%">
+            <img src="img/img-2.2 (3).jpg" style="width:100%">
         </div>
             
         <div class="mySlides">
             <div class="numbertext">4 / 6</div>
-            <img src="img_lights_wide.jpg" style="width:100%">
+            <img src="img/img-2.2 (4).jpg" style="width:100%">
         </div>
 
         <div class="mySlides">
             <div class="numbertext">5 / 6</div>
-            <img src="img_nature_wide.jpg" style="width:100%">
+            <img src="img/img-2.2 (5).jpg" style="width:100%">
         </div>
             
         <div class="mySlides">
             <div class="numbertext">6 / 6</div>
-            <img src="img_snow_wide.jpg" style="width:100%">
+            <img src="img/img-2.2 (6).jpg" style="width:100%">
         </div>
-            
+        
         <a class="prev" onclick="plusSlides(-1)">❮</a>
         <a class="next" onclick="plusSlides(1)">❯</a>
 
@@ -307,30 +311,27 @@ include "menu.php";
 
         <div class="row">
             <div class="column">
-            <img class="demo cursor" src="img_woods.jpg" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
+            <img class="demo cursor" src="img/flg/Dubai.jpg" style="width:100%" onclick="currentSlide(1)" alt="Dubai">
             </div>
             <div class="column">
-            <img class="demo cursor" src="img_5terre.jpg" style="width:100%" onclick="currentSlide(2)" alt="Cinque Terre">
+            <img class="demo cursor" src="img/flg/china.png" style="width:100%" onclick="currentSlide(2)" alt="china">
             </div>
             <div class="column">
-            <img class="demo cursor" src="img_mountains.jpg" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+            <img class="demo cursor" src="img/flg/Italy.png" style="width:100%" onclick="currentSlide(3)" alt="Italy">
             </div>
             <div class="column">
-            <img class="demo cursor" src="img_lights.jpg" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+            <img class="demo cursor" src="img/flg/malaysia.jpg" style="width:100%" onclick="currentSlide(4)" alt="Malaysia">
             </div>
             <div class="column">
-            <img class="demo cursor" src="img_nature.jpg" style="width:100%" onclick="currentSlide(5)" alt="Nature and sunrise">
+            <img class="demo cursor" src="img/flg/portugal.jpg" style="width:100%" onclick="currentSlide(5)" alt="Portugal">
             </div>    
             <div class="column">
-            <img class="demo cursor" src="img_snow.jpg" style="width:100%" onclick="currentSlide(6)" alt="Snowy Mountains">
+            <img class="demo cursor" src="img/flg/serbia.jpg" style="width:100%" onclick="currentSlide(6)" alt="Serbia">
             </div>
-        </div>
-        </div>
-
         </div>
     </div>
 </section>
-
+            
 
 
 
@@ -342,6 +343,7 @@ include "menu.php";
 <script src="assets/js/main.js"></script>
 
 <script src="js/main.js"></script>
+<script src="js/main2.js"></script>
     
 </body>
 </html>
