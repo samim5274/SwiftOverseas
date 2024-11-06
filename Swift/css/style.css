@@ -1,0 +1,166 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#menu-section{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #f2f5f9;
+}
+
+#slide-section img{
+    height: 650px;
+}
+
+#slide-section h1{
+    font-size: 8.5rem;
+    color: #fff;
+    text-align: left;
+}
+
+#slide-section h3{
+    color: #fff;
+    text-align: left;
+}
+
+#welcome-section h3{
+    color: #319A9B;
+}
+
+#welcome-section div .text{
+  box-shadow: 10px 10px 5px 12px rgb(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.justify-text {
+  text-align: justify;
+}
+
+#our-service-section{
+  background: #f2f5f9;
+}
+
+#our-service-section .title{
+  text-transform: uppercase;
+  color: #17f9fd;
+}
+
+#our-service-section .card{
+  width: 18rem;
+}
+
+.countyRecuitment{
+  background-image: linear-gradient(rgba(45, 107, 104, 0), rgb(50, 112, 131)), url("../img/img-2.3.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  width: 100%;
+  height: 70vh;  
+}
+
+#county-recuritment-section .title{
+  text-transform: capitalize;
+  color: #ffffff;
+  text-align: center;
+  padding: 1rem 0 1rem 0;
+}
+
+#county-recuritment-section .lead{
+  color: #fff;
+}
+
+
+
+/* flag image slide css section start */
+
+
+img {
+  vertical-align: middle;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+  position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+/* flg image slide css section end */
