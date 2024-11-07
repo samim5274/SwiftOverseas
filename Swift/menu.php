@@ -12,7 +12,7 @@
 			  <a class="nav-link" href="index">Home</a>
 			</li>
             <li class="nav-item">
-			  <a class="nav-link" href="#">About Us</a>
+			  <a class="nav-link" href="about">About Us</a>
 			</li>
             <li class="nav-item dropdown">
 			  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Our Service</a>
@@ -48,3 +48,4 @@
 		</div>
     </nav>
 </section>
+

@@ -19,7 +19,7 @@
 
 <?php
 
-include "menu.php";
+include 'menu.php';
 
 ?>
 
@@ -270,6 +270,25 @@ include "menu.php";
     </div>
 </section>
 
+
+
+<!-- Recruitment Expertise section start -->
+
+<section id="recuitment-section" class="py-4 text-center recuitment-section">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h3 class="display-4 titleR">Recruitment Expertise</h3>
+                <p class="lead">Swift Overseas understands its customers’ expectations and requirements. Our conscientious staff is friendly, responsive, and offers a mutually beneficial partnership that bonds a long-term relationship with both Employer and Employee. In addition to keeping all information confidential, our business model is simple “Association, Honesty, Reliability, Discretion and Orientation” to results. We specialize in several areas, but we are not limited to.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Recruitment Expertise section end -->
+
+
+
 <section id="flag-image-section" class="flag-image-section">
     <div class="container">
         <div class="mySlides">
@@ -331,8 +350,120 @@ include "menu.php";
         </div>
     </div>
 </section>
+
+
+
+<section id="gallary" class="py-5" uk-lightbox>
+    <div class="container">
+        <div class="row text-center mb-3">
+            <div class="col">
+                <h2>Photo Gallary</h2>
+                <p>Check Out Our Photos</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div>
+                    <a href="img/worker/work (1).jfif">
+                        <img src="img/worker/work (1).jfif" alt="Photo is loading..." class="img-fluid" />
+                        <h5 class="text-center text-lead overlay">Hotel & Restaurant</h5>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div>
+                    <a href="img/worker/work (2).jpg">
+                        <img src="img/worker/work (2).jpg" alt="Photo is loading..." class="img-fluid" />
+                        <h5 class="text-center text-lead overlay">Cleaner</h5>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div>
+                    <a href="img/worker/work (1).jpg">
+                        <img src="img/worker/work (1).jpg" alt="Photo is loading..." class="img-fluid" />
+                        <h5 class="text-center text-lead overlay">Electrician</h5>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-0 pt-md-4">
+            <div class="col-md-4">
+                <div>
+                    <a href="img/worker/work (1).PNG">
+                        <img src="img/worker/work (1).PNG" alt="Photo is loading..." class="img-fluid" />
+                        <h5 class="text-center text-lead overlay">Factory Worker</h5>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div>
+                    <a href="img/worker/work (3).jpg">
+                        <img src="img/worker/work (3).jpg" alt="Photo is loading..." class="img-fluid" />
+                        <h5 class="text-center text-lead overlay">Plumber</h5>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div>
+                    <a href="img/worker/work (5).jpg">
+                        <img src="img/worker/work (5).jpg" alt="Photo is loading..." class="img-fluid" />
+                        <h5 class="text-center text-lead overlay">Welder</h5>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-0 pt-md-4">
+            <div class="col-md-4">
+                <div>
+                    <a href="img/worker/work (4).PNG">
+                        <img src="img/worker/work (4).PNG" alt="Photo is loading..." class="img-fluid" />
+                        <h5 class="text-center text-lead overlay">Factory Worker</h5>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div>
+                    <a href="img/worker/work (3).PNG">
+                        <img src="img/worker/work (3).PNG" alt="Photo is loading..." class="img-fluid" />
+                        <h5 class="text-center text-lead overlay">Plumber</h5>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div>
+                    <a href="img/worker/work (2).PNG">
+                        <img src="img/worker/work (2).PNG" alt="Photo is loading..." class="img-fluid" />
+                        <h5 class="text-center text-lead overlay">Welder</h5>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="contact" class="py-5 text-center text-light">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2 class="title">Singup For Our News Latter</h2>
+                <p class="lead">
+                    It is a long established fact that a reader will be distracted by the readable content of a page when
+                    looking at its layout.It is a long established fact that a reader will be distracted by the readable content of a page when
+                    looking at its layout.
+                </p>
+                <input type="button" value="contact us" class="btn m-2" />
+            </div>
+        </div>
+    </div>
+</section>
             
 
+
+<?php 
+    include "footer.php";
+?>
 
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
