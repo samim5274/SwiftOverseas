@@ -1,0 +1,262 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#menu-section{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #f2f5f9;
+}
+
+#slide-section img{
+    height: 650px;
+}
+
+#slide-section h1{
+    font-size: 8.5rem;
+    color: #fff;
+    text-align: left;
+}
+
+#slide-section h3{
+    color: #fff;
+    text-align: left;
+}
+
+#welcome-section h3{
+    color: #319A9B;
+}
+
+#welcome-section div .text{
+  box-shadow: 10px 10px 5px 12px rgb(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.to-top {
+  background: rgb(16, 121, 139);
+  position: fixed;
+  bottom: 16px;
+  right:32px;
+  width:50px;
+  height:50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size:32px;
+  color:#ffffff;
+  text-decoration: none;
+  opacity:0;
+  pointer-events: none;
+  transition: all .4s;
+}
+
+.to-top.active {
+  bottom:32px;
+  pointer-events: auto;
+  opacity:1;
+}
+
+.justify-text {
+  text-align: justify;
+}
+
+#our-service-section{
+  background: #f2f5f9;
+}
+
+#our-service-section .title{
+  text-transform: uppercase;
+  color: #17f9fd;
+}
+
+#our-service-section .card{
+  width: 18rem;
+}
+
+.countyRecuitment{
+  background-image: linear-gradient(rgba(45, 107, 104, 0), rgb(50, 112, 131)), url("../img/img-2.3.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  width: 100%;
+  height: 75vh;  
+}
+
+#county-recuritment-section .title{
+  text-transform: capitalize;
+  color: #ffffff;
+  text-align: center;
+  padding: 1rem 0 1rem 0;
+}
+
+#county-recuritment-section .lead{
+  color: #fff;
+}
+
+
+/* Position the image container (needed to position the left and right arrows) */
+
+#flag-image-section{
+  background-image: linear-gradient(rgba(49, 255, 245, 0.425), rgba(50, 112, 131, 0.219)), url("../img/img-1.2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 110vh;
+  background-attachment: fixed;
+}
+
+.flag-image-section img {
+  vertical-align: middle;
+}
+
+.flag-image-section .container {
+  position: relative;
+  padding: 80px;
+}
+
+.flag-image-section .mySlides {
+  display: none;
+}
+
+.flag-image-section .cursor {
+  cursor: pointer;
+}
+
+.flag-image-section .prev, .next {
+  cursor: pointer;
+  position: absolute;
+  text-decoration: none;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.flag-image-section .next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.flag-image-section .prev:hover,
+.next:hover {
+  background-color: #17f9fd;
+}
+
+.flag-image-section .numbertext {
+  color: #ffffff;
+  font-size: 1.3rem;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.flag-image-section .caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.flag-image-section .row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+.flag-image-section .column {
+  float: left;
+  width: 16.66%;
+}
+ 
+.flag-image-section .demo {
+  opacity: 0.6;
+}
+
+.flag-image-section .active,
+.demo:hover {
+  opacity: 1;
+}
+
+
+.recuitment-section{
+  background: rgba(255, 255, 255, 0.904);
+}
+
+.titleR{
+  color: #17f9fd;
+}
+
+#gallary img{
+  min-height: 300px;
+}
+
+#gallary a{
+  text-decoration: none;
+}
+
+.overlay{
+  background: rgb(47, 102, 124);
+  color: #ffffff;
+  font-size: 1.5rem;
+  padding: 1rem;
+  text-transform: uppercase;
+}
+
+#gallary img:hover{
+  transition: 0.5s;
+  padding: 0.5rem;
+  border-radius: 25px;
+}
+
+#gallary .overlay:hover{
+  color: rgb(47, 102, 124);
+  background: rgba(77, 249, 255, 0.5);
+  transition: 0.5s;
+  border-radius: 15px;
+}
+
+#contact{
+  background-image: linear-gradient( rgba(255, 255, 255, 0.637),rgba(0, 0, 0, 0.616)), url("../img/slide2.jpg");  
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  background-attachment: fixed;
+}
+
+#contact .title{
+  color: #17f9fd;
+}
+
+#contact .btn{
+  background-color: #17f9fd;
+  color: #319A9B;
+}
+
+#contact input{
+  font-size: 2rem;
+  border-radius: 15px;
+}
+
+#CopyRight a{
+  text-decoration: none;
+  color: #01b7ff;
+}
+
+#CopyRight a:hover{
+  color: #ffffff;
+}
+

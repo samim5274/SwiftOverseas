@@ -1,0 +1,66 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.work-visa{
+    background-image: linear-gradient(rgba(45, 107, 104, 0.8), rgb(50, 112, 131, 0.5)), url("../img/img-2.4.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    width: 100%;
+    height: 40vh;
+}
+
+#work-visa h1{
+    color: #ffffff;
+    font-weight: bold;
+    margin-top: 10%;
+}
+
+.to-top {
+    background: rgb(16, 121, 139);
+    position: fixed;
+    bottom: 16px;
+    right:32px;
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size:32px;
+    color:#ffffff;
+    text-decoration: none;
+    opacity:0;
+    pointer-events: none;
+    transition: all .4s;
+  }
+  
+  .to-top.active {
+    bottom:32px;
+    pointer-events: auto;
+    opacity:1;
+  }
+  
+.card-text{
+    text-align: justify;
+}
+
+.work-country .head{
+    background: #699dff;
+    color: #ffffff;
+    text-align: center;
+    padding: 1%;
+    border-radius: 5px;
+    font-size: 3.5rem;
+}
+
+.work-country .head:hover{
+    font-size: 3rem;
+    background: #00eeff;
+    color: #ffffff;
+    transition: 0.5s;
+}
