@@ -3,3 +3,14 @@
     height: 5rem;
     background: #ffffff;
 }
+.success{
+    background: #07fd30;
+    color: #ffffff;
+    padding: 1rem;
+    opacity: 80%;
+    font-size: 1.2rem;
+    width: 100%;
+}
+.btn{
+    width: 100%;
+}
