@@ -13,7 +13,7 @@ $mess1 = "Username or mail is empty. Please fill the username or mail and try ag
 $mess2 = "Your password is empty. Please fill the password and try again!";
 $mess3 = "Username & Password invalid. Please try again!!";
 $mess4 = "Login Successfully.";
-$mess5 = "You don't have login permission. Please contact with SWIFT Overseas authority. Thank you.";
+$mess5 = "Your account can not be activated. Please contact with SWIFT Overseas authority. Thank you.";
 
 
 if(empty($uname))
@@ -35,6 +35,7 @@ else
     if(mysqli_num_rows($sqlResult) === 1)
     {
         $row = mysqli_fetch_assoc($sqlResult);
+        
         if($row['username'] === $uname && $row['password'] === $pass)
         {
             if($row['status'] == $status)
@@ -47,6 +48,7 @@ else
             else
             {
                 header("Location: ../log.php?error=".$mess5);
+                exit();
             }
         }
         else
@@ -56,12 +58,10 @@ else
         }
     }
     else
-    {        
+    {   
         header("Location ../log.php?error=".$mess3);
         exit();
     }
 }
-
-session_close();
 
 ?>

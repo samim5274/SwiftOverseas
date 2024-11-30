@@ -8,68 +8,65 @@
     <link rel="stylesheet" href="css/dashboard.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 <body>
 
-<nav class="navbar navbar-dark bg-dark fixed-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">SWIFT Overseas</a>
-    <a class="navbar-brand" href="#">
-            <img src="img/Swift-Overseas-logo-wh.png" width="80" height="40" alt="">
-        </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Dashboard</h5>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+<?php include 'dashboardmenu.php'; ?>
+
+<section id="top-section"> </section>
+
+<section id="card-section" class="mt-4">
+  <div class="container">
+    <div class="row">
+      <h2 class="display-4 head">Dashboard</h2>
+      <div class="col-md-3 text-center bg-info text-white">
+        <p class="lead">Customer</p>
+        <h3 class="display-4">25</h3>
+        <p class="lead">Agency</p>
       </div>
-      <div class="offcanvas-body">
-        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-          <li class="nav-item">
-            <a class="nav-link text-dark" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link  text-dark" href="#">Customers</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link  text-dark" href="#">Total Call</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link  text-dark" href="#">Total Visit office</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link  text-dark" href="#">Country Work</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link  text-dark" href="#">Visit Visa</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link  text-dark" href="#">Passport Collect</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle  text-dark" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Account & Cost
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
-              <li><a class="dropdown-item  text-dark" href="#">Client Cost</a></li>
-              <li><a class="dropdown-item  text-dark" href="#">Agent Cost</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item  text-dark" href="#">Fly this month</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link  text-dark" href="log">Log out</a>
-          </li>
-        </ul>
+      <div class="col-md-3 text-center bg-danger text-white">
+        <p class="lead">Today's</p>
+        <h3 class="display-4">48</h3>
+        <p class="lead">Phone Call's</p>
+      </div>
+      <div class="col-md-3 text-center bg-success text-white">
+        <p class="lead">Total Visit</p>
+        <h3 class="display-4">21</h3>
+        <p class="lead">Person</p>
+      </div>
+      <div class="col-md-3 text-center bg-secondary  text-white">
+        <p class="lead">Running Working Country</p>
+        <h3 class="display-4">12</h3>
+        <p class="lead">Country</p>
+      </div>
+    </div>
+    <div class="row">
+      <h2 class="display-4 head">Total</h2>
+      <div class="col-md-3 text-center bg-primary text-white">
+        <p class="lead">Total</p>
+        <h3 class="display-4">25</h3>
+        <p class="lead"></p>
+      </div>
+      <div class="col-md-3 text-center bg-warning text-white">
+        <p class="lead">Total</p>
+        <h3 class="display-4">48</h3>
+        <p class="lead"></p>
+      </div>
+      <div class="col-md-3 text-center bg-dark text-white">
+        <p class="lead">Total</p>
+        <h3 class="display-4">21</h3>
+        <p class="lead"></p>
+      </div>
+      <div class="col-md-3 text-center bg-info  text-white">
+        <p class="lead">Total</p>
+        <h3 class="display-4">12</h3>
+        <p class="lead"></p>
       </div>
     </div>
   </div>
-</nav>
+</section>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
