@@ -85,8 +85,6 @@
                         <input type="text" name="txtEAddress" class="form-control" required placeholder="Emergency Address" aria-label="Username" aria-describedby="basic-addon5" >
                     </div>
                     
-                    <br><hr><br>
-
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon5">Passport Number</span>
                         <input type="text" name="txt" class="form-control" required placeholder="Passport Number" aria-label="Username" aria-describedby="basic-addon5" >
@@ -112,25 +110,57 @@
                         <input type="date" name="txt" class="form-control" required  aria-label="Username" aria-describedby="basic-addon5" >
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon5"></span>
-                        <input type="text" name="txt" class="form-control" required placeholder="" aria-label="Username" aria-describedby="basic-addon5" >
+                    <?php
+                            $sqlData = "SELECT * FROM tb_agency_info";
+                            $SQLResult = mysqli_query($conn,$sqlData);
+                            $sl = 1;
+                            ?>
+                        <select name="cbxGender" class="form-control mt-2" id="Reference">
+                            <option selected disabled>Select Reference</option>
+                            <?php 
+                            while($row = mysqli_fetch_array($SQLResult))
+                            {?>
+                                <option value="<?php $row['id'] ?>"><?php echo $row['fullname'] ?></option>
+                            <?php  $sl++;  }
+                            ?>
+                            
+                        </select>
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon5"></span>
-                        <input type="text" name="txt" class="form-control" required placeholder="" aria-label="Username" aria-describedby="basic-addon5" >
+                        <span class="input-group-text" id="basic-addon5">Contract Amount</span>
+                        <input type="number" name="txt" class="form-control" required placeholder="Contract Amount" aria-label="Username" aria-describedby="basic-addon5" >
+                        <span class="input-group-text" id="basic-addon5">Advance</span>
+                        <input type="number" name="txt" class="form-control" required placeholder="Advance" aria-label="Username" aria-describedby="basic-addon5" >
+                        <span class="input-group-text" id="basic-addon5">Payment Method</span>
+                        <input type="number" name="txt" class="form-control" required placeholder="Cash/Bank Transfer (Bank name)" aria-label="Username" aria-describedby="basic-addon5" >
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon5"></span>
-                        <input type="text" name="txt" class="form-control" required placeholder="" aria-label="Username" aria-describedby="basic-addon5" >
+                        <span class="input-group-text" id="basic-addon5">Destination Country</span>
+                        <input type="text" name="txt" class="form-control" required placeholder="Destination Country" aria-label="Username" aria-describedby="basic-addon5" >
+                        <span class="input-group-text" id="basic-addon5">Visa Duration time</span>
+                        <input type="text" name="txt" class="form-control" required placeholder="Example: 3 or 6 month" aria-label="Username" aria-describedby="basic-addon5" >
+                    </div>
+                    <span class="input-group-text mb-3" id="basic-addon5">Attach File</span>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon5">Own Image*</span>
+                        <input type="file" name="txt" class="form-control" required placeholder="" aria-label="Username" aria-describedby="basic-addon5" >
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon5"></span>
-                        <input type="text" name="txt" class="form-control" required placeholder="" aria-label="Username" aria-describedby="basic-addon5" >
+                        <span class="input-group-text" id="basic-addon5">Passport First Page Picture</span>
+                        <input type="file" name="txt" class="form-control" required  aria-label="Username" aria-describedby="basic-addon5" >
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon5"></span>
-                        <input type="text" name="txt" class="form-control" required placeholder="" aria-label="Username" aria-describedby="basic-addon5" >
+                        <span class="input-group-text" id="basic-addon5">NID</span>
+                        <input type="file" name="txt" class="form-control" required  aria-label="Username" aria-describedby="basic-addon5" >
+                    </div>              
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon5">Spouse's NID</span>
+                        <input type="file" name="txt" class="form-control" aria-label="Username" aria-describedby="basic-addon5" >
                     </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon5">Remark (Optional)</span>
+                        <input type="text" name="txt" class="form-control" placeholder="Remark's" aria-label="Username" aria-describedby="basic-addon5" >
+                    </div> 
 
                     <div>
                         <button class="btn btn-info text-light" role="button" name="btnSubmit">Submite</button>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2024 at 12:35 PM
+-- Generation Time: Dec 02, 2024 at 01:24 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -45,9 +45,9 @@ CREATE TABLE `tb_agency_info` (
 
 INSERT INTO `tb_agency_info` (`id`, `fullname`, `lastname`, `firstname`, `address`, `rm`, `status`, `email`, `phone`) VALUES
 (9, 'Swift Overseas Tours & Travels', 'Islam Asad', 'Md Ashadul', 'Uttara-03, Dhaka-1230', 'DH6548', 1, 'swiftoverseas@gmail.com', 1324569874),
-(10, 'MH International Tours & Travels', 'Islam Asad', 'Md Ashadul', 'Uttara-03, Dhaka-1230', 'DH6548', 1, 'swiftoverseas@gmail.com', 1324569874),
-(11, 'Al-Amin Air International Tours & Travels', 'Amin Khan', 'Al', 'Ashkona, Dhaka-1230', 'DH6543', 1, 'alaminairinternational@gmail.com', 1324569874),
-(12, 'Dragons Holiday Travels', 'Akter', 'Chadni', 'Uttara-03, Dhaka-1230', 'DH6548', 1, 'holiday@gmail.com', 1324569874);
+(10, 'MH International Tours & Travels', 'Islam', 'Md Al-Amin', 'Ashkona, Dhaka-1230', 'DH6556', 1, 'alaminairinternationall@gmail.com', 1324569874),
+(14, 'Dragon Holiday Tours & Travels', 'Islam', 'Md Ashadul Alam', 'Ashkona, Dhaka-1230', 'DH6556', 1, 'dragon@gmail.com', 2341234),
+(15, 'Nature Holiday Tours & Travels', 'Islam', 'Md Al-Amin', 'Gulshan-01, Dhaka-1234', 'DH6548', 1, 's@gmail.com', 3452345);
 
 -- --------------------------------------------------------
 
@@ -96,7 +96,7 @@ ALTER TABLE `user_info`
 -- AUTO_INCREMENT for table `tb_agency_info`
 --
 ALTER TABLE `tb_agency_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `user_info`
