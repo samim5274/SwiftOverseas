@@ -30,3 +30,26 @@
             </div> -->
 
             https://www.youtube.com/watch?v=XxG7vqFecR8
+
+
+
+            <form action="#" method="POST">
+                        <div class="row">
+                            <div class="col">
+                                <label class="labels" for="Status">Employee Status</label>
+                                <div class="col-8"><input type="text" hidden name="txtId" value="<?php echo $sId;?>"></div>
+                                <div class="col-8"><input type="text" hidden name="txtName" value="<?php echo $sname;?>"></div>
+                                <?php if(isset($_GET['error'])){ ?> <p class="error text-center text-dark mark"><?php echo $_GET['error']; ?></p> <?php } ?>
+                                <select name="cbxStatus1" class="form-control mt-2" id="Status">
+                                    <option selected disabled>Select Status</option>
+                                    <option value="1">Active</option>
+                                    <option value="2">De-active</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col text-center">
+                                <button name="btnStatusUpdate" type="submit" class="button-30">Update</button>
+                            </div>
+                        </div>
+                    </form>

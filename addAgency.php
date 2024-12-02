@@ -31,28 +31,28 @@
                 <form action="controller/db_backend.php" method="GET">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon3">Name</span>
-                        <input type="text" name="agencyName" class="form-control" required placeholder="Enter Your Agency Full Name" aria-label="Username" aria-describedby="basic-addon3" value="Swift Overseas Tours & Travels">
+                        <input type="text" name="agencyName" class="form-control" required placeholder="Enter Your Agency Full Name" aria-label="Username" aria-describedby="basic-addon3">
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Owner Name</span>
-                        <input type="text" name="fastname" class="form-control" required placeholder="First Name" aria-label="Username" aria-describedby="basic-addon1" value="Md Ashadul">
-                        <input type="text" name="lastname" class="form-control" placeholder="Last Name" aria-label="Username" aria-describedby="basic-addon1" value="Islam Asad">
+                        <input type="text" name="fastname" class="form-control" required placeholder="First Name" aria-label="Username" aria-describedby="basic-addon1" >
+                        <input type="text" name="lastname" class="form-control" placeholder="Last Name" aria-label="Username" aria-describedby="basic-addon1" >
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon4">Phone</span>
-                        <input type="number" name="txtphone" class="form-control" required placeholder="Phone" aria-label="Username" aria-describedby="basic-addon4" value="1324569874">
+                        <input type="number" name="txtphone" class="form-control" required placeholder="Phone" aria-label="Username" aria-describedby="basic-addon4">
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon5">Email</span>
-                        <input type="email" name="txtEmail" class="form-control" required placeholder="example@example.com" aria-label="Username" aria-describedby="basic-addon5" value="swiftoverseas@gmail.com">
+                        <input type="email" name="txtEmail" class="form-control" required placeholder="example@example.com" aria-label="Username" aria-describedby="basic-addon5" >
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon6">Address</span>
-                        <input type="text" name="txtAddress" class="form-control" placeholder="Full Address" aria-label="Username" aria-describedby="basic-addon6" value="Uttara-03, Dhaka-1230">
+                        <input type="text" name="txtAddress" class="form-control" placeholder="Full Address" aria-label="Username" aria-describedby="basic-addon6">
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon8">RM</span>
-                        <input type="text" name="txtRM" class="form-control" placeholder="RM Number" aria-label="Username" aria-describedby="basic-addon8" value="DH6548">
+                        <input type="text" name="txtRM" class="form-control" placeholder="RM Number" aria-label="Username" aria-describedby="basic-addon8">
                     </div>
                     <div>
                         <button class="btn btn-info text-light" role="button" name="btnSubmit">Submite</button>
@@ -74,10 +74,11 @@
                 <table class="table table-hover table-bordered">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
+                            <th scope="col" class="text-center">#</th>
                             <th scope="col">Agency Name</th>
                             <th scope="col">Owner Name</th>
                             <th scope="col">Phone</th>
+                            <th scope="col" colspan="2" class="text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -88,10 +89,13 @@
                             while($row = mysqli_fetch_array($SQLResult))
                             {?>
                                 <tr>
-                                    <th scope="row"><?php echo $sl ?></th>
+                                    <th class="text-center" scope="row"><?php echo $sl ?></th>
                                     <td><?php echo $row['fullname'] ?></td>
+                                    <?php $uid = $row['id'] ?>
                                     <td><?php echo $row['firstname'].' '.$row['lastname'] ?></td>
                                     <td><?php echo $row['phone'] ?></td>
+                                    <td class="text-center"><a href="editAgency.php?userid=<?php echo $uid; ?>"><button class="btn btn-secondary text-light">Edit</button></a></td>
+                                    <td class="text-center"><a href="editAgency.php?userid=<?php echo $uid; ?>"><button class="btn btn-danger text-light" name="btnDelete">Delete</button></a></td>
                                 </tr>
                         <?php  $sl++;  }
                         ?>
