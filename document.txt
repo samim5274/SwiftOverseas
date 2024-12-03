@@ -53,3 +53,45 @@
                             </div>
                         </div>
                     </form>
+
+
+
+CREATE TABLE tb_clientlist (
+	id int PRIMARY KEY AUTO_INCREMENT,
+    fastname varchar(255),
+    lastname varchar(255),
+    phone int,
+    dob date,
+    genderid int,
+    address varchar(255),
+    email varchar(255),
+    passportNumber varchar(255),
+    countryCode varchar(255),
+    PassportAuthority varchar(255),
+    nid varchar(255),
+    pleaseOfBirth varchar(255),
+    passIssueDateStart date,
+    passIssueDateEnd date,
+    fatherName varchar(255),
+    motherName varchar(255),
+    spouseName varchar(255),
+    s_dob date,
+    s_address varchar(255),
+    emgName varchar(255),
+    emgRelation varchar(255),
+    emdAddress varchar(255),
+    referid int,
+    ContAmount varchar(255),
+    advance varchar(255),
+    payMathod int,
+    pmbName varchar(255),
+    pmbAccountNum varchar(255),
+    destination varchar(255),
+    visaDurationTime varchar(255),
+    pImg varchar(255),
+    PassImg varchar(255),
+    nidImg varchar(255),
+    SnidImg varchar(255),
+    condi int,
+    remark varchar(255)
+)
