@@ -14,20 +14,24 @@
 </head>
 <body>
 
+
 <?php 
     include 'controller/dbconfig.php';
     include 'dashboardmenu.php'; 
 ?>
 <section id="top-section"> </section>
 
+
 <?php if(isset($_GET['success'])) {?>
 <h2 class="success text-center"><?php echo $_GET['success']; ?></h2> 
-<?php } ?>
+<?php } if(isset($_GET['error'])) {?> <h2 class="error text-center"><?php echo $_GET['error']; ?></h2> <?php }
+?>
 
-<section id="add-new-agency-section">
+
+<section id="add-new-agency-section" class="">
     <div class="container">
         <h3 class="text-center">All Clients List</h3>
-        <form action="controller/AddNewClient.php" method="GET">                    
+        <form action="controller/AddNewClient.php" method="POST">                    
             <div class="row">
                 <div class="span_1_of_2">
                     <label for="">Personal Information</label><hr>
@@ -187,10 +191,10 @@
                 </div>
                 <br>
                 <!-- ======================================================attach file section===================================================== -->
-                <label for="">Country Details</label><hr>
+                <label for="">File Attachment Details</label><hr>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon5">Own Image*</span>
-                    <input type="file" name="txtPImg" class="form-control"  placeholder="" aria-label="Username" aria-describedby="basic-addon5" >
+                    <input type="file" name="my_image" class="form-control"  placeholder="" aria-label="Username" aria-describedby="basic-addon5" >
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon5">Passport First Page Picture</span>
@@ -221,27 +225,28 @@
                     <thead>
                         <tr>
                             <th scope="col" class="text-center">#</th>
-                            <th scope="col">Agency Name</th>
-                            <th scope="col">Owner Name</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Please Of Birth</th>
                             <th scope="col">Phone</th>
-                            <th scope="col" colspan="2" class="text-center">Action</th>
+                            <th scope="col">Remark</th>
+                            <th scope="col" class="text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                            $sqlData = "SELECT * FROM tb_agency_info";
+                            $sqlData = "SELECT * FROM tb_clientlist";
                             $SQLResult = mysqli_query($conn,$sqlData);
                             $sl = 1;
                             while($row = mysqli_fetch_array($SQLResult))
                             {?>
                                 <tr>
                                     <th class="text-center" scope="row"><?php echo $sl ?></th>
-                                    <td><?php echo $row['fullname'] ?></td>
+                                    <td><?php echo $row['fastname'].' '. $row['lastname'] ?></td>
                                     <?php $uid = $row['id'] ?>
-                                    <td><?php echo $row['firstname'].' '.$row['lastname'] ?></td>
+                                    <td><?php echo $row['pleaseOfBirth'];?></td>
                                     <td><?php echo $row['phone'] ?></td>
-                                    <td class="text-center"><a href="editAgency.php?userid=<?php echo $uid; ?>"><button class="btn btn-secondary text-light">Edit</button></a></td>
-                                    <td class="text-center"><a href="editAgency.php?userid=<?php echo $uid; ?>"><button class="btn btn-danger text-light" name="btnDelete">Delete</button></a></td>
+                                    <td><?php echo $row['remark'] ?></td>
+                                    <td class="text-center"><a href="editAgency.php?userid=<?php echo $uid; ?>"><button class="btn btn-secondary text-light">Edit</button></a></td>                                    
                                 </tr>
                         <?php  $sl++;  }
                         ?>
