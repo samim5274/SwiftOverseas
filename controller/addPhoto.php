@@ -1,42 +1,56 @@
 <?php
 
+include 'dbconfig.php';
+
 if(isset($_POST['btnSubmit']))
 {
 
-    $img_name = $_FILES['my_file']['name'];
-    $img_size = $_FILES['my_file']['size'];
-    $tem_name = $_FILES['my_file']['tmp_name'];
-    $error = $_FILES['my_file']['error'];
-
-    if($error == 0)
+    $img_name = $_FILES['my_img']['name'];
+    $tem_name = $_FILES['my_img']['tmp_name'];
+    
+    $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
+    $img_ex_lc = strtolower($img_ex);
+    $allow_exs = array("jpg","jped","png","webp");
+    if(in_array($img_ex_lc, $allow_exs))
     {
-        if($img_size > 1250000)
-        {
-            $ex = "Image size to big!";
-            header("Location: ../addNewClient.php?error=$ex");
-        }
-        else
-        {
-            $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
-            $img_ex_lc = strtolower($img_ex);
-            $allowed_exe = array('png','jpg','jpeg','webp');
-            if(in_array($img_ex_lc, $allowed_exe))
-            {
-                $img_New_Name = uniqid("IMG-", true).'-'.$img_name.'-'.$img_ex_lc;
-                $img_up_path = "../img/upload/".$img_New_Name;
-                move_uploaded_file($tem_name, $img_up_path);
-            }
-            else
-            {
-                $ex = "Extention not allowed!!";
-                header("Location: ../addNewClient.php?error=$ex");
-            }
-        }
+        $img_new_name = uniqid("IMG-",true).'.'.$img_ex_lc;
+        $img_up_path = "../img/upload/".$img_new_name;
+        move_uploaded_file($tem_name, $img_up_path);
+
+        $ex="Photo saved!";
+        header("Location: addPhoto.php?error=$ex");
+
+        $sqlData = "INSERT INTO `tb_img`(`img`) VALUES ('$img_new_name')";
+        $sqlResult = mysqli_query($conn, $sqlData);
+        $ex="Photo save successfully!";
+        header("Location: addPhoto.php?error=$ex");
     }
     else
     {
-        $ex = "Unknown error found. Please select good picture!!!";
-        header("Location: ../addNewClient.php?error=$ex");
+        $ex="Extention not allowed!";
+        header("Location: addPhoto.php?error=$ex");
     }
+    
 }
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <?php if(isset($_GET['success'])) {?>
+    <h2 class="success text-center"><?php echo $_GET['success']; ?></h2> 
+    <?php } if(isset($_GET['error'])) {?> <h2 class="error text-center"><?php echo $_GET['error']; ?></h2> <?php }
+    ?>
+
+    <form action="" method="POST" enctype="multipart/form-data">
+        <input type="file" name="my_img">
+        <input type="submit" value="submit" name="btnSubmit">
+    </form>
+
+</body>
+</html>

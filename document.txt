@@ -95,3 +95,6 @@ CREATE TABLE tb_clientlist (
     condi int,
     remark varchar(255)
 )
+
+
+upload photo php link: https://www.youtube.com/watch?v=onu3w8kqASU&t=268s

@@ -31,7 +31,7 @@
 <section id="add-new-agency-section" class="">
     <div class="container">
         <h3 class="text-center">All Clients List</h3>
-        <form action="controller/AddNewClient.php" method="POST">                    
+        <form action="controller/AddNewClient.php" method="GET" enctype="multipart/form-data">                    
             <div class="row">
                 <div class="span_1_of_2">
                     <label for="">Personal Information</label><hr>
@@ -189,25 +189,7 @@
                         <input type="text" name="txtVisaDuration" class="form-control" placeholder="Example: 3 or 6 month" aria-label="Username" aria-describedby="basic-addon5" >
                     </div>
                 </div>
-                <br>
-                <!-- ======================================================attach file section===================================================== -->
-                <label for="">File Attachment Details</label><hr>
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon5">Own Image*</span>
-                    <input type="file" name="my_image" class="form-control"  placeholder="" aria-label="Username" aria-describedby="basic-addon5" >
-                </div>
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon5">Passport First Page Picture</span>
-                    <input type="file" name="txtPassImg" class="form-control"   aria-label="Username" aria-describedby="basic-addon5" >
-                </div>
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon5">NID</span>
-                    <input type="file" name="txtNIDImg" class="form-control"   aria-label="Username" aria-describedby="basic-addon5" >
-                </div>              
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon5">Spouse's NID</span>
-                    <input type="file" name="txtSpouseNIDImg" class="form-control" aria-label="Username" aria-describedby="basic-addon5" >
-                </div>
+                <br>                
             </div>
             <button class="btn btn-info text-light mb-3" role="button" name="btnSubmit">Submite</button>
         </form>
@@ -246,7 +228,7 @@
                                     <td><?php echo $row['pleaseOfBirth'];?></td>
                                     <td><?php echo $row['phone'] ?></td>
                                     <td><?php echo $row['remark'] ?></td>
-                                    <td class="text-center"><a href="editAgency.php?userid=<?php echo $uid; ?>"><button class="btn btn-secondary text-light">Edit</button></a></td>                                    
+                                    <td class="text-center"><a href="editClient.php?userid=<?php echo $uid; ?>"><button class="btn btn-secondary text-light">Edit</button></a></td>                                    
                                 </tr>
                         <?php  $sl++;  }
                         ?>
