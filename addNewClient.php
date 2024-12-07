@@ -14,13 +14,12 @@
 </head>
 <body>
 
-
 <?php 
     include 'controller/dbconfig.php';
     include 'dashboardmenu.php'; 
 ?>
-<section id="top-section"> </section>
 
+<section id="top-section"> </section>
 
 <?php if(isset($_GET['success'])) {?>
 <h2 class="success text-center"><?php echo $_GET['success']; ?></h2> 
@@ -28,9 +27,10 @@
 ?>
 
 
-<section id="add-new-agency-section" class="">
-    <div class="container">
-        <h3 class="text-center">All Clients List</h3>
+
+<section id="add-new-agency-section"  class="collapse text-light">
+    <div class="container box inner-shadow" >
+        <h3 class="text-center mt-4">Add New Clients</h3><div class="spinner-grow text-warning"></div>
         <form action="controller/AddNewClient.php" method="GET" enctype="multipart/form-data">                    
             <div class="row">
                 <div class="span_1_of_2">
@@ -96,13 +96,7 @@
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon5">Remark (Optional)</span>
                         <input type="text" name="txtRemark" class="form-control" placeholder="Remark's" aria-label="Username" aria-describedby="basic-addon5" >
-                    </div> 
-                    <div class="form-check mb-3">
-                        <input class="form-check-input" name="txtcondition" type="checkbox" value="1" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
-                            <p class="lead">I accept all trams and condition and enforceability of terms and conditions is especially crucial for software as a service (SaaS) companies because they routinely collect detailed personal information from users. A terms and conditions agreement must set out the rules and regulations as to how a user can use the application without abusing it.</p>
-                            </label>
-                    </div> 
+                    </div>                     
                 </div>
                 <div class="span_1_of_2">
                     <label for="">Family Info</label><hr>                    
@@ -189,21 +183,39 @@
                         <input type="text" name="txtVisaDuration" class="form-control" placeholder="Example: 3 or 6 month" aria-label="Username" aria-describedby="basic-addon5" >
                     </div>
                 </div>
-                <br>                
+                <br> <br>
+                <div class="form-check mb-3">
+                    <input class="form-check-input" name="txtcondition" type="checkbox" value="1" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        <p class="lead">I accept all trams and condition and enforceability of terms and conditions is especially crucial for software as a service (SaaS) companies because they routinely collect detailed personal information from users. A terms and conditions agreement must set out the rules and regulations as to how a user can use the application without abusing it.</p>
+                        </label>
+                </div>                
             </div>
-            <button class="btn btn-info text-light mb-3" role="button" name="btnSubmit">Submite</button>
+            <button class="btn btn-success text-light mb-3" role="button" name="btnSubmit">Submite</button>
         </form>
-        <a href="dashboard"><button type="submit" class="btn btn-warning">Back</button></a>
     </div>
 </section>
 
 <br><hr><br>
 
-<section id="data-show-section">
+<section id="button-group">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <table class="table table-hover table-bordered">
+                <div class="btn-group item-center">
+                    <button href="#add-new-agency-section" class="btn btn-info text-light" data-bs-toggle="collapse">Add new client</button>
+                    <a href="dashboard"><button type="submit" class="btn btn-warning">Back</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><br>
+
+<section id="data-show-section" class="data-show">
+    <div class="container box inner-shadow">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-hover text-light table-bordered">
                     <thead>
                         <tr>
                             <th scope="col" class="text-center">#</th>
@@ -228,8 +240,8 @@
                                     <td><?php echo $row['pleaseOfBirth'];?></td>
                                     <td><?php echo $row['phone'] ?></td>
                                     <td class="text-center"><?php echo $row['passportNumber'] ?></td>
-                                    <td class="text-center"><a href="editClient.php?userid=<?php echo $uid; ?>"><button class="btn btn-secondary text-light">Edit</button></a></td>                                    
-                                    <td class="text-center"><a href="ViewClient.php?userid=<?php echo $uid; ?>"><button class="btn btn-warning text-dark">View</button></a></td>                                    
+                                    <td class="text-center"><a href="editClient.php?userid=<?php echo $uid; ?>"><button class="btn btn-outline-info btn-sm">Attach</button></a></td>                                    
+                                    <td class="text-center"><a href="ViewClient.php?userid=<?php echo $uid; ?>"><button class="btn btn-outline-warning btn-sm">View</button></a></td>                                    
                                 </tr>
                         <?php  $sl++;  }
                         ?>
@@ -240,6 +252,7 @@
         </div>
     </div>
 </section>
+
 
 
 

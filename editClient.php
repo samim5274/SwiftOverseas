@@ -56,7 +56,7 @@ if(isset($_POST['btnSubmit']))
                     $sqlData = "UPDATE `tb_clientlist` SET `pImg`='$img_new_name',`PassImg`='$img_new_name2',`nidImg`='$img_new_name3',`SnidImg`='$img_new_name4' WHERE id = '$uid'";
                     $sqlResult = mysqli_query($conn, $sqlData);
                     $ex="Photo save successfully!";
-                    header("Location: addNewClient.php?error=$ex");
+                    header("Location: addNewClient.php?success=$ex");
                 }
                 else
                 {
@@ -130,14 +130,15 @@ if(isset($_POST['btnSubmit']))
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon5">NID</span>
-                        <input type="file" required name="my_img3" class="form-control"   aria-label="Username" aria-describedby="basic-addon5" >
+                        <input type="file"  name="my_img3" class="form-control"   aria-label="Username" aria-describedby="basic-addon5" >
                     </div>              
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon5">Spouse's NID</span>
-                        <input type="file" required name="my_img4" class="form-control" aria-label="Username" aria-describedby="basic-addon5" >
+                        <input type="file"  name="my_img4" class="form-control" aria-label="Username" aria-describedby="basic-addon5" >
                     </div>
                     <input type="submit" name="btnSubmit" value="Submit" class="btn btn-info btn-center text-light">
-                </form>
+                </form><br>
+                <a href="addNewClient.php"><button class="btn btn-warning">Back</button></a>
             </div>
         </div>
     </div>

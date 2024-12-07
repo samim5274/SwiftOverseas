@@ -71,7 +71,7 @@ while($row = mysqli_fetch_array($SQLResult))
 
 ?>
 
-<div class="container rounded bg-white mt-5 mb-5">
+<div class="container rounded box inner-shadow mt-5 mb-5">
     <div class="row">
         <div class="col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
@@ -87,14 +87,14 @@ while($row = mysqli_fetch_array($SQLResult))
                 <?php } ?><br>
 
                 <span class="font-weight-bold"><?php echo '+880'.$phone; ?></span>
-                <span class="text-black-50"><?php echo $email; ?></span><br>
-                <span class="text-black-50"></span>
+                <span class="font-weight-bold"><?php echo $email; ?></span><br>
+                <span class="font-weight-bold"></span>
                 <span> <img class="rounded-circle mt-5" width="150px" height="150px" src="img/upload/<?php echo $passImg; ?>" alt="image not found..."> </span>
-                <span class="text-black-50">Passport Image</span>
+                <span class="font-weight-bold">Passport Image</span>
                 <span>  <img class="rounded-circle mt-5" width="150px" height="150px" src="img/upload/<?php echo $nidImg; ?>" alt="image not found..."> </span>
-                <span class="text-black-50">NID</span>
+                <span class="font-weight-bold">NID</span>
                 <span> <img class="rounded-circle mt-5" width="150px" height="150px" src="img/upload/<?php echo $sNidImg; ?>" alt="image not found..."> </span>
-                <span class="text-black-50">Spouse NID</span>
+                <span class="font-weight-bold">Spouse NID</span>
                 
             </div>
         </div>
@@ -130,7 +130,6 @@ while($row = mysqli_fetch_array($SQLResult))
                 <div class="col-md-12"><label class="labels">Please of Birth</label><input type="text" class="form-control" placeholder="education" value="<?php echo $plaseBirth; ?>"></div>
                 <div class="col-md-12"><label class="labels">Destination Country</label><input type="text" class="form-control" placeholder="education" value="<?php echo $destination; ?>"></div>
                 <div class="col-md-12"><label class="labels">Visa Duration</label><input type="text" class="form-control" placeholder="education" value="<?php echo $visaDuration; ?>"></div>
-                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
             </div>
         </div>
         <div class="col-md-4">
