@@ -2,32 +2,87 @@
 
 include 'controller/dbconfig.php';
 
-    if(isset($_POST['btnSubmit']))
-    {
-        
-        $img_name = $_FILES['my_img']['name'];
-        $tem_name = $_FILES['my_img']['tmp_name'];
-        
-        $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
-        $img_ex_lc = strtolower($img_ex);
-        $allow_exs = array("jpg","jped","png","webp");
-        if(in_array($img_ex_lc, $allow_exs))
-        {
-            $img_new_name = uniqid("IMG-",true).'.'.$img_ex_lc;
-            $img_up_path = "img/upload/".$img_new_name;
-            move_uploaded_file($tem_name, $img_up_path);
+if(isset($_GET['userid'])) {
+    $uid = $_GET['userid'];
+}
 
-            // $sqlData = "UPDATE `tb_clientlist` SET `pImg`='$img_new_name' WHERE id = $uid";
-            $sqlResult = mysqli_query($conn, $sqlData);
-            $ex="Photo save successfully!";
-            header("Location: editClient.php?error=$ex");
+if(isset($_POST['btnSubmit']))
+{
+    // own
+    $img_name = $_FILES['my_img']['name'];
+    $tem_name = $_FILES['my_img']['tmp_name'];
+    //passport
+    $img_name2 = $_FILES['my_img2']['name'];
+    $tem_name2 = $_FILES['my_img2']['tmp_name'];
+    //nid
+    $img_name3 = $_FILES['my_img3']['name'];
+    $tem_name3 = $_FILES['my_img3']['tmp_name'];
+    //spouse
+    $img_name4 = $_FILES['my_img4']['name'];
+    $tem_name4 = $_FILES['my_img4']['tmp_name'];
+    
+    $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
+    $img_ex2 = pathinfo($img_name2, PATHINFO_EXTENSION);
+    $img_ex3 = pathinfo($img_name3, PATHINFO_EXTENSION);
+    $img_ex4 = pathinfo($img_name4, PATHINFO_EXTENSION);
+
+    $img_ex_lc = strtolower($img_ex);
+    $img_ex_lc2 = strtolower($img_ex2);
+    $img_ex_lc3 = strtolower($img_ex3);
+    $img_ex_lc4 = strtolower($img_ex4);
+
+    $allow_exs = array("jpg","jped","png","webp");
+    if(in_array($img_ex_lc,$allow_exs))
+    {
+        if(in_array($img_ex_lc2, $allow_exs))
+        {
+            if(in_array($img_ex_lc3, $allow_exs))
+            {
+                if(in_array($img_ex_lc4, $allow_exs))
+                {
+                    $img_new_name = uniqid("IMG-",true).'.'.$img_ex_lc;
+                    $img_new_name2 = uniqid("IMG-",true).'.'.$img_ex_lc2;
+                    $img_new_name3 = uniqid("IMG-",true).'.'.$img_ex_lc3;
+                    $img_new_name4 = uniqid("IMG-",true).'.'.$img_ex_lc4;
+                    $img_up_path = "img/upload/".$img_new_name;
+                    $img_up_path2 = "img/upload/".$img_new_name2;
+                    $img_up_path3 = "img/upload/".$img_new_name3;
+                    $img_up_path4 = "img/upload/".$img_new_name4;
+                    move_uploaded_file($tem_name, $img_up_path);
+                    move_uploaded_file($tem_name2, $img_up_path2);
+                    move_uploaded_file($tem_name3, $img_up_path3);
+                    move_uploaded_file($tem_name4, $img_up_path4);
+            
+                    $sqlData = "UPDATE `tb_clientlist` SET `pImg`='$img_new_name',`PassImg`='$img_new_name2',`nidImg`='$img_new_name3',`SnidImg`='$img_new_name4' WHERE id = '$uid'";
+                    $sqlResult = mysqli_query($conn, $sqlData);
+                    $ex="Photo save successfully!";
+                    header("Location: addNewClient.php?error=$ex");
+                }
+                else
+                {
+                    $ex="Extention not allowed!";
+                    header("Location: addNewClient.php?error=$ex");
+                }
+            }
+            else
+            {
+                $ex="Extention not allowed!";
+                header("Location: addNewClient.php?error=$ex");
+            }
         }
         else
         {
             $ex="Extention not allowed!";
-            header("Location: addPhoto.php?error=$ex");
+            header("Location: addNewClient.php?error=$ex");
         }
     }
+    else
+    {
+        $ex="Extention not allowed!";
+        header("Location: addNewClient.php?error=$ex");
+    }
+    
+}
     
 ?>
 <!DOCTYPE html>
@@ -67,19 +122,19 @@ include 'controller/dbconfig.php';
                     <label for="">File Attachment Details</label><hr>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon5">Own Image*</span>
-                        <input type="file" name="my_img" class="form-control"  placeholder="" aria-label="Username" aria-describedby="basic-addon5" >
+                        <input type="file" name="my_img" class="form-control"  required aria-label="Username" aria-describedby="basic-addon5" >
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon5">Passport First Page Picture</span>
-                        <input type="file" name="txtPassImg" class="form-control"   aria-label="Username" aria-describedby="basic-addon5" >
+                        <input type="file" name="my_img2" class="form-control"   aria-label="Username" required aria-describedby="basic-addon5" >
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon5">NID</span>
-                        <input type="file" name="txtNIDImg" class="form-control"   aria-label="Username" aria-describedby="basic-addon5" >
+                        <input type="file" required name="my_img3" class="form-control"   aria-label="Username" aria-describedby="basic-addon5" >
                     </div>              
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon5">Spouse's NID</span>
-                        <input type="file" name="txtSpouseNIDImg" class="form-control" aria-label="Username" aria-describedby="basic-addon5" >
+                        <input type="file" required name="my_img4" class="form-control" aria-label="Username" aria-describedby="basic-addon5" >
                     </div>
                     <input type="submit" name="btnSubmit" value="Submit" class="btn btn-info btn-center text-light">
                 </form>

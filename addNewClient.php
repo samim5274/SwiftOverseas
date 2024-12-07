@@ -210,8 +210,8 @@
                             <th scope="col">Name</th>
                             <th scope="col">Please Of Birth</th>
                             <th scope="col">Phone</th>
-                            <th scope="col">Remark</th>
-                            <th scope="col" class="text-center">Action</th>
+                            <th scope="col" class="text-center">Passport</th>
+                            <th scope="col" colspan="2" class="text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -227,8 +227,9 @@
                                     <?php $uid = $row['id'] ?>
                                     <td><?php echo $row['pleaseOfBirth'];?></td>
                                     <td><?php echo $row['phone'] ?></td>
-                                    <td><?php echo $row['remark'] ?></td>
+                                    <td class="text-center"><?php echo $row['passportNumber'] ?></td>
                                     <td class="text-center"><a href="editClient.php?userid=<?php echo $uid; ?>"><button class="btn btn-secondary text-light">Edit</button></a></td>                                    
+                                    <td class="text-center"><a href="ViewClient.php?userid=<?php echo $uid; ?>"><button class="btn btn-warning text-dark">View</button></a></td>                                    
                                 </tr>
                         <?php  $sl++;  }
                         ?>
