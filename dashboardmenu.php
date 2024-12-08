@@ -43,8 +43,8 @@
                     Account & Cost
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
-                    <li><a class="dropdown-item  text-dark" href="#">Client Cost</a></li>
-                    <li><a class="dropdown-item  text-dark" href="#">Agent Cost</a></li>
+                    <li><a class="dropdown-item  text-dark" href="countryCost.php">Client Cost</a></li>
+                    <li><a class="dropdown-item  text-dark" href="agentCost.php">Agent Cost</a></li>
                     <li>
                       <hr class="dropdown-divider">
                     </li>

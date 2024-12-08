@@ -1,0 +1,24 @@
+body
+{
+    background: #46627e;
+    color: #ffffff;
+}
+
+#top-section{
+    width: 100%;
+    height: 5rem;
+    background: #46627e;
+}
+
+.btn{
+    width: 100%;
+    font-size: 1.2rem;
+}
+a{
+    text-decoration: none;
+    color: azure;
+}
+#attach-file img{
+    height: 20%;
+    width: 20%;
+}

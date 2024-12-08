@@ -67,6 +67,7 @@ while($row = mysqli_fetch_array($SQLResult))
     $nidImg = $row['nidImg'];
     $sNidImg = $row['SnidImg'];
     $remark = $row['remark'];
+    $emgPhone = $row['emgPhone'];
 }
 
 ?>
@@ -101,7 +102,7 @@ while($row = mysqli_fetch_array($SQLResult))
         <div class="col-md-5 border-right">
             <div class="p-3 py-5">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right">Profile Settings</h4>
+                    <h4 class="text-right">Profile Settings</h4><span class="border px-3 p-1 add-experience"><a href="addNewClient.php" class="btn">Back</a></span>
                 </div>
                 <div class="row mt-2">
                     <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" value="<?php echo $fname; ?>"></div>
@@ -112,8 +113,8 @@ while($row = mysqli_fetch_array($SQLResult))
                     <div class="col-md-12"><label class="labels">Address</label><input type="text" class="form-control" placeholder="enter address line 1" value="<?php echo $address; ?>"></div>
                     <div class="col-md-12"><label class="labels">Phone</label><input type="number" class="form-control" placeholder="enter address line 2" value="<?php echo $phone; ?>"></div>
                     <div class="col-md-12"><label class="labels">Date Of Birth</label><input type="date" class="form-control" placeholder="enter address line 2" value="<?php echo $dob; ?>"></div>
-
-                    <div class="col-md-12"><label class="labels">Gender</label><input type="text" class="form-control" placeholder="enter address line 2" value="<?php echo $gender; ?>"></div>
+                    
+                    <div class="col-md-12"><label class="labels">Gender</label><input type="text" class="form-control" placeholder="enter address line 2" value="<?php if($gender == 1){ echo "Male"; } elseif($gender == 2){ echo "Female"; } else { echo "Other's"; } ?>"></div>
 
                     <div class="col-md-12"><label class="labels">Passport No</label><input type="text" class="form-control" placeholder="enter address line 2" value="<?php echo $passNum; ?>"></div>
                     
@@ -134,25 +135,33 @@ while($row = mysqli_fetch_array($SQLResult))
         </div>
         <div class="col-md-4">
             <div class="p-3 py-5">
-                <div class="d-flex justify-content-between align-items-center experience"><span>Other's Information</span><span class="border px-3 p-1 add-experience"><a href="addNewClient.php" class="btn">Back</a></span></div><br>
+                <div class="d-flex justify-content-between align-items-center experience"><span>Other's Information</span></div><br>
                 <div class="col-md-12"><label class="labels">Father's Name</label><input type="text" class="form-control" placeholder="experience" value="<?php echo $faname; ?>"></div> <br>
                 <div class="col-md-12"><label class="labels">Mother's Name</label><input type="text" class="form-control" placeholder="additional details" value="<?php echo $mName; ?>"></div>
                 <div class="col-md-12"><label class="labels">Spouse Name</label><input type="text" class="form-control" placeholder="additional details" value="<?php echo $sname; ?>"></div>
                 <div class="col-md-12"><label class="labels">Spouse Date of Birth</label><input type="text" class="form-control" placeholder="additional details" value="<?php echo $s_dob; ?>"></div>
                 <div class="col-md-12"><label class="labels">Spouse Address</label><input type="text" class="form-control" placeholder="additional details" value="<?php echo $s_address; ?>"></div>
                 <div class="col-md-12"><label class="labels">Emergency contact name</label><input type="text" class="form-control" placeholder="additional details" value="<?php echo $emgName; ?>"></div>
-                <div class="col-md-12"><label class="labels">Emergency <Address></Address></label><input type="text" class="form-control" placeholder="additional details" value="<?php echo $emgAddress; ?>"></div>
+                <div class="col-md-12"><label class="labels">Emergency Phone</label><input type="text" class="form-control" placeholder="additional details" value="<?php echo $emgPhone; ?>"></div>
+                <div class="col-md-12"><label class="labels">Emergency Address<Address></Address></label><input type="text" class="form-control" placeholder="additional details" value="<?php echo $emgAddress; ?>"></div>                
                 <div class="col-md-12"><label class="labels">Emergency Relation</label><input type="text" class="form-control" placeholder="additional details" value="<?php echo $emgRelation; ?>"></div>
-
-                <div class="col-md-12"><label class="labels">Reference</label><input type="text" class="form-control" placeholder="additional details" value="<?php echo $referid; ?>"></div>
+                <?php 
+                    $referData = "SELECT * FROM tb_agency_info WHERE id = $referid";
+                    $result = mysqli_query($conn,$referData);
+                    while($row = mysqli_fetch_array($result))
+                    {
+                        $refername = $row['fullname'];
+                    }
+                ?>
+                <div class="col-md-12"><label class="labels">Reference</label><input type="text" class="form-control" placeholder="additional details" value="<?php echo $refername; ?>"></div>
 
                 <div class="row mt-3">
                     <div class="col-md-6"><label class="labels">Contact Amount</label><input type="text" class="form-control" placeholder="country" value="<?php echo $contactAccmount; ?>"></div>
                     <div class="col-md-6"><label class="labels">Advance</label><input type="text" class="form-control" value="<?php echo $advance; ?>" placeholder="state"></div>
                 </div>
 
-                <div class="col-md-12"><label class="labels">Paypent Mathod</label><input type="text" class="form-control" placeholder="additional details" value="<?php echo $payMathod; ?>"></div>
-
+                <div class="col-md-12"><label class="labels">Paypent Mathod</label><input type="text" class="form-control" placeholder="additional details" value="<?php if($payMathod == 1){ echo "Cash"; } else { echo "Bank Diposit"; } ?>"></div>
+                
                 <div class="col-md-12"><label class="labels">Bank Name</label><input type="text" class="form-control" placeholder="additional details" value="<?php echo $pmbName; ?>"></div>
                 <div class="col-md-12"><label class="labels">Account Number</label><input type="text" class="form-control" placeholder="additional details" value="<?php echo $pmgAccountNum; ?>"></div>
             </div>

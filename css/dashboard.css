@@ -3,9 +3,13 @@
     padding: 0;
 }
 
+body{
+    background: #03506e;
+}
+
 #top-section{
     width: 100%;
-    height: 5rem;
+    height: 4rem;
     background: #ffffff;
 }
 

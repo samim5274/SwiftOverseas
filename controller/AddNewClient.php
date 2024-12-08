@@ -25,6 +25,7 @@ if(isset($_GET['btnSubmit']))
     $sAddress = $_GET['txtSAddress'];
     $Ename = $_GET['txtEName'];
     $Erelation = $_GET['txtERelation'];
+    $EPhone = $_GET['txtEPhone'];
     $EAddress = $_GET['txtEAddress'];
     $refer = $_GET['cbxRefer'];
     $CAmount = $_GET['txtCAmount'];
@@ -42,7 +43,7 @@ if(isset($_GET['btnSubmit']))
     $nidImg = "NULL";
     $sNidImg = "NULL";
     
-    $sqlData = "INSERT INTO `tb_clientlist`(`fastname`, `lastname`, `phone`, `dob`, `genderid`, `address`, `email`, `passportNumber`, `countryCode`, `PassportAuthority`, `nid`, `pleaseOfBirth`, `passIssueDateStart`, `passIssueDateEnd`, `fatherName`, `motherName`, `spouseName`, `s_dob`, `s_address`, `emgName`, `emgRelation`, `emdAddress`, `referid`, `ContAmount`, `advance`, `payMathod`, `pmbName`, `pmbAccountNum`, `destination`, `visaDurationTime`, `pImg`, `PassImg`, `nidImg`, `SnidImg`, `condi`, `remark`) VALUES ('$fname','$lname','$phone','$dob','$genderid','$address','$email','$pssNum','$countryCode','$passAuth','$personalNid','$pleaseBirth','$passIDS','$passIDE','$fathername','$mothername','$spousename','$s_dob','$sAddress','$Ename','$Erelation','$EAddress','$refer','$CAmount','$advance','$method','$PMBname','$PMBaccount',' $destination','$visaDuration','$pImg','$passImg','$nidImg','$sNidImg','$condition','$remark')";
+    $sqlData = "INSERT INTO `tb_clientlist`(`fastname`, `lastname`, `phone`, `dob`, `genderid`, `address`, `email`, `passportNumber`, `countryCode`, `PassportAuthority`, `nid`, `pleaseOfBirth`, `passIssueDateStart`, `passIssueDateEnd`, `fatherName`, `motherName`, `spouseName`, `s_dob`, `s_address`, `emgName`, `emgRelation`, `emdAddress`, `referid`, `ContAmount`, `advance`, `payMathod`, `pmbName`, `pmbAccountNum`, `destination`, `visaDurationTime`, `pImg`, `PassImg`, `nidImg`, `SnidImg`, `condi`, `remark`, `emgPhone`) VALUES ('$fname','$lname','$phone','$dob','$genderid','$address','$email','$pssNum','$countryCode','$passAuth','$personalNid','$pleaseBirth','$passIDS','$passIDE','$fathername','$mothername','$spousename','$s_dob','$sAddress','$Ename','$Erelation','$EAddress','$refer','$CAmount','$advance','$method','$PMBname','$PMBaccount',' $destination','$visaDuration','$pImg','$passImg','$nidImg','$sNidImg','$condition','$remark','$EPhone')";
 
     $sqlResult = mysqli_query($conn, $sqlData);
 

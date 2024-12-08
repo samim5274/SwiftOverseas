@@ -131,6 +131,10 @@
                         <input type="text" name="txtERelation" class="form-control" placeholder="Emergency Relation" aria-label="Username" aria-describedby="basic-addon8">
                     </div>
                     <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon8">Emergency Phone</span>
+                        <input type="number" name="txtEPhone" class="form-control" placeholder="Emergency Phone" aria-label="Username" aria-describedby="basic-addon8">
+                    </div>
+                    <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon5">Emergency Address</span>
                         <input type="text" name="txtEAddress" class="form-control"  placeholder="Emergency Address" aria-label="Username" aria-describedby="basic-addon5" >
                     </div><br>
@@ -240,7 +244,7 @@
                                     <td><?php echo $row['pleaseOfBirth'];?></td>
                                     <td><?php echo $row['phone'] ?></td>
                                     <td class="text-center"><?php echo $row['passportNumber'] ?></td>
-                                    <td class="text-center"><a href="editClient.php?userid=<?php echo $uid; ?>"><button class="btn btn-outline-info btn-sm">Attach</button></a></td>                                    
+                                    <td class="text-center"><a href="attachPicture.php?userid=<?php echo $uid; ?>"><button class="btn btn-outline-info btn-sm">Attach</button></a></td>                                    
                                     <td class="text-center"><a href="ViewClient.php?userid=<?php echo $uid; ?>"><button class="btn btn-outline-warning btn-sm">View</button></a></td>                                    
                                 </tr>
                         <?php  $sl++;  }

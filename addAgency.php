@@ -23,6 +23,7 @@
 <h2 class="success text-center"><?php echo $_GET['success']; ?></h2> 
 <?php } ?>
 
+
 <section id="add-new-agency-section">
     <div class="container">
         <div class="row">
