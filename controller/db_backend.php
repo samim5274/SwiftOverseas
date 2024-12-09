@@ -45,4 +45,18 @@
       header("Location: ../addAgency.php?success=$message");
    }
 
+   if(isset($_GET['btnAddCountryCost']))
+   {
+      $countryName = $_GET['txtCountryName'];
+      $clientCost = $_GET['txtClientCost'];
+      $AgentCost = $_GET['txtB2BAgenctCost'];
+      $clientAdvance = $_GET['txtClientAdvance'];
+      $agentAdvacne = $_GET['txtB2BAgentAdvance'];
+
+      $sqlCountry = "INSERT INTO `tb_countrydetails`(`countryName`, `clientCost`, `clientAdvance`, `agentCost`, `agentAdvance`) VALUES ('$countryName','$clientCost','$clientAdvance','$AgentCost','$agentAdvacne')";
+      $sqlCountryResult = mysqli_query($conn, $sqlCountry);
+      $message="Country added successfully.";
+      header("Location: ../countryCost.php?success=$message");
+   }
+
 ?>

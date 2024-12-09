@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2024 at 12:19 PM
+-- Generation Time: Dec 09, 2024 at 10:53 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -113,6 +113,32 @@ INSERT INTO `tb_clientlist` (`id`, `fastname`, `lastname`, `phone`, `dob`, `gend
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tb_countrydetails`
+--
+
+CREATE TABLE `tb_countrydetails` (
+  `id` int(11) NOT NULL,
+  `countryName` varchar(255) DEFAULT NULL,
+  `clientCost` int(11) DEFAULT NULL,
+  `clientAdvance` int(11) DEFAULT NULL,
+  `agentCost` int(11) DEFAULT NULL,
+  `agentAdvance` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tb_countrydetails`
+--
+
+INSERT INTO `tb_countrydetails` (`id`, `countryName`, `clientCost`, `clientAdvance`, `agentCost`, `agentAdvance`) VALUES
+(1, 'Albania', 1100000, 50000, 1000000, 50000),
+(2, 'Serbia', 850000, 50000, 800000, 50000),
+(3, 'Crotia', 1400000, 100000, 1100000, 10000),
+(4, 'North Mesodonia', 1400000, 100000, 1100000, 10000),
+(5, 'Georgia', 1200000, 50000, 1000000, 50000);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tb_img`
 --
 
@@ -175,6 +201,12 @@ ALTER TABLE `tb_clientlist`
   ADD KEY `referid` (`referid`);
 
 --
+-- Indexes for table `tb_countrydetails`
+--
+ALTER TABLE `tb_countrydetails`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tb_img`
 --
 ALTER TABLE `tb_img`
@@ -201,6 +233,12 @@ ALTER TABLE `tb_agency_info`
 --
 ALTER TABLE `tb_clientlist`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `tb_countrydetails`
+--
+ALTER TABLE `tb_countrydetails`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tb_img`
