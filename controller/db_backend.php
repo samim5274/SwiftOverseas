@@ -59,4 +59,19 @@
       header("Location: ../countryCost.php?success=$message");
    }
 
+   if(isset($_GET['btnCountryCostEdit']))
+   {
+      $id = $_GET['txtId'];
+      $countryName = $_GET['txtCountryName'];
+      $clientCost = $_GET['txtClientCost'];
+      $AgentCost = $_GET['txtAgentCost'];
+      $clientAdvance = $_GET['txtClientAdvance'];
+      $agentAdvacne = $_GET['txtAgentAdvance'];
+
+      $sqlUpdateData = "UPDATE `tb_countrydetails` SET `countryName`='$countryName',`clientCost`='$clientCost',`clientAdvance`='$clientAdvance',`agentCost`='$AgentCost',`agentAdvance`='$agentAdvacne' WHERE id = $id";
+      $sqlUpdateResult = mysqli_query($conn, $sqlUpdateData);
+      $message="Country data updated successfully.";
+      header("Location: ../countryCost.php?success=$message");
+   }
+
 ?>

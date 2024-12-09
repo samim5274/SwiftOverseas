@@ -25,6 +25,7 @@
             <div class="col-md-12">
                 <div class="btn-group item-center">
                     <a href="addNewClient.php"><button class="btn btn-info text-light">Add new client</button></a>
+                    <a href="countryCost.php"><button class="btn btn-success text-light">Country Details</button></a>
                     <a href="dashboard"><button type="submit" class="btn btn-warning">Back</button></a>
                 </div>
             </div>

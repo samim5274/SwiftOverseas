@@ -43,8 +43,7 @@
                     Account & Cost
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
-                    <li><a class="dropdown-item  text-dark" href="countryCost.php">Client Cost</a></li>
-                    <li><a class="dropdown-item  text-dark" href="agentCost.php">Agent Cost</a></li>
+                  <li><a class="dropdown-item  text-dark" href="#">Daily Office Expenses</a></li>
                     <li>
                       <hr class="dropdown-divider">
                     </li>
@@ -60,6 +59,7 @@
                     <li><a class="dropdown-item  text-dark" href="#">Client Edit</a></li>
                     <li><a class="dropdown-item  text-dark" href="addAgency">Add New Agency</a></li>
                     <li><a class="dropdown-item  text-dark" href="AgencyActivation">Agency Activation</a></li>
+                    <li><a class="dropdown-item  text-dark" href="countryCost.php">Country Cost Details</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item  text-dark" href="#">Reports</a></li>
                   </ul>

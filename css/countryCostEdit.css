@@ -1,0 +1,34 @@
+
+body{
+    background: #03506e;
+}
+
+#top-section{
+    width: 100%;
+    height: 4rem;
+    background: #03506e;
+}
+
+.success{
+    background: rgb(84, 255, 62);
+    color: #ffffff;
+    padding: 1rem;
+}
+
+.error{
+    background: rgb(255, 62, 62);
+    color: #ffffff;
+    padding: 1rem;
+}
+
+#button-section button
+{
+    width: 100%;
+}
+
+
+#myModal button{
+    width: 100%;
+    color: white;
+}
+

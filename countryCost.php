@@ -80,7 +80,7 @@
 <section id="button-section">
     <div class="container">
         <div class="row">
-            <div class="span_1_of_2"><button href="#add-cost-section" class="btn btn-info text-light" data-bs-toggle="collapse">Add new client</button></div>
+            <div class="span_1_of_2"><button href="#add-cost-section" class="btn btn-info text-light" data-bs-toggle="collapse">Add+</button></div>
             <div class="span_1_of_2"><a href="dashboard"><button type="submit" class="btn btn-warning">Back</button></a></div>
         </div>
     </div>
@@ -117,7 +117,7 @@
                             <td class="text-center"><?php echo $row['clientAdvance'] ?>/-</td>
                             <td class="text-center"><?php echo $row['agentCost'] ?>/-</td>
                             <td class="text-center"><?php echo $row['agentAdvance'] ?>/-</td>
-                            <td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#myModal">Edit</a></td>
+                            <td class="text-center"><a href="countryCostEdit.php?userid=<?php echo $cid; ?>" >Edit</a></td>
                             <td class="text-center"><a href="#">Delete</a></td>
                         </tr>
                         <?php $sl++; } ?>
