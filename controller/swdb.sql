@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2024 at 10:53 AM
+-- Generation Time: Dec 10, 2024 at 12:18 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -131,10 +131,48 @@ CREATE TABLE `tb_countrydetails` (
 
 INSERT INTO `tb_countrydetails` (`id`, `countryName`, `clientCost`, `clientAdvance`, `agentCost`, `agentAdvance`) VALUES
 (1, 'Albania', 1100000, 50000, 1000000, 50000),
-(2, 'Serbia', 850000, 50000, 800000, 50000),
-(3, 'Crotia', 1400000, 100000, 1100000, 10000),
-(4, 'North Mesodonia', 1400000, 100000, 1100000, 10000),
-(5, 'Georgia', 1200000, 50000, 1000000, 50000);
+(2, 'Serbia', 900000, 50000, 800000, 50000),
+(3, 'Crotia', 1500000, 100000, 1100000, 10000),
+(4, 'North Mesodonia', 1500000, 100000, 1100000, 10000),
+(5, 'Georgia', 12000000, 60000, 1000000, 60000),
+(6, 'Austria', 1200000, 100000, 1000000, 100000);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_employee_details`
+--
+
+CREATE TABLE `tb_employee_details` (
+  `id` int(11) NOT NULL,
+  `firstName` varchar(255) DEFAULT NULL,
+  `lastName` varchar(255) DEFAULT NULL,
+  `dob` date DEFAULT NULL,
+  `genderid` int(11) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `phone` int(11) DEFAULT NULL,
+  `fatherName` varchar(255) DEFAULT NULL,
+  `motherName` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `nit` int(11) DEFAULT NULL,
+  `emgName` varchar(255) DEFAULT NULL,
+  `emgPhone` int(11) DEFAULT NULL,
+  `emgRelation` varchar(255) DEFAULT NULL,
+  `emgAddress` varchar(255) DEFAULT NULL,
+  `joinDate` date DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `account` int(11) DEFAULT NULL,
+  `remark` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tb_employee_details`
+--
+
+INSERT INTO `tb_employee_details` (`id`, `firstName`, `lastName`, `dob`, `genderid`, `address`, `phone`, `fatherName`, `motherName`, `email`, `nit`, `emgName`, `emgPhone`, `emgRelation`, `emgAddress`, `joinDate`, `username`, `password`, `status`, `account`, `remark`) VALUES
+(8, 'Shamim', 'Hossain', '2001-12-31', 1, 'Kaliakair, Gazipur, Dhaka, Banglades', 1762164746, 'Jamsher Ali', 'Sofiya Begum', 'samim@gmail.com', 321654987, 'Jamsher Ali', 321654987, 'Father', 'Kaliakair, Gazipur, Dhaka, Banglades', '2024-09-01', 'samim', 's', 0, 0, '');
 
 -- --------------------------------------------------------
 
@@ -207,6 +245,12 @@ ALTER TABLE `tb_countrydetails`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tb_employee_details`
+--
+ALTER TABLE `tb_employee_details`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tb_img`
 --
 ALTER TABLE `tb_img`
@@ -238,7 +282,13 @@ ALTER TABLE `tb_clientlist`
 -- AUTO_INCREMENT for table `tb_countrydetails`
 --
 ALTER TABLE `tb_countrydetails`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `tb_employee_details`
+--
+ALTER TABLE `tb_employee_details`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tb_img`

@@ -43,10 +43,8 @@
                     Account & Cost
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
-                  <li><a class="dropdown-item  text-dark" href="#">Daily Office Expenses</a></li>
-                    <li>
-                      <hr class="dropdown-divider">
-                    </li>
+                    <li><a class="dropdown-item  text-dark" href="account.php">Daily Office Expenses</a></li>
+                    <li><hr class="dropdown-divider"> </li>
                     <li><a class="dropdown-item  text-dark" href="#">Fly this month</a></li>
                   </ul>
                 </li>
@@ -61,6 +59,7 @@
                     <li><a class="dropdown-item  text-dark" href="AgencyActivation">Agency Activation</a></li>
                     <li><a class="dropdown-item  text-dark" href="countryCost.php">Country Cost Details</a></li>
                     <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item  text-dark" href="createAccount.php">Create account</a></li>
                     <li><a class="dropdown-item  text-dark" href="#">Reports</a></li>
                   </ul>
                 </li>

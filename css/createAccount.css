@@ -1,0 +1,66 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body
+{
+    background: #46627e;
+}
+#top-section{
+    width: 100%;
+    height: 4rem;
+    background: #ffffff;
+}
+.success{
+    background: #07fd30;
+    color: #ffffff;
+    padding: 1rem;
+    opacity: 80%;
+    font-size: 1.2rem;
+    width: 100%;
+}
+.error{
+    background: #fd2407;
+    color: #ffffff;
+    padding: 1rem;
+    opacity: 80%;
+    font-size: 1.2rem;
+    width: 100%;
+}
+#add-new-agency-section p
+{
+    text-align: justify;
+}
+.hide 
+{
+    display: none;
+  }
+.btn
+{
+    width: 100%;
+}
+.box {
+    margin: 4rem auto;
+    width: 100%;
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: 1rem;
+}
+
+.inner-shadow {
+width: 100%;
+height: 100%;
+box-shadow: inset rgba(186, 214, 255, 0.5) 0px 0px 40px 0px, rgba(255, 255, 255, 0.3) 0px 30px 100px -24px;
+}
+
+table tbody tr td a
+{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+table tbody tr td a:hover
+{
+    color: #58caff;
+    font-size: 0.9rem;
+}
