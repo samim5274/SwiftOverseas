@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2024 at 12:18 PM
+-- Generation Time: Dec 11, 2024 at 12:15 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -164,15 +164,20 @@ CREATE TABLE `tb_employee_details` (
   `password` varchar(255) DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
   `account` int(11) DEFAULT NULL,
-  `remark` varchar(255) DEFAULT NULL
+  `remark` varchar(255) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tb_employee_details`
 --
 
-INSERT INTO `tb_employee_details` (`id`, `firstName`, `lastName`, `dob`, `genderid`, `address`, `phone`, `fatherName`, `motherName`, `email`, `nit`, `emgName`, `emgPhone`, `emgRelation`, `emgAddress`, `joinDate`, `username`, `password`, `status`, `account`, `remark`) VALUES
-(8, 'Shamim', 'Hossain', '2001-12-31', 1, 'Kaliakair, Gazipur, Dhaka, Banglades', 1762164746, 'Jamsher Ali', 'Sofiya Begum', 'samim@gmail.com', 321654987, 'Jamsher Ali', 321654987, 'Father', 'Kaliakair, Gazipur, Dhaka, Banglades', '2024-09-01', 'samim', 's', 0, 0, '');
+INSERT INTO `tb_employee_details` (`id`, `firstName`, `lastName`, `dob`, `genderid`, `address`, `phone`, `fatherName`, `motherName`, `email`, `nit`, `emgName`, `emgPhone`, `emgRelation`, `emgAddress`, `joinDate`, `username`, `password`, `status`, `account`, `remark`, `image`) VALUES
+(8, 'Shamim', 'Hossain', '2001-12-31', 1, 'Kaliakair, Gazipur, Dhaka, Banglades', 1762164746, 'Jamsher Ali', 'Sofiya Begum', 'samim@gmail.com', 321654987, 'Jamsher Ali', 321654987, 'Father', 'Kaliakair, Gazipur, Dhaka, Banglades', '2024-09-01', 'samim', 's', 0, 0, '', 'NULL'),
+(9, 'Chadni', 'Akter', '2001-01-01', 2, 'Dewgaon, Plhubaria, Debgram-2216, Mymensingh', 321654987, 'Amzad Ali', 'Monira Begum', 'chadni@gmail.com', 321654987, 'Swift Overseas', 1300360856, 'Father', 'H.M. Plaza, Plot# 34, (12th floor), Room No# 07, Road# 02, Sector# 03, Uttara C/A, Dhaka-1230, Bangladesh.', '2001-01-01', 'chadni', 'c', 0, 0, '', 'NULL'),
+(10, 'Sabbir', 'Hossain', '2001-01-01', 1, 'Dewgaon, Plhubaria, Debgram-2216, Mymensingh', 321654987, 'Amzad Ali', 'Monira Begum', 'swiftoverseastravels@gmail.com', 321654987, 'Amzad Ali', 1300360856, 'Father', 'H.M. Plaza, Plot# 34, (12th floor), Room No# 07, Road# 02, Sector# 03, Uttara C/A, Dhaka-1230, Bangladesh.', '2024-01-01', 'sabbir', 's', 0, 0, 'Sabbir NID.pdf', ''),
+(11, 'Sabbir', 'Hossain', '2024-12-02', 1, 'H.M. Plaza, Plot# 34, (12th floor), Room No# 07, Road# 02, Sector# 03, Uttara C/A, Dhaka-1230, Bangladesh.', 1300360856, 'Amzad Ali', 'Monira Begum', 'swiftoverseadstravels@gmail.com', 321654987, 'Amzad Ali', 1300360856, 'Father', 'H.M. Plaza, Plot# 34, (12th floor), Room No# 07, Road# 02, Sector# 03, Uttara C/A, Dhaka-1230, Bangladesh.', '2024-12-10', 'sabbir2', 's', 0, 0, 'N/A', 'SSC Marksheet.pdf'),
+(12, 'Mimi ', 'Akter', '2000-01-01', 2, 'H.M. Plaza, Plot# 34, (12th floor), Room No# 07, Road# 02, Sector# 03, Uttara C/A, Dhaka-1230, Bangladesh.', 321654987, 'Amzad Ali', 'Monira Begum', 'swiftovesdfsrseastravels@gmail.com', 321654987, 'Amzad Ali', 1300360856, 'Father', 'H.M. Plaza, Plot# 34, (12th floor), Room No# 07, Road# 02, Sector# 03, Uttara C/A, Dhaka-1230, Bangladesh.', '2000-01-01', 'mimi', 'm', 0, 0, 'N/A', '7eccca6c6979109983229c8c118b5263.jpg');
 
 -- --------------------------------------------------------
 
@@ -197,6 +202,22 @@ INSERT INTO `tb_img` (`id`, `img`) VALUES
 (19, 'IMG-67517ba5c9cff4.08145576.jpg'),
 (20, 'IMG-6753dcb8b836c6.14554802.png'),
 (21, 'IMG-6753dd5a78d3f3.54298405.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_moneysentandreceived`
+--
+
+CREATE TABLE `tb_moneysentandreceived` (
+  `id` int(11) NOT NULL,
+  `date` date DEFAULT NULL,
+  `amount` varchar(255) DEFAULT NULL,
+  `senderId` int(11) DEFAULT NULL,
+  `receiverId` int(11) DEFAULT NULL,
+  `purpose` varchar(255) DEFAULT NULL,
+  `TransectionType` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -257,6 +278,13 @@ ALTER TABLE `tb_img`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tb_moneysentandreceived`
+--
+ALTER TABLE `tb_moneysentandreceived`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `senderId` (`senderId`);
+
+--
 -- Indexes for table `user_info`
 --
 ALTER TABLE `user_info`
@@ -288,13 +316,19 @@ ALTER TABLE `tb_countrydetails`
 -- AUTO_INCREMENT for table `tb_employee_details`
 --
 ALTER TABLE `tb_employee_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `tb_img`
 --
 ALTER TABLE `tb_img`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT for table `tb_moneysentandreceived`
+--
+ALTER TABLE `tb_moneysentandreceived`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user_info`
@@ -311,6 +345,12 @@ ALTER TABLE `user_info`
 --
 ALTER TABLE `tb_clientlist`
   ADD CONSTRAINT `tb_clientlist_ibfk_1` FOREIGN KEY (`referid`) REFERENCES `tb_agency_info` (`id`);
+
+--
+-- Constraints for table `tb_moneysentandreceived`
+--
+ALTER TABLE `tb_moneysentandreceived`
+  ADD CONSTRAINT `tb_moneysentandreceived_ibfk_1` FOREIGN KEY (`senderId`) REFERENCES `tb_employee_details` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

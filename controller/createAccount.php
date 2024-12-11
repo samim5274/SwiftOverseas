@@ -22,6 +22,7 @@ if(isset($_GET['btnSubmit']))
     $remark = $_GET['txtRemark'];
     $userName = $_GET['username'];
     $userPass = $_GET['password'];
+    $image = $_GET['txtImage'];
 
     $sqlFindUserName = "SELECT * FROM tb_employee_details WHERE `username` = '$userName'";
     $sqlFindResult = mysqli_query($conn, $sqlFindUserName);
@@ -38,7 +39,7 @@ if(isset($_GET['btnSubmit']))
         }
         else
         {
-            $sqlInsertData = "INSERT INTO `tb_employee_details`( `firstName`, `lastName`, `dob`, `genderid`, `address`, `phone`, `fatherName`, `motherName`, `email`, `nit`, `emgName`, `emgPhone`, `emgRelation`, `emgAddress`, `joinDate`, `username`, `password`, `status`, `account`, `remark`) VALUES ('$fname','$lname','$dob','$genderid','$address','$phone','$fathername','$mothername','$email','$Nid','$Ename','$EPhone','$Erelation','$EAddress','$joinDate','$userName','$userPass',0,0,'$remark')";
+            $sqlInsertData = "INSERT INTO `tb_employee_details`( `firstName`, `lastName`, `dob`, `genderid`, `address`, `phone`, `fatherName`, `motherName`, `email`, `nit`, `emgName`, `emgPhone`, `emgRelation`, `emgAddress`, `joinDate`, `username`, `password`, `status`, `account`, `remark` , `image`) VALUES ('$fname','$lname','$dob','$genderid','$address','$phone','$fathername','$mothername','$email','$Nid','$Ename','$EPhone','$Erelation','$EAddress','$joinDate','$userName','$userPass',0,0,'$remark','$image')";
             $sqlResult = mysqli_query($conn, $sqlInsertData);
             $mess  = "An employee account created successfully. Thank you!!";
             header("Location: ../createAccount.php?success=$mess");

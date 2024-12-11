@@ -27,7 +27,7 @@
                     <a href="addNewClient.php"><button class="btn btn-info text-light">Add new client</button></a>
                     <a href="countryCost.php"><button class="btn btn-success text-light">Country Details</button></a>
                     <a href="account.php"><button class="btn btn-primary text-light">Account</button></a>
-                    <a href="createAccount.php"><button class="btn btn-danger text-light">Create Account</button></a>
+                    <a href="createAccount.php"><button class="btn btn-danger text-light">Staff</button></a>
                     <a href="dashboard"><button type="submit" class="btn btn-warning">Back</button></a>
                 </div>
             </div>

@@ -1,3 +1,14 @@
+<?php
+
+include 'controller/dbconfig.php';
+
+session_start();
+
+if(isset($_SESSION['id']) && isset($_SESSION['status']))
+{
+    $status = "".$_SESSION['status'];
+    $userId = "".$_SESSION['id'];    
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,8 +26,9 @@
 <body>
 
 <?php 
-    include 'controller/dbconfig.php';
+    
     include 'dashboardmenu.php'; 
+    $toDate = date("Y/m/d");
 ?>
 <section id="top-section"> </section>
 
@@ -32,21 +44,24 @@
         <div class="row">
             <h3 class="text-center display-4 mb-4">Daily Expenses</h3>            
             <div class="span_1_of_2">
-                <form action="account.php" method="GET" enctype="multipart/form-data">
+                <form action="controller/account.php?userid=<?php echo $userId; ?>" method="GET" enctype="multipart/form-data">
                     <select name="cbxEmployee" class="form-control" id="designation">                        
-                        <option selected disabled>Select Receiver Name</option>                        
-                        <option value="">Samim Hossain</option>                        
-                        <option value="">Samim Hossain</option>                        
-                        <option value="">Samim Hossain</option>                        
-                        <option value="">Samim Hossain</option>                        
+                        <option selected disabled>Select Receiver Name</option>  
+                        <?php 
+                            $sqlData = "SELECT * FROM `tb_employee_details`";
+                            $sqlResult = mysqli_query($conn, $sqlData);
+                            while($row = mysqli_fetch_array($sqlResult)){
+                        ?>                      
+                        <option value="<?php echo $row['id'];?>"><?php echo $row['firstName'].' '.$row['lastName']; ?></option>
+                        <?php } ?>                        
                     </select>
                     <div class="form-group">
                         <label for="ammount">Enter Total Amount *</label>
                         <input type="number" name="txtAmount" class="form-control" id="ammount" placeholder="Enter your amount">
                     </div>
                     <div class="form-group">
-                        <label for="Remark">Remark (Optional)</label>
-                        <textarea class="form-control" name="txtRemark" id="Remark" rows="3" placeholder="Enter your Remark"></textarea>
+                        <label for="Remark">Purpose</label>
+                        <textarea class="form-control" name="txtPurpose" id="Remark" rows="3" placeholder="Enter your Remark"></textarea>
                     </div>
                     <div class="text-center">
                     <button name="btnSend" type="submit" class="button-30 mt-3 btnSubmit">Send</button>                    
@@ -57,10 +72,37 @@
                     <a href="dashboard.php"><button name="btnOther" type="submit" class="button-30 mt-3">Back</button></a>
                 </div>
             </div>
-            <div class="span_1_of_2"></div>
+            <div class="span_1_of_2 overflow-auto">
+                <table class="table table-bordered table-dark text-center">
+                    <thead>
+                        <tr>
+                        <th scope="col">SL</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Reciver</th>
+                        <th scope="col">Ammount</th>
+                        </tr>
+                    </thead>
+                    <tbody><?php
+                                $i=1;
+                                $sqlDatam = "SELECT * FROM `tb_moneysentandreceived` WHERE `TransectionType` = 1 AND date = '$toDate'";
+                                $sqlMResult = mysqli_query($conn, $sqlDatam);
+                                while($row = mysqli_fetch_array($sqlMResult)){
+                            ?>
+                        <tr>
+                            <th scope="row"><?php echo $i; ?></th>
+                            <td><?php echo $row['date']; ?></td>
+                            <td><?php echo $row['REId']; ?></td>
+                            <td><?php echo $row['Amount']; ?></td>                            
+                        </tr>
+                        <?php $i++; } ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </section>
+
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
@@ -68,3 +110,12 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </body>
 </html>
+
+<?php 
+}
+else
+{
+    echo "You are not login";
+    header("Location: log.php");
+}
+?>

@@ -40,8 +40,8 @@ else
         {
             if($row['status'] == $status)
             {
-                $_SESSION['status'] == $row['username'];
-                $_SESSION['id'] == $row['id'];
+                $_SESSION['status'] = $row['username'];
+                $_SESSION['id'] = $row['id'];
                 header("Location: ../dashboard.php?success=".$mess4);
                 exit();
             }

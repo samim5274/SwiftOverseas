@@ -19,13 +19,25 @@
     include 'dashboardmenu.php'; 
 ?>
 
-<section id="top-section"> </section>
+<section id="top-section"> </section><br>
 
 <?php if(isset($_GET['success'])) {?>
 <h2 class="success text-center"><?php echo $_GET['success']; ?></h2> 
 <?php } if(isset($_GET['error'])) {?> <h2 class="error text-center"><?php echo $_GET['error']; ?></h2> <?php }
 ?>
-
+<br>
+<section id="button-group">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="btn-group item-center">
+                    <button href="#add-new-agency-section" class="btn btn-info text-light" data-bs-toggle="collapse">Add +</button>
+                    <a href="dashboard"><button type="submit" class="btn btn-warning">Back</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
 <section id="add-new-agency-section"  class="collapse text-light">
@@ -105,7 +117,7 @@
                     </div><hr>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon5">Image</span>
-                        <input type="file" name="txtRemark" class="form-control" aria-label="Username" aria-describedby="basic-addon5" >
+                        <input type="file" name="txtImage" class="form-control" aria-label="Username" aria-describedby="basic-addon5" >
                     </div>
                     <br>                   
                 </div>
@@ -120,21 +132,6 @@
         </form>
     </div>
 </section>
-
-<br><hr><br>
-
-<section id="button-group">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="btn-group item-center">
-                    <button href="#add-new-agency-section" class="btn btn-info text-light" data-bs-toggle="collapse">Add +</button>
-                    <a href="dashboard"><button type="submit" class="btn btn-warning">Back</button></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section><br>
 
 <section id="data-show-section" class="data-show">
     <div class="container box inner-shadow">
@@ -163,8 +160,7 @@
                                     <?php $uid = $row['id'] ?>
                                     <td><?php echo $row['dob'];?></td>
                                     <td><?php echo '+880 '.$row['phone'] ?></td>
-                                    <td class="text-center"><a href="#">Edit</a></td>                                    
-                                    <td class="text-center"><a href="#">View</a></td>                                    
+                                    <td class="text-center"><a href="createUserEdit.php?userid=<?php echo $uid; ?>">Edit</a></td>                                    
                                 </tr>
                         <?php  $sl++;  }
                         ?>
