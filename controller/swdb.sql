@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 11, 2024 at 12:15 PM
+-- Generation Time: Dec 12, 2024 at 12:41 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -154,7 +154,7 @@ CREATE TABLE `tb_employee_details` (
   `fatherName` varchar(255) DEFAULT NULL,
   `motherName` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
-  `nit` int(11) DEFAULT NULL,
+  `nid` int(11) DEFAULT NULL,
   `emgName` varchar(255) DEFAULT NULL,
   `emgPhone` int(11) DEFAULT NULL,
   `emgRelation` varchar(255) DEFAULT NULL,
@@ -165,19 +165,20 @@ CREATE TABLE `tb_employee_details` (
   `status` int(11) DEFAULT NULL,
   `account` int(11) DEFAULT NULL,
   `remark` varchar(255) DEFAULT NULL,
-  `image` varchar(255) DEFAULT NULL
+  `image` varchar(255) DEFAULT NULL,
+  `designation` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tb_employee_details`
 --
 
-INSERT INTO `tb_employee_details` (`id`, `firstName`, `lastName`, `dob`, `genderid`, `address`, `phone`, `fatherName`, `motherName`, `email`, `nit`, `emgName`, `emgPhone`, `emgRelation`, `emgAddress`, `joinDate`, `username`, `password`, `status`, `account`, `remark`, `image`) VALUES
-(8, 'Shamim', 'Hossain', '2001-12-31', 1, 'Kaliakair, Gazipur, Dhaka, Banglades', 1762164746, 'Jamsher Ali', 'Sofiya Begum', 'samim@gmail.com', 321654987, 'Jamsher Ali', 321654987, 'Father', 'Kaliakair, Gazipur, Dhaka, Banglades', '2024-09-01', 'samim', 's', 0, 0, '', 'NULL'),
-(9, 'Chadni', 'Akter', '2001-01-01', 2, 'Dewgaon, Plhubaria, Debgram-2216, Mymensingh', 321654987, 'Amzad Ali', 'Monira Begum', 'chadni@gmail.com', 321654987, 'Swift Overseas', 1300360856, 'Father', 'H.M. Plaza, Plot# 34, (12th floor), Room No# 07, Road# 02, Sector# 03, Uttara C/A, Dhaka-1230, Bangladesh.', '2001-01-01', 'chadni', 'c', 0, 0, '', 'NULL'),
-(10, 'Sabbir', 'Hossain', '2001-01-01', 1, 'Dewgaon, Plhubaria, Debgram-2216, Mymensingh', 321654987, 'Amzad Ali', 'Monira Begum', 'swiftoverseastravels@gmail.com', 321654987, 'Amzad Ali', 1300360856, 'Father', 'H.M. Plaza, Plot# 34, (12th floor), Room No# 07, Road# 02, Sector# 03, Uttara C/A, Dhaka-1230, Bangladesh.', '2024-01-01', 'sabbir', 's', 0, 0, 'Sabbir NID.pdf', ''),
-(11, 'Sabbir', 'Hossain', '2024-12-02', 1, 'H.M. Plaza, Plot# 34, (12th floor), Room No# 07, Road# 02, Sector# 03, Uttara C/A, Dhaka-1230, Bangladesh.', 1300360856, 'Amzad Ali', 'Monira Begum', 'swiftoverseadstravels@gmail.com', 321654987, 'Amzad Ali', 1300360856, 'Father', 'H.M. Plaza, Plot# 34, (12th floor), Room No# 07, Road# 02, Sector# 03, Uttara C/A, Dhaka-1230, Bangladesh.', '2024-12-10', 'sabbir2', 's', 0, 0, 'N/A', 'SSC Marksheet.pdf'),
-(12, 'Mimi ', 'Akter', '2000-01-01', 2, 'H.M. Plaza, Plot# 34, (12th floor), Room No# 07, Road# 02, Sector# 03, Uttara C/A, Dhaka-1230, Bangladesh.', 321654987, 'Amzad Ali', 'Monira Begum', 'swiftovesdfsrseastravels@gmail.com', 321654987, 'Amzad Ali', 1300360856, 'Father', 'H.M. Plaza, Plot# 34, (12th floor), Room No# 07, Road# 02, Sector# 03, Uttara C/A, Dhaka-1230, Bangladesh.', '2000-01-01', 'mimi', 'm', 0, 0, 'N/A', '7eccca6c6979109983229c8c118b5263.jpg');
+INSERT INTO `tb_employee_details` (`id`, `firstName`, `lastName`, `dob`, `genderid`, `address`, `phone`, `fatherName`, `motherName`, `email`, `nid`, `emgName`, `emgPhone`, `emgRelation`, `emgAddress`, `joinDate`, `username`, `password`, `status`, `account`, `remark`, `image`, `designation`) VALUES
+(8, 'Shamim', 'Hossain', '2001-12-31', 1, 'Kaliakair, Gazipur, Dhaka, Banglades', 1762164746, 'Jamsher Ali', 'Sofiya Begum', 'samim@gmail.com', 321654987, 'Jamsher Ali', 321654987, 'Father', 'Kaliakair, Gazipur, Dhaka, Banglades', '2024-09-01', 'samim', 's', 0, 0, '', '', 'Office Staff'),
+(9, 'Chadni', 'Akter', '2001-01-01', 2, 'Dewgaon, Plhubaria, Debgram-2216, Mymensingh', 321654987, 'Amzad Ali', 'Monira Begum', 'chadni@gmail.com', 321654987, 'Swift Overseas', 1300360856, 'Father', 'H.M. Plaza, Plot# 34, (12th floor), Room No# 07, Road# 02, Sector# 03, Uttara C/A, Dhaka-1230, Bangladesh.', '2001-01-01', 'chadni', 'c', 0, 0, '', '', 'Office Staff'),
+(10, 'Sabbir', 'Hossain', '2001-01-01', 1, 'Dewgaon, Plhubaria, Debgram-2216, Mymensingh', 321654987, 'Amzad Ali', 'Monira Begum', 'swiftoverseastravels@gmail.com', 321654987, 'Amzad Ali', 1300360856, 'Father', 'H.M. Plaza, Plot# 34, (12th floor), Room No# 07, Road# 02, Sector# 03, Uttara C/A, Dhaka-1230, Bangladesh.', '2024-01-01', 'sabbir', 's', 0, 0, 'Sabbir NID.pdf', '', 'Office Staff'),
+(11, 'Sabbir', 'Hossain', '2024-12-02', 1, 'H.M. Plaza, Plot# 34, (12th floor), Room No# 07, Road# 02, Sector# 03, Uttara C/A, Dhaka-1230, Bangladesh.', 1300360856, 'Amzad Ali', 'Monira Begum', 'swiftoverseadstravels@gmail.com', 321654987, 'Amzad Ali', 1300360856, 'Father', 'H.M. Plaza, Plot# 34, (12th floor), Room No# 07, Road# 02, Sector# 03, Uttara C/A, Dhaka-1230, Bangladesh.', '2024-12-10', 'sabbir2', 's', 0, 0, 'N/A', '', 'Office Staff'),
+(12, 'Mimi ', 'Akter', '2000-01-01', 2, 'H.M. Plaza, Plot# 34, (12th floor), Room No# 07, Road# 02, Sector# 03, Uttara C/A, Dhaka-1230, Bangladesh.', 321654987, 'Amzad Ali', 'Monira Begum', 'swiftovesdfsrseastravels@gmail.com', 321654987, 'Amzad Ali', 1300360856, 'Father', 'H.M. Plaza, Plot# 34, (12th floor), Room No# 07, Road# 02, Sector# 03, Uttara C/A, Dhaka-1230, Bangladesh.', '2000-01-01', 'mimi', 'm', 0, 0, 'N/A', '', 'Office Staff');
 
 -- --------------------------------------------------------
 

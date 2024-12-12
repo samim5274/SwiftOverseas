@@ -20,10 +20,10 @@ body
     width: 100%;
 }
 .btn:hover{
-    color: aqua;
-    background: #0098be;
+    color: rgb(0, 0, 0);
+    background: #45f9ff;
 }
-img{
+#stacff-edit-section img{
     box-shadow: inset rgba(120, 143, 131, 0.575) 0px 0px 40px 0px, rgba(0, 0, 0, 0.486) 0px 30px 100px -24px;
 }
 .inner-shadow {

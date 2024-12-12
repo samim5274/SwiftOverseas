@@ -83,7 +83,11 @@
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon5">Join Date</span>
                         <input type="date" name="dtpJDate" class="form-control" aria-label="Username" aria-describedby="basic-addon5" >
-                    </div>                                         
+                    </div>    
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon5">Designation</span>
+                        <input type="text" name="txtDesignation" class="form-control" aria-label="Username" placeholder="Designation" aria-describedby="basic-addon5" >
+                    </div>                                      
                 </div>
                 <div class="span_1_of_2">
                     <label for="">Family Info</label><hr>                    
@@ -161,6 +165,7 @@
                                     <td><?php echo $row['dob'];?></td>
                                     <td><?php echo '+880 '.$row['phone'] ?></td>
                                     <td class="text-center"><a href="createUserEdit.php?userid=<?php echo $uid; ?>">Edit</a></td>                                    
+                                    <td class="text-center"><a href="createUserView.php?userid=<?php echo $uid; ?>">Profile</a></td>                                    
                                 </tr>
                         <?php  $sl++;  }
                         ?>

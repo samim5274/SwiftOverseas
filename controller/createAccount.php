@@ -21,8 +21,30 @@ if(isset($_GET['btnSubmit']))
     $EAddress = $_GET['txtEAddress'];
     $remark = $_GET['txtRemark'];
     $userName = $_GET['username'];
-    $userPass = $_GET['password'];
+    $userPass = $_GET['password'];    
+    $designation = $_GET['txtDesignation'];
     $image = $_GET['txtImage'];
+
+    // $img_name = $_FILES['txtImage']['name'];
+    // $tmp_name = $_FILES['txtImage']['tmp_name'];
+
+    // $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
+
+    // $img_ex_lc = strtolower($img_ex);
+
+    // $allow_exs = array("jpg","JPG","jpeg","JPEG","PNG","png","WEBP","webp");
+
+    // if(in_array($img_ex_lc, $allow_exs))
+    // {
+    //     $img_new_name = uniqid("IMG-",true).'-'.$userName.'.'.$img_ex_lc;
+    //     $img_up_path = "img/staff/".$img_new_name;
+    //     move_uploaded_file($tmp_name, $img_up_path);
+    // }
+    // else
+    // {
+    //     $mess  = "Picture extention not allowed. Please try again!";
+    //     header("Location: ../createAccount.php?error=$mess");
+    // }    
 
     $sqlFindUserName = "SELECT * FROM tb_employee_details WHERE `username` = '$userName'";
     $sqlFindResult = mysqli_query($conn, $sqlFindUserName);
@@ -34,12 +56,12 @@ if(isset($_GET['btnSubmit']))
         $rows = mysqli_fetch_assoc($sqlFindEmailResult);
         if($rows['email'] === $email)
         {
-           $mess  = "Email already taken. Please try another username ". $rows['email'].". Thank you!!";
+            $mess  = "Email already taken. Please try another username ". $rows['email'].". Thank you!!";
             header("Location: ../createAccount.php?error=$mess");
         }
         else
         {
-            $sqlInsertData = "INSERT INTO `tb_employee_details`( `firstName`, `lastName`, `dob`, `genderid`, `address`, `phone`, `fatherName`, `motherName`, `email`, `nit`, `emgName`, `emgPhone`, `emgRelation`, `emgAddress`, `joinDate`, `username`, `password`, `status`, `account`, `remark` , `image`) VALUES ('$fname','$lname','$dob','$genderid','$address','$phone','$fathername','$mothername','$email','$Nid','$Ename','$EPhone','$Erelation','$EAddress','$joinDate','$userName','$userPass',0,0,'$remark','$image')";
+            $sqlInsertData = "INSERT INTO `tb_employee_details`( `firstName`, `lastName`, `dob`, `genderid`, `address`, `phone`, `fatherName`, `motherName`, `email`, `nid`, `emgName`, `emgPhone`, `emgRelation`, `emgAddress`, `joinDate`, `username`, `password`, `status`, `account`, `remark` , `image`,`designation`) VALUES ('$fname','$lname','$dob','$genderid','$address','$phone','$fathername','$mothername','$email','$Nid','$Ename','$EPhone','$Erelation','$EAddress','$joinDate','$userName','$userPass',0,0,'$remark','$img_new_name','$designation')";
             $sqlResult = mysqli_query($conn, $sqlInsertData);
             $mess  = "An employee account created successfully. Thank you!!";
             header("Location: ../createAccount.php?success=$mess");
@@ -50,6 +72,11 @@ if(isset($_GET['btnSubmit']))
         $mess  = "Username already taken. Please try another username ".$userName.". Thank you!!";
         header("Location: ../createAccount.php?error=$mess");
     }
+}
+
+if(isset($_GET['btnEditStaff']))
+{
+    echo "find bakend code";
 }
 
 ?>
