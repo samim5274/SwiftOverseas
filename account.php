@@ -1,14 +1,3 @@
-<?php
-
-include 'controller/dbconfig.php';
-
-session_start();
-
-if(isset($_SESSION['id']) && isset($_SESSION['status']))
-{
-    $status = "".$_SESSION['status'];
-    $userId = "".$_SESSION['id'];    
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -110,12 +99,3 @@ if(isset($_SESSION['id']) && isset($_SESSION['status']))
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </body>
 </html>
-
-<?php 
-}
-else
-{
-    echo "You are not login";
-    header("Location: log.php");
-}
-?>
