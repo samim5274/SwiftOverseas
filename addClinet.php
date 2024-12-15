@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create new account</title>
+    <title>Add new Clients</title>
     <link rel="icon" type="image/x-icon" href="img/logo.png">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="css/createAccount.css">
+    <link rel="stylesheet" href="css/addNewClients.css">
     <link rel="stylesheet" href="css/grid.css">
 
 </head>
@@ -19,38 +19,24 @@
     include 'dashboardmenu.php'; 
 ?>
 
-<section id="top-section"> </section><br>
+<section id="top-section"> </section>
 
 <?php if(isset($_GET['success'])) {?>
 <h2 class="success text-center"><?php echo $_GET['success']; ?></h2> 
 <?php } if(isset($_GET['error'])) {?> <h2 class="error text-center"><?php echo $_GET['error']; ?></h2> <?php }
 ?>
-<br>
-<section id="button-group">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="btn-group item-center">
-                    <button href="#add-new-agency-section" class="btn btn-info text-light" data-bs-toggle="collapse">Add +</button>
-                    <a href="dashboard"><button type="submit" class="btn btn-warning">Back</button></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 
 <section id="add-new-agency-section"  class="collapse text-light">
     <div class="container box inner-shadow" >
-        <h3 class="text-center mt-4">Add New Employee!</h3><div class="spinner-grow text-warning"></div>
-        <form action="controller/createUserAccount.php" method="GET" enctype="multipart/form-data">                    
+        <h3 class="text-center mt-4">Add Clients</h3><div class="spinner-grow text-warning"></div>
+        <form action="controller/addClient.php" method="GET" enctype="multipart/form-data">                    
             <div class="row">
                 <div class="span_1_of_2">
                     <label for="">Personal Information</label><hr>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Full Name*</span>
                         <input type="text" name="fastname" class="form-control" required placeholder="First Name" aria-label="Username" aria-describedby="basic-addon1" >
-                        <input type="text" name="lastname" class="form-control" placeholder="Last Name" aria-label="Username" aria-describedby="basic-addon1" >
+                        <input type="text" name="lastname" class="form-control" required placeholder="Last Name" aria-label="Username" aria-describedby="basic-addon1" >
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon4">Phone</span>
@@ -73,32 +59,29 @@
                         <input type="text" name="txtAddress" class="form-control" placeholder="Full Address" aria-label="Username" aria-describedby="basic-addon6">
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon5">Email</span>
-                        <input type="email" name="txtEmail" class="form-control" placeholder="example@example.com" aria-label="Username" aria-describedby="basic-addon5" >
-                    </div><hr>                    
+                        <span class="input-group-text" id="basic-addon5">Please of Birth</span>
+                        <input type="text" name="txtPleaseOfBirth" class="form-control"  placeholder="Please of Birth" aria-label="Username" aria-describedby="basic-addon5" >
+                    </div>
+                    <label for="">Passport Information</label><hr>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon5">Passport Number</span>
+                        <input type="text" name="txtPassportNum" class="form-control"  placeholder="Passport Number" aria-label="Username" aria-describedby="basic-addon5" >
+                    </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon5">Personal No (NID)</span>
-                        <input type="text" name="txtNID" class="form-control"  placeholder="Personal No" aria-label="Username" aria-describedby="basic-addon5" >
+                        <input type="text" name="txtPersonalNum" class="form-control"  placeholder="Personal No" aria-label="Username" aria-describedby="basic-addon5" >
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon5">Join Date</span>
-                        <input type="date" name="dtpJDate" class="form-control" aria-label="Username" aria-describedby="basic-addon5" >
-                    </div>    
+                        <span class="input-group-text" id="basic-addon5">Passport Issue Date Start</span>
+                        <input type="date" name="dtpPIssueDateS" class="form-control"   aria-label="Username" aria-describedby="basic-addon5" >
+                    </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon5">Designation</span>
-                        <input type="text" name="txtDesignation" class="form-control" aria-label="Username" placeholder="Designation" aria-describedby="basic-addon5" >
-                    </div>                                      
+                    <span class="input-group-text" id="basic-addon5">Passport Issue Date End</span>
+                        <input type="date" name="dtpPIssueDateE" class="form-control"   aria-label="Username" aria-describedby="basic-addon5" >
+                    </div>       
                 </div>
-                <div class="span_1_of_2">
-                    <label for="">Family Info</label><hr>                    
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon5">Father's Name</span>
-                        <input type="text" name="txtFatherName" class="form-control"  placeholder="Father's Name" aria-label="Username" aria-describedby="basic-addon5" >
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon5">Mother's Name</span>
-                        <input type="text" name="txtMotherName" class="form-control"  placeholder="Mother's Name" aria-label="Username" aria-describedby="basic-addon5" >
-                    </div><hr>
+                <div class="span_1_of_2">          
+                    <label for="">Emergency contact</label><hr>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon8">Full Name</span>
                         <input type="text" name="txtEName" class="form-control" placeholder="Emergency Full Name" aria-label="Username" aria-describedby="basic-addon8">
@@ -114,30 +97,58 @@
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon5">Emergency Address</span>
                         <input type="text" name="txtEAddress" class="form-control"  placeholder="Emergency Address" aria-label="Username" aria-describedby="basic-addon5" >
+                    </div><br>
+                    <label for="">Reference & Account</label><hr>  
+                    <div class="input-group mb-3">
+                        <?php
+                            $sqlData = "SELECT * FROM tb_agency_info";
+                            $SQLResult = mysqli_query($conn,$sqlData);
+                            $sl = 1;
+                            ?>
+                        <select name="cbxRefer" class="form-control mt-2" id="Reference">
+                            <option selected disabled>Select Reference</option>
+                            <?php 
+                            while($row = mysqli_fetch_array($SQLResult))
+                            {?>
+                                <option value="<?php echo $row['id'] ?>"><?php echo $row['fullname'] ?></option>
+                            <?php  $sl++;  }
+                            ?>
+                        </select>
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon5">Remark (Optional)</span>
-                        <input type="text" name="txtRemark" class="form-control" placeholder="Remark's" aria-label="Username" aria-describedby="basic-addon5" >
-                    </div><hr>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon5">Image</span>
-                        <input type="file" name="my_image" class="form-control" aria-label="Username" aria-describedby="basic-addon5" >
+                        <span class="input-group-text" id="basic-addon5">Contract Amount</span>
+                        <input type="number" name="txtCAmount" class="form-control"  placeholder="Contract Amount" aria-label="Username" aria-describedby="basic-addon5" >
                     </div>
-                    <br>                   
-                </div>
-                <br>    <hr>   
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">Username & Password*</span>
-                    <input type="text" name="username" class="form-control" required placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" >
-                    <input type="password" name="password" class="form-control" required placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" >
-                </div>      
-            </div><br>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon5">Advance</span>
+                        <input type="number" name="txtAdvance" class="form-control"  placeholder="Advance" aria-label="Username" aria-describedby="basic-addon5" >
+                    </div>
+                    <label for="">Country Details</label><hr>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon5">Destination Country</span>
+                        <input type="text" name="txtDestinationCountry" class="form-control" placeholder="Destination Country" aria-label="Username" aria-describedby="basic-addon5" >
+                    </div>
+                </div>                
+            </div>
             <button class="btn btn-success text-light mb-3" role="button" name="btnSubmit">Submite</button>
         </form>
     </div>
 </section>
 
-<!-- ====================================================== data show section ========================================================= -->
+<br><hr><br>
+
+<section id="button-group">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="btn-group item-center">
+                    <button href="#add-new-agency-section" class="btn btn-info text-light" data-bs-toggle="collapse">Add</button>
+                    <a href="dashboard"><button type="submit" class="btn btn-warning">Back</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><br>
 
 <section id="data-show-section" class="data-show">
     <div class="container box inner-shadow">
@@ -148,26 +159,28 @@
                         <tr>
                             <th scope="col" class="text-center">#</th>
                             <th scope="col">Name</th>
-                            <th scope="col">Date of Birth</th>
+                            <th scope="col">Please Of Birth</th>
                             <th scope="col">Phone</th>
+                            <th scope="col" class="text-center">Passport</th>
                             <th scope="col" colspan="2" class="text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                            $sqlData = "SELECT * FROM tb_employee_details";
+                            $sqlData = "SELECT * FROM tb_clientlist";
                             $SQLResult = mysqli_query($conn,$sqlData);
                             $sl = 1;
                             while($row = mysqli_fetch_array($SQLResult))
                             {?>
                                 <tr>
                                     <th class="text-center" scope="row"><?php echo $sl ?></th>
-                                    <td><?php echo $row['firstName'].' '. $row['lastName'] ?></td>
+                                    <td><?php echo $row['fastname'].' '. $row['lastname'] ?></td>
                                     <?php $uid = $row['id'] ?>
-                                    <td><?php echo $row['dob'];?></td>
-                                    <td><?php echo '+880 '.$row['phone'] ?></td>
-                                    <td class="text-center"><a href="createUserEdit.php?userid=<?php echo $uid; ?>">Edit</a></td>                                    
-                                    <td class="text-center"><a href="createUserView.php?userid=<?php echo $uid; ?>">Profile</a></td>                                    
+                                    <td><?php echo $row['pleaseOfBirth'];?></td>
+                                    <td><?php echo $row['phone'] ?></td>
+                                    <td class="text-center"><?php echo $row['passportNumber'] ?></td>
+                                    <td class="text-center"><a href="attachPicture.php?userid=<?php echo $uid; ?>"><button class="btn btn-outline-info btn-sm">Attach</button></a></td>                                    
+                                    <td class="text-center"><a href="ViewClient.php?userid=<?php echo $uid; ?>"><button class="btn btn-outline-warning btn-sm">View</button></a></td>                                    
                                 </tr>
                         <?php  $sl++;  }
                         ?>

@@ -1,3 +1,66 @@
+<?php
+
+include 'controller/dbconfig.php';
+$uid = $_GET['userid'];
+
+if(isset($_POST['btnEditStaff']))
+{
+    $fname = $_POST['txtFirstName'];
+    $lname = $_POST['txtLastName'];
+    $dob = $_POST['dob'];
+    $gender = $_POST['cbxGender'];
+    $address = $_POST['txtaddress'];
+    $phone = $_POST['txtphone'];
+    $email = $_POST['txtemail'];
+    $nid = $_POST['txtnid'];
+    $designation = $_POST['txtDesignation'];
+    $father = $_POST['txtfather'];
+    $mother = $_POST['txtmother'];
+    $emgName = $_POST['txtemgName'];
+    $emgPhone = $_POST['txtemgPhone'];
+    $emgRelation = $_POST['txtemgRelation'];
+    $emgAddress = $_POST['txtemgAddress'];
+    $joinDate = $_POST['dtpJoinDate'];
+    $pass = $_POST['txtpassword'];
+    $rePass = $_POST['txtRetyypePassword'];
+
+    if($pass == $rePass)
+    {
+        $img_name = $_FILES['my_img']['name'];
+        $tmp_name = $_FILES['my_img']['tmp_name'];
+    
+        $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
+    
+        $img_ex_lc = strtolower($img_ex);
+    
+        $allow_exs = array("jpg","jped","png","webp");
+    
+        if(in_array($img_ex_lc, $allow_exs))
+        {
+            $img_new_name = uniqid("IMG-",true).'-'.$fname.'.'.$img_ex_lc;
+            $img_up_path = "img/staff/".$img_new_name;
+            move_uploaded_file($tmp_name, $img_up_path);
+
+            $sqlUpData = "UPDATE `tb_employee_details` SET `firstName`='$fname',`lastName`='$lname',`dob`='$dob',`genderid`='$gender',`address`='$address',`phone`='$phone',`fatherName`='$father',`motherName`='$mother',`email`='$email',`nid`='$nid',`emgName`='$emgName',`emgPhone`='$emgPhone',`emgRelation`='$emgRelation',`emgAddress`='$emgAddress',`joinDate`='$joinDate',`password`='$rePass',`remark`='[value-21]',`image`='$img_new_name',`designation`='$designation' WHERE id = '$uid' ";
+            $sqlUpResult = mysqli_query($conn,$sqlUpData);
+
+            $ex="Employee details edited successfuly!";
+            header("Location: createAccount.php?success=$ex");
+        }
+        else
+        {
+            $ex="Extention not allowed!";
+            header("Location: createAccount.php?error=$ex");
+        }
+    }
+    else
+    {
+        $ex="Password not match. Must be input your password and re-type password and try again. Thank you!";
+        header("Location: createAccount.php?error=$ex");
+    }   
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,123 +72,106 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <link rel="stylesheet" href="css/createAccountEdit.css">
-    <link rel="stylesheet" href="css/grid.css">
 
 </head>
 <body>
 
 <?php 
-    include 'controller/dbconfig.php';
     include 'dashboardmenu.php'; 
-    $uid = $_GET['userid'];
 ?>
 <section id="top-section"> </section><br>
 
-<!-- <section id="stacff-edit-section" class="edit-staff">
-    <div class="container inner-shadow">
-        <div class="row m-4"><h4 class="display-4">Edit Details</h4>
-            <?php             
-                $sqlData = "SELECT * FROM `tb_employee_details` WHERE id = '$uid'";
-                $sqlResult = mysqli_query($conn, $sqlData);
-                while($row = mysqli_fetch_array($sqlResult)){
-            ?>
-            <div class="span_1_of_2 mt-4 pt-4">
-                <h1 class="display-1"><?php echo $row['firstName']." ".$row['lastName']; ?></h1> 
-                <h4 class="lead"><?php echo $row['designation']; ?></h4>
-            </div>
-            <div class="span_1_of_2">   
-                <label for="name" class="labels">Date of Birth</label> 
-                <input type="date" class="form-control" value="<?php echo $row['dob']; ?>"><br>  
-                <label for="name" class="labels">Gendere</label>
-                <input type="text" class="form-control" value="<?php  $gid = $row['genderid']; if($gid == 1){ echo "Male"; } elseif($gid == 2){echo "Female";}else {echo "Other's";} ?>"><br>     
-                <label for="name" class="labels">Phone</label><input type="number" class="form-control" placeholder="Phone" value="<?php echo "0".$row['phone']; ?>"><br>
-                <label for="name" class="labels">NID</label>
-                <input type="text" class="form-control" placeholder="NID" value="<?php echo $row['nid']; ?>"><br>
-                <label for="name" class="labels">Email</label>
-                <input type="email" class="form-control" placeholder="Email" value="<?php echo $row['email']; ?>"><br>
-                <label for="Remark">Address</label>
-                    <textarea class="form-control" name="txtAddress" id="Remark" rows="3" placeholder="Enter your Address"><?php echo $row['address']; ?></textarea><br>
-            </div>  
-            <div class="span_1_of_2">                 
-                <label for="name" class="labels">Father's Name</label>
-                <input type="text" class="form-control" placeholder="Father's Name" value="<?php echo $row['fatherName']; ?>"><br>
-                <label for="name" class="labels">Mother's Name</label>
-                <input type="text" class="form-control" placeholder="Mother's Name" value="<?php echo $row['motherName']; ?>"><br>
-                <label for="name" class="labels">Emergency Contact</label>
-                <input type="text" class="form-control" placeholder="Emergency" value="<?php echo $row['emgName']; ?>"><br>
-                <label for="name" class="labels">Emg. Phone</label>
-                <input type="text" class="form-control" placeholder="Emg. Phone" value="<?php echo "+880 ".$row['emgPhone']; ?>"><br>
-                <label for="name" class="labels">Emg. Relation</label>
-                <input type="text" class="form-control" placeholder="Emg. Relation" value="<?php echo $row['emgRelation']; ?>"><br>
-                <label for="name" class="labels">Emg. Address</label>
-                <textarea class="form-control" name="txtAddress" id="Remark" rows="3" placeholder="Enter your Address"><?php echo $row['emgAddress']; ?></textarea><br>                
-            </div>    
-            <label for="name" class="labels">Username (username cann't change)*</label>
-                <input type="text" class="form-control mb-4" disabled placeholder="username" value="<?php echo $row['username']; ?>"><br>
-            <?php } ?>
-            <a href="createAccount.php" class="btn my-4">Back</a></span>
-        </div>
-    </div>
-</section> -->
-
-
 <section id="staff-edit-section" class="edit-staff">
-    <div class="container">
-        <div class="row p-4">
+    <div class="container inner-shadow"><a href="createAccount.php" class="btn2 btn">Back</a>
+        <div class="p-4 ">
             <div class="col-md-12">
             <?php          
             $sqlData = "SELECT * FROM `tb_employee_details` WHERE id = '$uid'";
             $sqlResult = mysqli_query($conn, $sqlData);
             while($row = mysqli_fetch_array($sqlResult))
             { ?>
-            <form action="controller/createAccount.php" method="GET" enctype="multipart/form-data">
-                <input type="number" name="txtId" hidden class="form-control" id="cn" value="<?php echo $row['id']; ?>" placeholder="Country name">
-                <label for="cn">First name</label>
-                <input type="text" name="txtFirstName" class="form-control" id="cn" value="<?php echo $row['firstName']; ?>" placeholder="Country name">
-                <label for="cc">Last Name</label>
-                <input type="text" name="txtLastName" class="form-control" id="cc" value="<?php echo $row['lastName'];; ?>" placeholder="Client Cost">
-                <label for="cc">Last Name</label>
-                <input type="date" name="txtLastName" class="form-control" id="cc" value="<?php echo $row['dob'];; ?>" placeholder="Client Cost">
-                <label for="cc">Last Name</label>
-                <input type="text" name="txtLastName" class="form-control" id="cc" value="<?php echo $row['genderid'];; ?>" placeholder="Client Cost">
-                <label for="cc">Last Name</label>
-                <input type="text" name="txtLastName" class="form-control" id="cc" value="<?php echo $row['address'];; ?>" placeholder="Client Cost">
-                <label for="cc">Last Name</label>
-                <input type="number" name="txtLastName" class="form-control" id="cc" value="<?php echo $row['phone'];; ?>" placeholder="Client Cost">
-                <label for="cc">Last Name</label>
-                <input type="text" name="txtLastName" class="form-control" id="cc" value="<?php echo $row['fatherName'];; ?>" placeholder="Client Cost">
-                <label for="cc">Last Name</label>
-                <input type="text" name="txtLastName" class="form-control" id="cc" value="<?php echo $row['motherName'];; ?>" placeholder="Client Cost">
-                <label for="cc">Last Name</label>
-                <input type="text" name="txtLastName" class="form-control" id="cc" value="<?php echo $row['email'];; ?>" placeholder="Client Cost">
-                <label for="cc">Last Name</label>
-                <input type="text" name="txtLastName" class="form-control" id="cc" value="<?php echo $row['nid'];; ?>" placeholder="Client Cost">
-                <label for="cc">Last Name</label>
-                <input type="text" name="txtLastName" class="form-control" id="cc" value="<?php echo $row['emgName'];; ?>" placeholder="Client Cost">
-                <label for="cc">Last Name</label>
-                <input type="number" name="txtLastName" class="form-control" id="cc" value="<?php echo $row['emgPhone'];; ?>" placeholder="Client Cost">
-                <label for="cc">Last Name</label>
-                <input type="text" name="txtLastName" class="form-control" id="cc" value="<?php echo $row['emgRelation'];; ?>" placeholder="Client Cost">
-                <label for="cc">Last Name</label>
-                <input type="text" name="txtLastName" class="form-control" id="cc" value="<?php echo $row['emgAddress'];; ?>" placeholder="Client Cost">
-                <label for="cc">Last Name</label>
-                <input type="text" name="txtLastName" class="form-control" id="cc" value="<?php echo $row['joinDate'];; ?>" placeholder="Client Cost">
-                <label for="cc">Last Name</label>
-                <input type="text" name="txtLastName" class="form-control" id="cc" value="<?php echo $row['username'];; ?>" placeholder="Client Cost">
-                <label for="cc">Last Name</label>
-                <input type="text" name="txtLastName" class="form-control" id="cc" value="<?php echo $row['password'];; ?>" placeholder="Client Cost">
-                <label for="cc">Last Name</label>
-                <input type="text" name="txtLastName" class="form-control" id="cc" value="<?php echo $row['status'];; ?>" placeholder="Client Cost">
-                <label for="cc">Last Name</label>
-                <input type="text" name="txtLastName" class="form-control" id="cc" value="<?php echo $row['account'];; ?>" placeholder="Client Cost">
-                <label for="cc">Last Name</label>
-                <input type="text" name="txtLastName" class="form-control" id="cc" value="<?php echo $row['image'];; ?>" placeholder="Client Cost">
-                <label for="cc">Last Name</label>
-                <input type="text" name="txtLastName" class="form-control" id="cc" value="<?php echo $row['designation'];; ?>" placeholder="Client Cost">
+            <form action="" method="POST" enctype="multipart/form-data">
+                <div class="row">
+                    <h2 class="text-center">Employee Details Edit</h2>
+                    <hr>
+                    <div class="col-md-6">
+                        <input type="number" name="txtId" hidden class="form-control" id="cn" value="<?php echo $row['id']; ?>" >
+                        <label for="cn">First name</label>
+                        <input type="text" name="txtFirstName" class="form-control" id="cn" value="<?php echo $row['firstName']; ?>" ><br>
+                        <label for="lastName">Last Name</label>
+                        <input type="text" name="txtLastName" class="form-control" id="lastName" value="<?php echo $row['lastName']; ?>" ><br>
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" name="dob" class="form-control" id="dob" value="<?php echo $row['dob']; ?>"><br>
+                        <label for="gender">Gender</label>
+                        <select name="cbxGender" class="form-control mt-2" id="Gender">
+                            <option selected disabled>Select Gender</option>
+                            <?php 
+                                if($row['genderid'] == 1)
+                                {?>
+                                    <option selected value="1">Male</option>
+                                    <option value="2">Female</option>
+                                    <option value="3">Other's</option>
+                                <?php }
+                                elseif($row['genderid'] == 2)
+                                {?>
+                                    <option  value="1">Male</option>        
+                                    <option selected value="2">Female</option>
+                                    <option value="3">Other's</option>
+                                <?php }
+                                else
+                                {?>
+                                    <option  value="1">Male</option>
+                                    <option value="2">Female</option>
+                                    <option selected value="3">Other's</option>
+                               <?php }
+                            ?>
+                        </select>
+                        <br>
+                        <label for="Address">Address</label>
+                        <textarea type="text" name="txtaddress" class="form-control" id="Address" rows="5"><?php echo $row['address']; ?></textarea><br>
+                        <label for="Phone">Phone</label>
+                        <input type="number" name="txtphone" class="form-control" id="Phone" value="<?php echo $row['phone']; ?>" ><br>
+                        <label for="email">Email</label>
+                        <input type="text" name="txtemail" class="form-control" id="email" value="<?php echo $row['email']; ?>" ><br>
+                        <label for="NID">NID</label>
+                        <input type="number" name="txtnid" class="form-control" id="NID" value="<?php echo $row['nid']; ?>" ><br>
+                        <label for="designation">Designation</label>
+                        <input type="text" name="txtDesignation" class="form-control" id="designation" value="<?php echo $row['designation']; ?>" ><br>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="Father">Father's Name</label>
+                        <input type="text" name="txtfather" class="form-control" id="Father" value="<?php echo $row['fatherName']; ?>"><br>
+                        <label for="Mother">Mother's Name</label>
+                        <input type="text" name="txtmother" class="form-control" id="Mother" value="<?php echo $row['motherName']; ?>" ><br>
+                        <label for="emgName">Emergency Contact</label>
+                        <input type="text" name="txtemgName" class="form-control" id="emgName" value="<?php echo $row['emgName']; ?>" ><br>
+                        <label for="emgPhone">Emergency Phone</label>
+                        <input type="number" name="txtemgPhone" class="form-control" id="emgPhone" value="<?php echo $row['emgPhone']; ?>" ><br>
+                        <label for="emgRelation">Emergency Relation</label>
+                        <input type="text" name="txtemgRelation" class="form-control" id="emgRelation" value="<?php echo $row['emgRelation']; ?>" ><br>
+                        <label for="emgAddress">Emergency Address</label>
+                        <textarea type="text" name="txtemgAddress" class="form-control" id="emgAddress" rows="4"><?php echo $row['emgAddress']; ?></textarea>
+                        <br>
+                        <label for="joinDate">Joining Date</label>
+                        <input type="date" name="dtpJoinDate" class="form-control" id="joinDate" value="<?php echo $row['joinDate']; ?>" ><br>
+                        <label for="username">Username</label>
+                        <input type="text" name="txtUsername" disabled class="form-control" id="cc" value="<?php echo $row['username']." Note: (You can not changed username.)"; ?>" ><br>
+                        <label for="password">Password</label>
+                        <input type="password" name="txtpassword" class="form-control" id="password" value="<?php echo $row['password']; ?>" ><br>
+                        <label for="password">Re-Type Password</label>
+                        <input type="password" name="txtRetyypePassword" class="form-control" id="password" >
+                    </div><br>
+                        <label for="image">Image</label>
+                        <input type="file" name="my_img" class="form-control" id="image" value="<?php echo $row['image']; ?>" >
+                </div>                
                 <br>
                 <button type="submit" name="btnEditStaff" class="btn btn-info">Edit</button>
             </form>
-            <?php } ?>
+            <?php } ?><br>
+            <div class="row">
+                <div class="col-md-6"><a href="createAccount.php" class="btn2 btn">Back</a></div>
+                <div class="col-md-6"><a href="createAccount.php" class="btn btn-warning">Delete</a></div>
+            </div>
             </div>
         </div>
     </div>
