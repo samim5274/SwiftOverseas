@@ -102,7 +102,7 @@ while($row = mysqli_fetch_array($SQLResult))
         <div class="col-md-5 border-right">
             <div class="p-3 py-5">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right">Profile Settings</h4><span class="border px-3 p-1 add-experience"><a href="addNewClient.php" class="btn">Back</a></span>
+                    <h4 class="text-right">Profile Settings</h4><span class="border px-3 p-1 add-experience"><a href="addClinet.php" class="btn">Back</a></span>
                 </div>
                 <div class="row mt-2">
                     <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" value="<?php echo $fname; ?>"></div>

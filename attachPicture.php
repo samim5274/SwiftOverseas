@@ -56,32 +56,40 @@ if(isset($_POST['btnSubmit']))
                     $sqlData = "UPDATE `tb_clientlist` SET `pImg`='$img_new_name',`PassImg`='$img_new_name2',`nidImg`='$img_new_name3',`SnidImg`='$img_new_name4' WHERE id = '$uid'";
                     $sqlResult = mysqli_query($conn, $sqlData);
                     $ex="Photo save successfully!";
-                    header("Location: addNewClient.php?success=$ex");
+                    header("Location: addClinet.php?success=$ex");
                 }
                 else
                 {
                     $ex="Extention not allowed!";
-                    header("Location: addNewClient.php?error=$ex");
+                    header("Location: addClinet.php?error=$ex");
                 }
             }
             else
             {
                 $ex="Extention not allowed!";
-                header("Location: addNewClient.php?error=$ex");
+                header("Location: addClinet.php?error=$ex");
             }
         }
         else
         {
             $ex="Extention not allowed!";
-            header("Location: addNewClient.php?error=$ex");
+            header("Location: addClinet.php?error=$ex");
         }
     }
     else
     {
         $ex="Extention not allowed!";
-        header("Location: addNewClient.php?error=$ex");
+        header("Location: addClinet.php?error=$ex");
     }
     
+}
+
+if(isset($_POST['btnDelete']))
+{
+    $sqlDelete = "DELETE FROM `tb_clientlist` WHERE id = $uid";
+    $sqlDeleteResult = mysqli_query($conn,$sqlDelete);
+    $ex="Delete Client successfully.";
+    header("Location: addClinet.php?success=$ex");
 }
     
 ?>
@@ -155,7 +163,11 @@ if(isset($_POST['btnSubmit']))
                     </div>
                     <input type="submit" name="btnSubmit" value="Submit" class="btn btn-info btn-center text-light">
                 </form><br>
-                <a href="addNewClient.php"><button class="btn btn-warning">Back</button></a>
+                <form action="" method="POST" enctype="multipart/form-data">
+                    <input type="submit" name="btnDelete" value="Delete" class="btn btn-danger btn-center text-light"><br>
+                </form>
+                <br>
+                <a href="addClinet.php"><button class="btn btn-warning">Back</button></a>
             </div>  
         </div>
     </div>

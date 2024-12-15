@@ -43,7 +43,7 @@
 <section id="add-new-agency-section"  class="collapse text-light">
     <div class="container box inner-shadow" >
         <h3 class="text-center mt-4">Add New Employee!</h3><div class="spinner-grow text-warning"></div>
-        <form action="controller/createAccount.php" method="GET" enctype="multipart/form-data">                    
+        <form action="controller/createUserAccount.php" method="GET" enctype="multipart/form-data">                    
             <div class="row">
                 <div class="span_1_of_2">
                     <label for="">Personal Information</label><hr>
@@ -79,11 +79,7 @@
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon5">Personal No (NID)</span>
                         <input type="text" name="txtNID" class="form-control"  placeholder="Personal No" aria-label="Username" aria-describedby="basic-addon5" >
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon5">Join Date</span>
-                        <input type="date" name="dtpJDate" class="form-control" aria-label="Username" aria-describedby="basic-addon5" >
-                    </div>    
+                    </div>  
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon5">Designation</span>
                         <input type="text" name="txtDesignation" class="form-control" aria-label="Username" placeholder="Designation" aria-describedby="basic-addon5" >
@@ -114,28 +110,33 @@
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon5">Emergency Address</span>
                         <input type="text" name="txtEAddress" class="form-control"  placeholder="Emergency Address" aria-label="Username" aria-describedby="basic-addon5" >
-                    </div>
+                    </div>                    
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon5">Join Date</span>
+                        <input type="date" name="dtpJDate" class="form-control" aria-label="Username" aria-describedby="basic-addon5" >
+                    </div>  <hr>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon5">Remark (Optional)</span>
                         <input type="text" name="txtRemark" class="form-control" placeholder="Remark's" aria-label="Username" aria-describedby="basic-addon5" >
-                    </div><hr>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon5">Image</span>
-                        <input type="file" name="txtImage" class="form-control" aria-label="Username" aria-describedby="basic-addon5" >
-                    </div>
-                    <br>                   
+                    </div>                
                 </div>
                 <br>    <hr>   
                 <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">Username & Password*</span>
-                    <input type="text" name="username" class="form-control" required placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" >
-                    <input type="password" name="password" class="form-control" required placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" >
+                    <!-- <span class="input-group-text" id="basic-addon1">Username & Password*</span> -->
+                     <div class="span_1_of_2">
+                        <input type="text" name="username" class="form-control" required placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" >
+                    </div>
+                     <div class="span_1_of_2">
+                        <input type="password" name="password" class="form-control" required placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" >
+                    </div>
                 </div>      
             </div><br>
-            <button class="btn btn-info text-light mb-3" role="button" name="btnSubmit">Submite</button>
+            <button class="btn btn-success text-light mb-3" role="button" name="btnSubmit">Submite</button>
         </form>
     </div>
 </section>
+
+<!-- ====================================================== data show section ========================================================= -->
 
 <section id="data-show-section" class="data-show">
     <div class="container box inner-shadow">

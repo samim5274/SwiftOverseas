@@ -23,15 +23,12 @@
 
 <?php if(isset($_GET['success'])) {?>
 <h2 class="success text-center"><?php echo $_GET['success']; ?></h2> 
-<?php } if(isset($_GET['error'])) {?> <h2 class="error text-center"><?php echo $_GET['error']; ?></h2> <?php }
-?>
-
-
+<?php } if(isset($_GET['error'])) {?> <h2 class="error text-center"><?php echo $_GET['error']; ?></h2> <?php } ?>
 
 <section id="add-new-agency-section"  class="collapse text-light">
     <div class="container box inner-shadow" >
-        <h3 class="text-center mt-4">Add New Clients</h3><div class="spinner-grow text-warning"></div>
-        <form action="controller/AddNewClient.php" method="GET" enctype="multipart/form-data">                    
+        <h3 class="text-center mt-4">Add Clients</h3><div class="spinner-grow text-warning"></div>
+        <form action="controller/addClient.php" method="GET" enctype="multipart/form-data">                    
             <div class="row">
                 <div class="span_1_of_2">
                     <label for="">Personal Information</label><hr>
@@ -61,29 +58,17 @@
                         <input type="text" name="txtAddress" class="form-control" placeholder="Full Address" aria-label="Username" aria-describedby="basic-addon6">
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon5">Email</span>
-                        <input type="email" name="txtEmail" class="form-control" placeholder="example@example.com" aria-label="Username" aria-describedby="basic-addon5" >
-                    </div><br>
+                        <span class="input-group-text" id="basic-addon5">Please of Birth</span>
+                        <input type="text" name="txtPleaseOfBirth" class="form-control"  placeholder="Please of Birth" aria-label="Username" aria-describedby="basic-addon5" >
+                    </div>
                     <label for="">Passport Information</label><hr>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon5">Passport Number</span>
                         <input type="text" name="txtPassportNum" class="form-control"  placeholder="Passport Number" aria-label="Username" aria-describedby="basic-addon5" >
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon5">Country Code as Passport</span>
-                        <input type="text" name="txtCountryCode" class="form-control"  placeholder="Example: BGD" aria-label="Username" aria-describedby="basic-addon5" >
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon5">Passport Authority</span>
-                        <input type="text" name="txtPassAuthor" class="form-control"  placeholder="Example: DIP/DHAKA" aria-label="Username" aria-describedby="basic-addon5" >
-                    </div>
-                    <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon5">Personal No (NID)</span>
                         <input type="text" name="txtPersonalNum" class="form-control"  placeholder="Personal No" aria-label="Username" aria-describedby="basic-addon5" >
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon5">Please of Birth</span>
-                        <input type="text" name="txtPleaseOfBirth" class="form-control"  placeholder="Please of Birth" aria-label="Username" aria-describedby="basic-addon5" >
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon5">Passport Issue Date Start</span>
@@ -92,39 +77,13 @@
                     <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon5">Passport Issue Date End</span>
                         <input type="date" name="dtpPIssueDateE" class="form-control"   aria-label="Username" aria-describedby="basic-addon5" >
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon5">Remark (Optional)</span>
-                        <input type="text" name="txtRemark" class="form-control" placeholder="Remark's" aria-label="Username" aria-describedby="basic-addon5" >
-                    </div>                     
+                    </div>       
                 </div>
-                <div class="span_1_of_2">
-                    <label for="">Family Info</label><hr>                    
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon5">Father's Name</span>
-                        <input type="text" name="txtFatherName" class="form-control"  placeholder="Father's Name" aria-label="Username" aria-describedby="basic-addon5" >
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon5">Mother's Name</span>
-                        <input type="text" name="txtMotherName" class="form-control"  placeholder="Mother's Name" aria-label="Username" aria-describedby="basic-addon5" >
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon8">Spouse's Name</span>
-                        <input type="text" name="txtSpouse" class="form-control" placeholder="Spouse Name" aria-label="Username" aria-describedby="basic-addon8">
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon8">Spouse's Date of Birth</span>
-                        <input type="date" name="txtS_DOB" class="form-control" aria-label="Username" aria-describedby="basic-addon8">
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon5">Spouse's Address</span>
-                        <input type="text" name="txtSAddress" class="form-control"  placeholder="Spouse's Address" aria-label="Username" aria-describedby="basic-addon5" >
-                    </div><br>
+                <div class="span_1_of_2">          
                     <label for="">Emergency contact</label><hr>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon8">Full Name</span>
                         <input type="text" name="txtEName" class="form-control" placeholder="Emergency Full Name" aria-label="Username" aria-describedby="basic-addon8">
-                        
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon8">Emergency Relation</span>
@@ -162,37 +121,12 @@
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon5">Advance</span>
                         <input type="number" name="txtAdvance" class="form-control"  placeholder="Advance" aria-label="Username" aria-describedby="basic-addon5" >
-                    </div>   
-                    <div>
-                        <input type="radio" name="txtPMethod" value="1" onclick="show1();" id="cash" checked/>
-                        <label for="cash">Cash</label><br>
-                        <input type="radio" name="txtPMethod" value="2" onclick="show2();" id="Bank"/>
-                        <label for="Bank">Bank Transfer </label><br>
-
-                        <div class="hide" id="div1"><br>
-                            <div class="input-group mb-3 " >
-                                <input  type="text" name="txtPMBName" class="form-control"  placeholder="Bank Name" aria-label="Username" aria-describedby="basic-addon5" >
-                                <input  type="text" name="txtPMBAccount" class="form-control"  placeholder="Account Number" aria-label="Username" aria-describedby="basic-addon5" >
-                            </div>  
-                        </div>
-                    </div>                    
-                    <br>
+                    </div>
                     <label for="">Country Details</label><hr>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon5">Destination Country</span>
                         <input type="text" name="txtDestinationCountry" class="form-control" placeholder="Destination Country" aria-label="Username" aria-describedby="basic-addon5" >
                     </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon5">Visa Duration time</span>
-                        <input type="text" name="txtVisaDuration" class="form-control" placeholder="Example: 3 or 6 month" aria-label="Username" aria-describedby="basic-addon5" >
-                    </div>
-                </div>
-                <br> <br>
-                <div class="form-check mb-3">
-                    <input class="form-check-input" name="txtcondition" type="checkbox" value="1" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                        <p class="lead">I accept all trams and condition and enforceability of terms and conditions is especially crucial for software as a service (SaaS) companies because they routinely collect detailed personal information from users. A terms and conditions agreement must set out the rules and regulations as to how a user can use the application without abusing it.</p>
-                        </label>
                 </div>                
             </div>
             <button class="btn btn-success text-light mb-3" role="button" name="btnSubmit">Submite</button>
@@ -207,7 +141,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="btn-group item-center">
-                    <button href="#add-new-agency-section" class="btn btn-info text-light" data-bs-toggle="collapse">Add new client</button>
+                    <button href="#add-new-agency-section" class="btn btn-info text-light" data-bs-toggle="collapse">Add</button>
                     <a href="dashboard"><button type="submit" class="btn btn-warning">Back</button></a>
                 </div>
             </div>
@@ -244,7 +178,7 @@
                                     <td><?php echo $row['pleaseOfBirth'];?></td>
                                     <td><?php echo $row['phone'] ?></td>
                                     <td class="text-center"><?php echo $row['passportNumber'] ?></td>
-                                    <td class="text-center"><a href="attachPicture.php?userid=<?php echo $uid; ?>"><button class="btn btn-outline-info btn-sm">Attach</button></a></td>                                    
+                                    <td class="text-center"><a href="attachPicture.php?userid=<?php echo $uid; ?>"><button class="btn btn-outline-info btn-sm">Edit</button></a></td>                                    
                                     <td class="text-center"><a href="ViewClient.php?userid=<?php echo $uid; ?>"><button class="btn btn-outline-warning btn-sm">View</button></a></td>                                    
                                 </tr>
                         <?php  $sl++;  }

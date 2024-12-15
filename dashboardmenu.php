@@ -53,7 +53,7 @@
                   Setting
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown2">
-                    <li><a class="dropdown-item  text-dark" href="addNewClient">Add New Client</a></li>
+                    <li><a class="dropdown-item  text-dark" href="addClinet.php">Add Client</a></li>
                     <li><a class="dropdown-item  text-dark" href="#">Client Edit</a></li>
                     <li><a class="dropdown-item  text-dark" href="addAgency">Add New Agency</a></li>
                     <li><a class="dropdown-item  text-dark" href="AgencyActivation">Agency Activation</a></li>

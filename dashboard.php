@@ -24,10 +24,10 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="btn-group item-center">
-                    <a href="addNewClient.php"><button class="btn btn-info text-light">Add new client</button></a>
+                    <a href="addClinet.php"><button class="btn btn-info text-light">Add client</button></a>
                     <a href="countryCost.php"><button class="btn btn-success text-light">Country Details</button></a>
                     <a href="account.php"><button class="btn btn-primary text-light">Account</button></a>
-                    <a href="createAccount.php"><button class="btn btn-danger text-light">Staff</button></a>
+                    <a href="createAccount.php"><button class="btn btn-danger text-light">Employee</button></a>
                     <a href="dashboard"><button type="submit" class="btn btn-warning">Back</button></a>
                 </div>
             </div>
