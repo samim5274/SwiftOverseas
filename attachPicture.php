@@ -454,6 +454,9 @@ if(isset($_POST['btnDelete']))
     <?php } ?>
 
     <input type="submit" name="btnDelete" value="Delete" onclick="window.confirm()" class="btn btn-outline-danger btn-center text-light"><br>
+
+    <input type="submit" name="" value="Delete" onclick="window.confirm()" class="btn btn-outline-danger btn-center text-light"><br>
+
 </form>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
