@@ -24,6 +24,28 @@ if(isset($_GET['btnSubmit']))
     $userPass = $_GET['password'];    
     $designation = $_GET['txtDesignation'];
 
+    
+    // $img_name = $_FILES['my_image']['name'];
+    // $tmp_name = $_FILES['my_image']['tmp_name'];
+
+    // $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
+
+    // $img_ex_lc = strtolower($img_ex);
+
+    // $allow_exs = array("jpg","JPG","jpeg","JPEG","PNG","png","WEBP","webp");
+
+    // if(in_array($img_ex_lc, $allow_exs))
+    // {
+    //     $img_new_name = uniqid("IMG-",true).'-'.$userName.'.'.$img_ex_lc;
+    //     $img_up_path = "img/staff/".$img_new_name;
+    //     move_uploaded_file($tmp_name, $img_up_path);
+    // }
+    // else
+    // {
+    //     $mess  = "Picture extention not allowed. Please try again!";
+    //     header("Location: ../createAccount.php?error=$mess");
+    // }    
+
     $sqlFindUserName = "SELECT * FROM tb_employee_details WHERE `username` = '$userName'";
     $sqlFindResult = mysqli_query($conn, $sqlFindUserName);
     $row = mysqli_fetch_array($sqlFindResult);

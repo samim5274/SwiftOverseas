@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 18, 2024 at 12:16 PM
+-- Generation Time: Dec 17, 2024 at 12:22 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -102,9 +102,7 @@ CREATE TABLE `tb_clientlist` (
 --
 
 INSERT INTO `tb_clientlist` (`id`, `fastname`, `lastname`, `phone`, `dob`, `genderid`, `address`, `email`, `passportNumber`, `countryCode`, `PassportAuthority`, `nid`, `pleaseOfBirth`, `passIssueDateStart`, `passIssueDateEnd`, `fatherName`, `motherName`, `spouseName`, `s_dob`, `s_address`, `emgName`, `emgRelation`, `emdAddress`, `referid`, `ContAmount`, `advance`, `payMathod`, `pmbName`, `pmbAccountNum`, `destination`, `visaDurationTime`, `pImg`, `PassImg`, `nidImg`, `SnidImg`, `condi`, `remark`, `emgPhone`) VALUES
-(25, 'Swift Overseas', 'Overseas', 1300360856, '2024-12-10', 1, 'H.M. Plaza, Plot# 34, (12th floor), Room No# 07, Road# 02, Sector# 03, Uttara C/A, Dhaka-1230, Bangladesh.', 'swiftoverseastravels@gmail.com', 'A03257269', 'BGD', 'DIP/DHAKA', '1514160652', 'DHAKA', '2024-12-01', '2024-12-15', 'Biswas', 'Rani Biswas', 's', '2024-12-02', 'H.M. Plaza, Plot# 34, (12th floor), Room No# 07, Road# 02, Sector# 03, Uttara C/A, Dhaka-1230, Bangladesh.', 'Swift Overseas', 'Father', 'H.M. Plaza, Plot# 34, (12th floor), Room No# 07, Road# 02, Sector# 03, Uttara C/A, Dhaka-1230, Bangladesh.', 9, '850000', '50000', 2, 'Dautch Bangla', 'DBBL505050', 'Serbia', '6 Month', 'IMG-67615e285578b8.02659236.png', 'IMG-67615e28557936.42118403.png', 'IMG-67615e28557957.22471383.png', 'IMG-67615e28557962.73686773.png', 1, 'N/A', 1300360856),
-(26, 'Sabbir', 'Hossain', 321654987, '2024-12-03', 1, 'H.M. Plaza, Plot# 34, (12th floor), Room No# 07, Road# 02, Sector# 03, Uttara C/A, Dhaka-1230, Bangladesh.', NULL, 'A03257269', NULL, NULL, '1514160652', 'DHAKA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Amzad Ali', 'Father', 'H.M. Plaza, Plot# 34, (12th floor), Room No# 07, Road# 02, Sector# 03, Uttara C/A, Dhaka-1230, Bangladesh.', 10, '10', '10', NULL, NULL, NULL, 'Bangladesh', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1300360856),
-(27, 'Ashfun', 'Nahar Mimi', 321654987, '2000-12-12', 2, 'H.M. Plaza, Plot# 34, (12th floor), Room No# 07, Road# 02, Sector# 03, Uttara C/A, Dhaka-1230, Bangladesh.', NULL, 'A03257269', NULL, NULL, '1514160652', 'DHAKA', '2024-12-01', '2024-12-18', NULL, NULL, NULL, NULL, NULL, 'Amzad Ali', 'Father', 'H.M. Plaza, Plot# 34, (12th floor), Room No# 07, Road# 02, Sector# 03, Uttara C/A, Dhaka-1230, Bangladesh.', 10, '50', '10', NULL, NULL, NULL, 'Bangladesh', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1300360856);
+(25, 'Swift Overseas', 'Overseas', 1300360856, '2024-12-10', 1, 'H.M. Plaza, Plot# 34, (12th floor), Room No# 07, Road# 02, Sector# 03, Uttara C/A, Dhaka-1230, Bangladesh.', 'swiftoverseastravels@gmail.com', 'A03257269', 'BGD', 'DIP/DHAKA', '1514160652', 'DHAKA', '2024-12-01', '2024-12-15', 'Biswas', 'Rani Biswas', 's', '2024-12-02', 'H.M. Plaza, Plot# 34, (12th floor), Room No# 07, Road# 02, Sector# 03, Uttara C/A, Dhaka-1230, Bangladesh.', 'Swift Overseas', 'Father', 'H.M. Plaza, Plot# 34, (12th floor), Room No# 07, Road# 02, Sector# 03, Uttara C/A, Dhaka-1230, Bangladesh.', 9, '850000', '50000', 2, 'Dautch Bangla', 'DBBL505050', 'Serbia', '6 Month', 'IMG-67615e285578b8.02659236.png', 'IMG-67615e28557936.42118403.png', 'IMG-67615e28557957.22471383.png', 'IMG-67615e28557962.73686773.png', 1, 'N/A', 1300360856);
 
 -- --------------------------------------------------------
 
@@ -303,7 +301,7 @@ ALTER TABLE `tb_agency_info`
 -- AUTO_INCREMENT for table `tb_clientlist`
 --
 ALTER TABLE `tb_clientlist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `tb_countrydetails`
