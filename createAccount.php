@@ -121,7 +121,15 @@ include 'controller/session.php';
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon5">Remark (Optional)</span>
                         <input type="text" name="txtRemark" class="form-control" placeholder="Remark's" aria-label="Username" aria-describedby="basic-addon5" >
+
                     </div>                
+
+                    </div><hr>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon5">Image</span>
+                        <input type="file" name="my_image" class="form-control" aria-label="Username" aria-describedby="basic-addon5" >
+                    </div>
+                    <br>                   
                 </div>
                 <br>    <hr>   
                 <div class="input-group mb-3">
