@@ -1,3 +1,7 @@
+<?php
+include 'controller/dbconfig.php';
+include 'controller/session.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +19,6 @@
 <body>
 
 <?php 
-    include 'controller/dbconfig.php';
     include 'dashboardmenu.php'; 
 ?>
 <section id="top-section"> </section>

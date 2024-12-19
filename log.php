@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-
+<?php if(isset($_GET['error'])){ ?> <p class="error"><?php echo $_GET['error']; ?></p> <?php } ?>
 <section id="login-section">
         <div class="container">
             <div class="row">
@@ -21,8 +21,7 @@
                         <img src="img/logo.png" alt="Logo not found...">
                     </div>
                     <div class="text-center mt-4 name">
-                        -SWIFT Overseas Tours & Travels.
-                        <?php if(isset($_GET['error'])){ ?> <p class="error"><?php echo $_GET['error']; ?></p> <?php } ?>
+                        -SWIFT Overseas Tours & Travels.                        
                         </div>
                             <form action="controller/loginBK" method="POST" class="p-3 mt-3">
                                 <div class="form-field d-flex align-items-center">

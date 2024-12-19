@@ -1,3 +1,7 @@
+<?php
+include 'controller/dbconfig.php';
+include 'controller/session.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

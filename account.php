@@ -1,3 +1,7 @@
+<?php 
+    include 'controller/dbconfig.php';
+    include 'controller/session.php';
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,29 +19,32 @@
 <body>
 
 <?php 
-    
     include 'dashboardmenu.php'; 
     $toDate = date("Y/m/d");
+
+    $userId = "".$_SESSION['id'];
+    $userName = "".$_SESSION['username'];
+
 ?>
 <section id="top-section"> </section>
 
 <?php if(isset($_GET['success'])) {?>
 <h2 class="success text-center"><?php echo $_GET['success']; ?></h2> 
-<?php } if(isset($_GET['error'])) {?> <h2 class="error text-center"><?php echo $_GET['error']; ?></h2> <?php }
-?>
+<?php } if(isset($_GET['error'])) {?> <h2 class="error text-center"><?php echo $_GET['error']; ?></h2> <?php } ?>
 <br>
 
+<!--====================================== send money section====================================================== -->
 
 <section id="daily-expenseas" class="daily-expenseas">
     <div class="container">
         <div class="row">
             <h3 class="text-center display-4 mb-4">Daily Expenses</h3>            
             <div class="span_1_of_2">
-                <form action="controller/account.php?userid=<?php echo $userId; ?>" method="GET" enctype="multipart/form-data">
+                <form action="controller/account.php" method="GET" enctype="multipart/form-data">
                     <select name="cbxEmployee" class="form-control" id="designation">                        
                         <option selected disabled>Select Receiver Name</option>  
                         <?php 
-                            $sqlData = "SELECT * FROM `tb_employee_details`";
+                            $sqlData = "SELECT * FROM `tb_employee_details` ";
                             $sqlResult = mysqli_query($conn, $sqlData);
                             while($row = mysqli_fetch_array($sqlResult)){
                         ?>                      
@@ -46,29 +53,32 @@
                     </select>
                     <div class="form-group">
                         <label for="ammount">Enter Total Amount *</label>
-                        <input type="number" name="txtAmount" class="form-control" id="ammount" placeholder="Enter your amount">
+                        <input type="number" name="txtAmount" required class="form-control" id="ammount" placeholder="Enter your amount">
                     </div>
                     <div class="form-group">
                         <label for="Remark">Purpose</label>
                         <textarea class="form-control" name="txtPurpose" id="Remark" rows="3" placeholder="Enter your Remark"></textarea>
                     </div>
                     <div class="text-center">
-                    <button name="btnSend" type="submit" class="button-30 mt-3 btnSubmit">Send</button>                    
+                        <button name="btnSend" type="submit" class="button-30 mt-3 btnSubmit">Send</button>                    
                     </div>
                 </form>
+
                 <div class="text-center">
-                    <button name="btnOther" type="submit" class="button-30 mt-3">More</button>
+                    <a href="#"><button name="btnOther" type="submit" class="button-30 mt-3">More</button></a>
                     <a href="dashboard.php"><button name="btnOther" type="submit" class="button-30 mt-3">Back</button></a>
                 </div>
+
             </div>
+
             <div class="span_1_of_2 overflow-auto">
-                <table class="table table-bordered table-dark text-center">
+                <table class="table table-bordered text-light text-center">
                     <thead>
                         <tr>
                         <th scope="col">SL</th>
                         <th scope="col">Date</th>
                         <th scope="col">Reciver</th>
-                        <th scope="col">Ammount</th>
+                        <th scope="col">Amount</th>
                         </tr>
                     </thead>
                     <tbody><?php
@@ -80,13 +90,20 @@
                         <tr>
                             <th scope="row"><?php echo $i; ?></th>
                             <td><?php echo $row['date']; ?></td>
-                            <td><?php echo $row['REId']; ?></td>
-                            <td><?php echo $row['Amount']; ?></td>                            
-                        </tr>
+                            <?php 
+                                $recId = $row['receiverId']; 
+                                $sqlFindReceiver = "SELECT * FROM `tb_employee_details` WHERE id = '$recId'";
+                                $sqlFindReceiverResult = mysqli_query($conn, $sqlFindReceiver);
+                                while($rows = mysqli_fetch_array($sqlFindReceiverResult)){?>
+                                    <td><?php echo $rows['firstName'].' '.$rows['lastName']; ?></td>
+                            <?php    }
+                            ?>                            
+                            <td><?php echo $amount = $row['amount']; ?>/-</td>                          
+                        </tr>                        
                         <?php $i++; } ?>
                     </tbody>
-                </table>
-            </div>
+                </table>                
+            </div>            
         </div>
     </div>
 </section>
