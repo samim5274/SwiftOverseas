@@ -1,9 +1,13 @@
+<?php 
+session_start();
+session_destroy();
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Deegautex</title>
+    <title>Login - Swift Overseas</title>
     <link rel="icon" type="image/x-icon" href="img/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -11,7 +15,7 @@
     <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-
+<?php if(isset($_GET['error'])){ ?> <p class="error"><?php echo $_GET['error']; ?></p> <?php } ?>
 <section id="login-section">
         <div class="container">
             <div class="row">
@@ -21,8 +25,7 @@
                         <img src="img/logo.png" alt="Logo not found...">
                     </div>
                     <div class="text-center mt-4 name">
-                        -SWIFT Overseas Tours & Travels.
-                        <?php if(isset($_GET['error'])){ ?> <p class="error"><?php echo $_GET['error']; ?></p> <?php } ?>
+                        -SWIFT Overseas Tours & Travels.                        
                         </div>
                             <form action="controller/loginBK" method="POST" class="p-3 mt-3">
                                 <div class="form-field d-flex align-items-center">

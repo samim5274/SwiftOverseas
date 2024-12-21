@@ -1,6 +1,8 @@
 <?php
 
 include 'controller/dbconfig.php';
+include 'controller/session.php';
+
 $uid = $_GET['userid'];
 
 if(isset($_POST['btnEditStaff']))
