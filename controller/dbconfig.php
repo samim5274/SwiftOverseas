@@ -1,9 +1,19 @@
 <?php
 
 $server = "localhost";
-$username = "root";
-$pass = "";
-$database = "swdb";
+$username = "swiftove_samim";
+$pass = "mys$6)Yen_;u";
+$database = "swiftove_swdb";
+
+// $server = "localhost";
+// $username = "swiftove_samim";
+// $pass = "mys$6)Yen_;u";
+// $database = "swiftove_swdb";
+
+// $server = "localhost";
+// $username = "swiftove_samim";
+// $pass = "mys$6)Yen_;u";
+// $database = "swiftove_swdb";
 
 // $server = "localhost";
 // $username = "swiftove_samim";
