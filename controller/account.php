@@ -20,7 +20,7 @@ if(isset($_GET['btnSend']))
 
     $sqlData = "INSERT INTO `tb_moneysentandreceived`(`date`, `amount`, `senderId`, `receiverId`, `purpose`, `TransectionType`) VALUES ('$toDate','$txtAmount','$Sendid','$receivedId','$purpose','$transectionType')";
     $sqlResult = mysqli_query($conn, $sqlData);
-    $mess = "Money Transection Successfully.";
+    $mess = "Transection done Successfully.";
     header("Location: ../account.php?success=$mess");
 }
 

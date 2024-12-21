@@ -30,7 +30,10 @@
     $sqlData = "SELECT * FROM user_info WHERE username = '$uname' AND password = '$pass' ";
     $sqlResult = mysqli_query($conn, $sqlData);
 
-    if(mysqli_num_rows($sqlResult) == 1)
+
+    $count = mysqli_num_rows($sqlResult);
+
+    if( $count == 1)
     {
         $row = mysqli_fetch_assoc($sqlResult);
         $username = $row['username'];
@@ -47,7 +50,7 @@
             exit();
         }
 
-        if( $username === $uname && $password === $pass)
+        if( $username == $uname && $password == $pass)
         {
             if($row['status'] == $status)
             {
