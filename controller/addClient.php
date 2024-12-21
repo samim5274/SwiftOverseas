@@ -23,13 +23,20 @@ if(isset($_GET['btnSubmit']))
     $CAmount = $_GET['txtCAmount'];
     $advance = $_GET['txtAdvance'];
     $destination = $_GET['txtDestinationCountry'];
+
+    if(empty($phone) || empty($dob) || empty($genderid) || empty($address) || empty($pssNum) || empty($personalNid) || empty($pleaseBirth) || empty($passIDS) || empty($passIDE) || empty($Ename) || empty($Erelation) || empty($EPhone) || empty($EAddress) || empty($refer) || empty($CAmount) || empty($advance) || empty($destination))
+    {
+        $message="Some important information are missing or input field are empty. Please check and fill up the all required field. Thank you!";
+        header("Location: ../addClinet.php?error=$message");
+        exit();
+    }
     
-    $sqlData = "INSERT INTO `tb_clientlist`(`fastname`, `lastname`, `phone`, `dob`, `genderid`, `address`,`passportNumber`,`nid`,`pleaseOfBirth`,`emgName`, `emgRelation`, `emdAddress`, `referid`, `ContAmount`, `advance`,`destination`,`emgPhone`) VALUES ('$fname','$lname','$phone','$dob','$genderid','$address','$pssNum','$personalNid','$pleaseBirth','$Ename','$Erelation','$EAddress','$refer','$CAmount','$advance','$destination','$EPhone')";
+    $sqlData = "INSERT INTO `tb_clientlist`(`fastname`, `lastname`, `phone`, `dob`, `genderid`, `address`,`passportNumber`,`nid`,`pleaseOfBirth`, `passIssueDateStart`, `passIssueDateEnd`,`emgName`, `emgRelation`, `emdAddress`, `referid`, `ContAmount`, `advance`,`destination`,`emgPhone`) VALUES ('$fname','$lname','$phone','$dob','$genderid','$address','$pssNum','$personalNid','$pleaseBirth','$passIDS','$passIDE','$Ename','$Erelation','$EAddress','$refer','$CAmount','$advance','$destination','$EPhone')";
 
     $sqlResult = mysqli_query($conn, $sqlData);
 
     $message="New Client added successfully.";
-    header("Location: ../addNewClient.php?success=$message");
+    header("Location: ../addClinet.php?success=$message");
 
 }
 

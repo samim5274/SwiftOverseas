@@ -52,8 +52,9 @@
       $AgentCost = $_GET['txtB2BAgenctCost'];
       $clientAdvance = $_GET['txtClientAdvance'];
       $agentAdvacne = $_GET['txtB2BAgentAdvance'];
+      $remarks = $_GET['txtRemark'];
 
-      $sqlCountry = "INSERT INTO `tb_countrydetails`(`countryName`, `clientCost`, `clientAdvance`, `agentCost`, `agentAdvance`) VALUES ('$countryName','$clientCost','$clientAdvance','$AgentCost','$agentAdvacne')";
+      $sqlCountry = "INSERT INTO `tb_countrydetails`(`countryName`, `clientCost`, `clientAdvance`, `agentCost`, `agentAdvance`,`remark`) VALUES ('$countryName','$clientCost','$clientAdvance','$AgentCost','$agentAdvacne','$remarks')";
       $sqlCountryResult = mysqli_query($conn, $sqlCountry);
       $message="Country added successfully.";
       header("Location: ../countryCost.php?success=$message");
@@ -67,8 +68,9 @@
       $AgentCost = $_GET['txtAgentCost'];
       $clientAdvance = $_GET['txtClientAdvance'];
       $agentAdvacne = $_GET['txtAgentAdvance'];
+      $remarks = $_GET['txtRemak'];
 
-      $sqlUpdateData = "UPDATE `tb_countrydetails` SET `countryName`='$countryName',`clientCost`='$clientCost',`clientAdvance`='$clientAdvance',`agentCost`='$AgentCost',`agentAdvance`='$agentAdvacne' WHERE id = $id";
+      $sqlUpdateData = "UPDATE `tb_countrydetails` SET `countryName`='$countryName',`clientCost`='$clientCost',`clientAdvance`='$clientAdvance',`agentCost`='$AgentCost',`agentAdvance`='$agentAdvacne',`remark` = '$remarks' WHERE id = $id";
       $sqlUpdateResult = mysqli_query($conn, $sqlUpdateData);
       $message="Country data updated successfully.";
       header("Location: ../countryCost.php?success=$message");
