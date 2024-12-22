@@ -1,3 +1,7 @@
+<?php
+include 'controller/dbconfig.php';
+include 'controller/session.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +19,6 @@
 <body>
 
 <?php 
-    include 'controller/dbconfig.php';
     include 'dashboardmenu.php'; 
     if(isset($_GET['userid'])) 
     {
@@ -59,6 +62,8 @@
             <input type="number" name="txtClientAdvance" class="form-control" id="ca" value="<?php echo $row['clientAdvance']; ?>" placeholder="Clients Advance">
             <label for="aa">Agent Advance</label>
             <input type="number" name="txtAgentAdvance" class="form-control" id="aa" value="<?php echo $row['agentAdvance']; ?>" placeholder="Agent Advance">
+            <label for="rr">Details</label>
+            <textarea name="txtRemak" class="form-control" id="rr"  rows="3" placeholder="Details"><?php echo $row['remark']; ?></textarea>
             <br>
             <button type="submit" name="btnCountryCostEdit" class="btn btn-info">Edit</button>
         </form>

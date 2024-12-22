@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 22, 2024 at 11:26 AM
+-- Generation Time: Dec 21, 2024 at 12:45 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,72 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `swdb`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `ex_daily_expenses`
---
-
-CREATE TABLE `ex_daily_expenses` (
-  `id` int(11) NOT NULL,
-  `invoice` varchar(255) DEFAULT NULL,
-  `date` date DEFAULT NULL,
-  `group_id` int(11) DEFAULT NULL,
-  `sub_group_id` int(11) DEFAULT NULL,
-  `senderId` int(11) DEFAULT NULL,
-  `receiverId` int(11) DEFAULT NULL,
-  `purpose` varchar(255) DEFAULT NULL,
-  `amount` bigint(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `ex_group`
---
-
-CREATE TABLE `ex_group` (
-  `id` int(11) NOT NULL,
-  `group_name` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `ex_group`
---
-
-INSERT INTO `ex_group` (`id`, `group_name`) VALUES
-(1, 'Bazar'),
-(2, 'Entertainment'),
-(3, 'Bill'),
-(4, 'Education'),
-(5, 'Food'),
-(6, 'Fual & Gas'),
-(7, 'Gift');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `ex_sub_group`
---
-
-CREATE TABLE `ex_sub_group` (
-  `id` int(11) NOT NULL,
-  `group_id` int(11) DEFAULT NULL,
-  `sub_group_name` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `ex_sub_group`
---
-
-INSERT INTO `ex_sub_group` (`id`, `group_id`, `sub_group_name`) VALUES
-(1, 1, 'Rice'),
-(2, 2, 'Cricket'),
-(3, 3, 'Water Bill'),
-(4, 7, 'Salary Bonus'),
-(5, 6, 'Ricksha Vara'),
-(6, 5, 'Evening Food');
 
 -- --------------------------------------------------------
 
@@ -244,7 +178,7 @@ INSERT INTO `tb_employee_details` (`id`, `firstName`, `lastName`, `dob`, `gender
 (11, 'Sabbir', 'Hossain', '2024-12-02', 1, 'H.M. Plaza, Plot# 34, (12th floor), Room No# 07, Road# 02, Sector# 03, Uttara C/A, Dhaka-1230, Bangladesh.', 1300360856, 'Amzad Ali', 'Monira Begum', 'swiftoverseadstravels@gmail.com', 321654987, 'Amzad Ali', 1300360856, 'Father', 'H.M. Plaza, Plot# 34, (12th floor), Room No# 07, Road# 02, Sector# 03, Uttara C/A, Dhaka-1230, Bangladesh.', '2024-12-10', 'sabbir2', 's', 0, 0, 'N/A', '', 'Office Staff'),
 (12, 'Mimi ', 'Akter', '2000-01-01', 2, 'H.M. Plaza, Plot# 34, (12th floor), Room No# 07, Road# 02, Sector# 03, Uttara C/A, Dhaka-1230, Bangladesh.', 321654987, 'Amzad Ali', 'Monira Begum', 'swiftovesdfsrseastravels@gmail.com', 321654987, 'Amzad Ali', 1300360856, 'Father', 'H.M. Plaza, Plot# 34, (12th floor), Room No# 07, Road# 02, Sector# 03, Uttara C/A, Dhaka-1230, Bangladesh.', '2000-01-01', 'mimi', 'm', 0, 0, '[value-21]', 'IMG-675dd876460bf6.57269122-Mimi .jpg', 'Office Staff'),
 (13, 'Arohi', 'Akter', '2000-01-01', 2, 'HM Plaza, Lift-12, Room no-07, Uttara-03, Dhaka-1230', 1300361185, 'Amzad Ali', 'Monira Begum', 'swiftoverseastravelsas@gmail.com', 54784555, 'Amzad Ali', 570115165, 'Father', 'HM Plaza, Lift-12, Room no-07, Uttara-03, Dhaka-1230', '2024-12-11', 'samim23423', 'arohi', 0, 0, '[value-21]', 'IMG-675dd70e561aa6.46746458-Arohi.jpg', 'Executive'),
-(14, 'Ema', 'Akter', '2000-01-01', 2, 'HM Plaza, Lift-12, Room no-07, Uttara-03, Dhaka-1230', 1300361185, 'Amzad Ali', 'Monira Begum', 'swiftoverseastravelsds@gmail.com', 56892347, 'Amzad Ali', 321654987, 'Father', 'HM Plaza, Lift-12, Room no-07, Uttara-03, Dhaka-1230', '2024-12-02', 'ema', 'e', 1, 0, '[value-21]', 'IMG-675dd67f2c8124.96330931-Ema.jpg', 'Executive');
+(14, 'Ema', 'Akter', '2000-01-01', 2, 'HM Plaza, Lift-12, Room no-07, Uttara-03, Dhaka-1230', 1300361185, 'Amzad Ali', 'Monira Begum', 'swiftoverseastravelsds@gmail.com', 56892347, 'Amzad Ali', 321654987, 'Father', 'HM Plaza, Lift-12, Room no-07, Uttara-03, Dhaka-1230', '2024-12-02', 'samim43', 'ema', 0, 0, '[value-21]', 'IMG-675dd67f2c8124.96330931-Ema.jpg', 'Executive');
 
 -- --------------------------------------------------------
 
@@ -279,7 +213,7 @@ INSERT INTO `tb_img` (`id`, `img`) VALUES
 CREATE TABLE `tb_moneysentandreceived` (
   `id` int(11) NOT NULL,
   `date` date DEFAULT NULL,
-  `amount` bigint(255) DEFAULT NULL,
+  `amount` varchar(255) DEFAULT NULL,
   `senderId` int(11) DEFAULT NULL,
   `receiverId` int(11) DEFAULT NULL,
   `purpose` varchar(255) DEFAULT NULL,
@@ -291,21 +225,8 @@ CREATE TABLE `tb_moneysentandreceived` (
 --
 
 INSERT INTO `tb_moneysentandreceived` (`id`, `date`, `amount`, `senderId`, `receiverId`, `purpose`, `TransectionType`) VALUES
-(22, '2024-12-21', 10000, 8, 8, 'N/A', 3),
-(70, '2024-12-22', 1000, 8, 9, 'N/A', 1),
-(71, '2024-12-22', 1000, 9, 9, 'N/A', 2),
-(72, '2024-12-22', 1000, 8, 10, 'N/A', 1),
-(73, '2024-12-22', 1000, 10, 10, 'N/A', 2),
-(74, '2024-12-22', 1000, 8, 12, 'N/A', 1),
-(75, '2024-12-22', 1000, 12, 12, 'N/A', 2),
-(76, '2024-12-22', 1000, 8, 13, 'N/A', 1),
-(77, '2024-12-22', 1000, 13, 13, 'N/A', 2),
-(78, '2024-12-22', 1000, 8, 14, 'N/A', 1),
-(79, '2024-12-22', 1000, 14, 14, 'N/A', 2),
-(80, '2024-12-22', 500, 14, 8, 'N/A', 1),
-(81, '2024-12-22', 500, 8, 8, 'N/A', 2),
-(82, '2024-12-22', 500, 9, 8, 'N/A', 1),
-(83, '2024-12-22', 500, 8, 8, 'N/A', 2);
+(22, '2024-12-21', '100', 8, 8, 'N/A', 3),
+(23, '2024-12-21', '10', 8, 14, 'N/A', 2);
 
 -- --------------------------------------------------------
 
@@ -333,28 +254,6 @@ INSERT INTO `user_info` (`id`, `LastName`, `FirstName`, `username`, `password`, 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `ex_daily_expenses`
---
-ALTER TABLE `ex_daily_expenses`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `sub_group_id` (`sub_group_id`),
-  ADD KEY `group_id` (`group_id`),
-  ADD KEY `receiverId` (`receiverId`);
-
---
--- Indexes for table `ex_group`
---
-ALTER TABLE `ex_group`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `ex_sub_group`
---
-ALTER TABLE `ex_sub_group`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `group_id` (`group_id`);
 
 --
 -- Indexes for table `tb_agency_info`
@@ -405,24 +304,6 @@ ALTER TABLE `user_info`
 --
 
 --
--- AUTO_INCREMENT for table `ex_daily_expenses`
---
-ALTER TABLE `ex_daily_expenses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `ex_group`
---
-ALTER TABLE `ex_group`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `ex_sub_group`
---
-ALTER TABLE `ex_sub_group`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
 -- AUTO_INCREMENT for table `tb_agency_info`
 --
 ALTER TABLE `tb_agency_info`
@@ -456,7 +337,7 @@ ALTER TABLE `tb_img`
 -- AUTO_INCREMENT for table `tb_moneysentandreceived`
 --
 ALTER TABLE `tb_moneysentandreceived`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `user_info`
@@ -467,20 +348,6 @@ ALTER TABLE `user_info`
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `ex_daily_expenses`
---
-ALTER TABLE `ex_daily_expenses`
-  ADD CONSTRAINT `ex_daily_expenses_ibfk_1` FOREIGN KEY (`sub_group_id`) REFERENCES `ex_sub_group` (`id`),
-  ADD CONSTRAINT `ex_daily_expenses_ibfk_2` FOREIGN KEY (`group_id`) REFERENCES `ex_group` (`id`),
-  ADD CONSTRAINT `ex_daily_expenses_ibfk_3` FOREIGN KEY (`receiverId`) REFERENCES `tb_employee_details` (`id`);
-
---
--- Constraints for table `ex_sub_group`
---
-ALTER TABLE `ex_sub_group`
-  ADD CONSTRAINT `ex_sub_group_ibfk_1` FOREIGN KEY (`group_id`) REFERENCES `ex_group` (`id`);
 
 --
 -- Constraints for table `tb_clientlist`

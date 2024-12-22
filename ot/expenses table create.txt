@@ -1,0 +1,26 @@
+CREATE TABLE `tb_group` (
+  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `group_name` varchar(255)  NULL
+) 
+
+CREATE TABLE `tb_sub_group` (
+  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `group_id` int  NULL,
+  `sub_group_name` varchar(255)  NULL,
+    FOREIGN KEY (group_id) REFERENCES ex_group(id)
+) 
+
+CREATE TABLE `ex_daily_expenses` (
+  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    `invoice` varchar(255),
+  `date` date  NULL,
+  `group_id` int(11)  NULL,
+  `sub_group_id` int(11)  NULL,
+  `senderId` int(11)  NULL,
+  `receiverId` int(11)  NULL,
+  `purpose` varchar(255)  NULL,
+  `amount` bigint(255)  NULL,
+    FOREIGN KEY (sub_group_id) REFERENCES ex_sub_group(id),
+    FOREIGN KEY (group_id) REFERENCES ex_group(id),
+    FOREIGN KEY (receiverId) REFERENCES tb_employee_details(id)
+) 

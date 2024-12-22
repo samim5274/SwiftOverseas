@@ -1,3 +1,7 @@
+<?php
+include 'controller/dbconfig.php';
+include 'controller/session.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +19,6 @@
 <body>
 
 <?php 
-    include 'controller/dbconfig.php';
     include 'dashboardmenu.php'; 
 ?>
 <section id="top-section"> </section>
@@ -68,6 +71,11 @@
                             <label for="AgentCost" class="placeholder">B2B Agent Advance</>
                         </div>
                     </div>
+                    <div class="input-container ic2">
+                        <textarea class="input" name="txtRemark" required id="reamrk" rows="3" placeholder=" "></textarea>
+                        <div class="cut cut-short"></div>
+                        <label for="reamrk" class="placeholder">Details</>
+                    </div>
                 </div>            
                 <button type="text" name="btnAddCountryCost" class="submit">submit</button>
             </div>
@@ -100,6 +108,7 @@
                         <th scope="col" >Client Advance</th>
                         <th scope="col" >B2B Agent Cost</th>
                         <th scope="col" >B2B Agent Advance</th>
+                        <th scope="col" >Details</th>
                         <th scope="col" colspan="2">Action</th>
                         </tr>
                     </thead>
@@ -114,9 +123,10 @@
                             <th scope="row"  class="text-center"><?php echo $sl; $cid = $row['id']; ?></th>
                             <td><?php echo $row['countryName']; ?></td>
                             <td class="text-center"><?php echo $row['clientCost']; ?>/-</td>
-                            <td class="text-center"><?php echo $row['clientAdvance'] ?>/-</td>
-                            <td class="text-center"><?php echo $row['agentCost'] ?>/-</td>
-                            <td class="text-center"><?php echo $row['agentAdvance'] ?>/-</td>
+                            <td class="text-center"><?php echo $row['clientAdvance']; ?>/-</td>
+                            <td class="text-center"><?php echo $row['agentCost']; ?>/-</td>
+                            <td class="text-center"><?php echo $row['agentAdvance']; ?>/-</td>
+                            <td class="text-center"><?php echo $row['remark']; ?></td>
                             <td class="text-center"><a href="countryCostEdit.php?userid=<?php echo $cid; ?>" >Edit</a></td>
                             <td class="text-center"><a href="#">Delete</a></td>
                         </tr>
