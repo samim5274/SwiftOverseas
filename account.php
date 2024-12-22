@@ -25,21 +25,6 @@
     $userId = "".$_SESSION['id'];
     $userName = "".$_SESSION['username'];
 
-    $sqlSendAmount = "SELECT SUM(amount) FROM `tb_moneysentandreceived` WHERE senderId = '$userId' AND TransectionType = 1";
-    $sqlSendAmountResult = mysqli_query($conn, $sqlSendAmount);
-
-    $sqlReceived = "SELECT SUM(amount) FROM `tb_moneysentandreceived` WHERE senderId = '$userId' AND TransectionType = 2";
-    $sqlReceivedResult = mysqli_query($conn, $sqlReceived);
-
-    $sqlDiposit = "SELECT SUM(amount) FROM `tb_moneysentandreceived` WHERE senderId = '$userId' AND TransectionType = 3";
-    $sqlDipositResult = mysqli_query($conn, $sqlDiposit);
-
-    $send = mysqli_fetch_array($sqlSendAmountResult);
-    $receive = mysqli_fetch_array($sqlReceivedResult);
-    $diposit = mysqli_fetch_array($sqlDipositResult);
-
-    $totalbalence = ($receive['SUM(amount)'] + $diposit['SUM(amount)']) - $send['SUM(amount)'];
-
 ?>
 <section id="top-section"> </section>
 
@@ -54,8 +39,7 @@
 <section id="daily-expenseas" class="daily-expenseas">
     <div class="container">
         <div class="row">
-            <h3 class="text-center display-4 mb-4">Daily Expenses</h3>
-            <p class="lead">Account Balence: <?php echo $totalbalence."/-"; ?></p>            
+            <h3 class="text-center display-4 mb-4">Daily Expenses</h3>            
             <div class="span_1_of_2">
                 <form action="controller/account.php" method="GET" enctype="multipart/form-data">
                     <select name="cbxEmployee" class="form-control" id="designation">                        
@@ -96,12 +80,12 @@
                         <th scope="col">Date</th>
                         <th scope="col">Reciver</th>
                         <th scope="col">Amount</th>
-                        <th scope="col">Type</th>
                         </tr>
                     </thead>
                     <tbody><?php
                                 $i=1;
-                                $sqlDatam = "SELECT * FROM `tb_moneysentandreceived` WHERE date = '$toDate' AND senderId = '$userId' ";
+                                // $sqlDatam = "SELECT * FROM `tb_moneysentandreceived` WHERE `TransectionType` = 3 AND date = '$toDate'";
+                                $sqlDatam = "SELECT * FROM `tb_moneysentandreceived` WHERE date = '$toDate'";
                                 $sqlMResult = mysqli_query($conn, $sqlDatam);
                                 while($row = mysqli_fetch_array($sqlMResult)){
                             ?>
@@ -116,27 +100,7 @@
                                     <td><?php echo $rows['firstName'].' '.$rows['lastName']; ?></td>
                             <?php    }
                             ?>                            
-                            <td><?php echo $amount = $row['amount']; ?>/-</td> 
-                            <?php 
-                                $type = $row['TransectionType']; 
-                                if($type == 1)
-                                {?>
-                                    <td><?php echo "Debit" ?></td>
-                            <?php    } 
-                                elseif($type == 2)
-                                {?>
-                                    <td><?php echo "Credit" ?></td>
-                            <?php    }
-                                elseif($type == 3)
-                                {?>
-                                    <td><?php echo "Diposit" ?></td>
-                            <?php    }
-                                else
-                                {?>
-                                    <td><?php echo "Not Aplicable" ?></td>
-                            <?php    }
-                            ?>                         
-                                                      
+                            <td><?php echo $amount = $row['amount']; ?>/-</td>                          
                         </tr>                        
                         <?php $i++; } ?>
                     </tbody>

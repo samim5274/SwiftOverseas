@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 22, 2024 at 09:11 AM
+-- Generation Time: Dec 21, 2024 at 12:45 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -178,7 +178,7 @@ INSERT INTO `tb_employee_details` (`id`, `firstName`, `lastName`, `dob`, `gender
 (11, 'Sabbir', 'Hossain', '2024-12-02', 1, 'H.M. Plaza, Plot# 34, (12th floor), Room No# 07, Road# 02, Sector# 03, Uttara C/A, Dhaka-1230, Bangladesh.', 1300360856, 'Amzad Ali', 'Monira Begum', 'swiftoverseadstravels@gmail.com', 321654987, 'Amzad Ali', 1300360856, 'Father', 'H.M. Plaza, Plot# 34, (12th floor), Room No# 07, Road# 02, Sector# 03, Uttara C/A, Dhaka-1230, Bangladesh.', '2024-12-10', 'sabbir2', 's', 0, 0, 'N/A', '', 'Office Staff'),
 (12, 'Mimi ', 'Akter', '2000-01-01', 2, 'H.M. Plaza, Plot# 34, (12th floor), Room No# 07, Road# 02, Sector# 03, Uttara C/A, Dhaka-1230, Bangladesh.', 321654987, 'Amzad Ali', 'Monira Begum', 'swiftovesdfsrseastravels@gmail.com', 321654987, 'Amzad Ali', 1300360856, 'Father', 'H.M. Plaza, Plot# 34, (12th floor), Room No# 07, Road# 02, Sector# 03, Uttara C/A, Dhaka-1230, Bangladesh.', '2000-01-01', 'mimi', 'm', 0, 0, '[value-21]', 'IMG-675dd876460bf6.57269122-Mimi .jpg', 'Office Staff'),
 (13, 'Arohi', 'Akter', '2000-01-01', 2, 'HM Plaza, Lift-12, Room no-07, Uttara-03, Dhaka-1230', 1300361185, 'Amzad Ali', 'Monira Begum', 'swiftoverseastravelsas@gmail.com', 54784555, 'Amzad Ali', 570115165, 'Father', 'HM Plaza, Lift-12, Room no-07, Uttara-03, Dhaka-1230', '2024-12-11', 'samim23423', 'arohi', 0, 0, '[value-21]', 'IMG-675dd70e561aa6.46746458-Arohi.jpg', 'Executive'),
-(14, 'Ema', 'Akter', '2000-01-01', 2, 'HM Plaza, Lift-12, Room no-07, Uttara-03, Dhaka-1230', 1300361185, 'Amzad Ali', 'Monira Begum', 'swiftoverseastravelsds@gmail.com', 56892347, 'Amzad Ali', 321654987, 'Father', 'HM Plaza, Lift-12, Room no-07, Uttara-03, Dhaka-1230', '2024-12-02', 'ema', 'e', 1, 0, '[value-21]', 'IMG-675dd67f2c8124.96330931-Ema.jpg', 'Executive');
+(14, 'Ema', 'Akter', '2000-01-01', 2, 'HM Plaza, Lift-12, Room no-07, Uttara-03, Dhaka-1230', 1300361185, 'Amzad Ali', 'Monira Begum', 'swiftoverseastravelsds@gmail.com', 56892347, 'Amzad Ali', 321654987, 'Father', 'HM Plaza, Lift-12, Room no-07, Uttara-03, Dhaka-1230', '2024-12-02', 'samim43', 'ema', 0, 0, '[value-21]', 'IMG-675dd67f2c8124.96330931-Ema.jpg', 'Executive');
 
 -- --------------------------------------------------------
 
@@ -213,7 +213,7 @@ INSERT INTO `tb_img` (`id`, `img`) VALUES
 CREATE TABLE `tb_moneysentandreceived` (
   `id` int(11) NOT NULL,
   `date` date DEFAULT NULL,
-  `amount` bigint(255) DEFAULT NULL,
+  `amount` varchar(255) DEFAULT NULL,
   `senderId` int(11) DEFAULT NULL,
   `receiverId` int(11) DEFAULT NULL,
   `purpose` varchar(255) DEFAULT NULL,
@@ -225,21 +225,8 @@ CREATE TABLE `tb_moneysentandreceived` (
 --
 
 INSERT INTO `tb_moneysentandreceived` (`id`, `date`, `amount`, `senderId`, `receiverId`, `purpose`, `TransectionType`) VALUES
-(22, '2024-12-21', 10000, 8, 8, 'N/A', 3),
-(70, '2024-12-22', 1000, 8, 9, 'N/A', 1),
-(71, '2024-12-22', 1000, 9, 9, 'N/A', 2),
-(72, '2024-12-22', 1000, 8, 10, 'N/A', 1),
-(73, '2024-12-22', 1000, 10, 10, 'N/A', 2),
-(74, '2024-12-22', 1000, 8, 12, 'N/A', 1),
-(75, '2024-12-22', 1000, 12, 12, 'N/A', 2),
-(76, '2024-12-22', 1000, 8, 13, 'N/A', 1),
-(77, '2024-12-22', 1000, 13, 13, 'N/A', 2),
-(78, '2024-12-22', 1000, 8, 14, 'N/A', 1),
-(79, '2024-12-22', 1000, 14, 14, 'N/A', 2),
-(80, '2024-12-22', 500, 14, 8, 'N/A', 1),
-(81, '2024-12-22', 500, 8, 8, 'N/A', 2),
-(82, '2024-12-22', 500, 9, 8, 'N/A', 1),
-(83, '2024-12-22', 500, 8, 8, 'N/A', 2);
+(22, '2024-12-21', '100', 8, 8, 'N/A', 3),
+(23, '2024-12-21', '10', 8, 14, 'N/A', 2);
 
 -- --------------------------------------------------------
 
@@ -350,7 +337,7 @@ ALTER TABLE `tb_img`
 -- AUTO_INCREMENT for table `tb_moneysentandreceived`
 --
 ALTER TABLE `tb_moneysentandreceived`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `user_info`
