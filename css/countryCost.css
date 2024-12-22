@@ -30,7 +30,7 @@ body{
     background-color: #002b3b;
     border-radius: 20px;
     box-sizing: border-box;
-    height: 500px;
+    height: 550px;
     padding: 10px;
     width: 100%;
   }
@@ -92,10 +92,12 @@ body{
     transition: transform 200ms;
     width: 100px;
   }
+
   .span_1_of_2 .cut
   {
     width: 120px;
   }
+
   .cut-short {
     width: 50px;
   }
@@ -171,7 +173,7 @@ tr td a:hover
         background-color: #002b3b;
         border-radius: 20px;
         box-sizing: border-box;
-        height: 650px;
+        height: 720px;
         padding: 20px;
         width: 100%;
       }
