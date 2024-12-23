@@ -43,9 +43,10 @@
                     Account & Cost
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
-                    <li><a class="dropdown-item  text-dark" href="account.php">Daily Office Expenses</a></li>
+                    <li><a class="dropdown-item  text-dark" href="account.php">Send Money</a></li>
+                    <li><a class="dropdown-item  text-dark" href="dailyExpenses.php">Daily Expenses</a></li>
                     <li><hr class="dropdown-divider"> </li>
-                    <li><a class="dropdown-item  text-dark" href="#">Fly this month</a></li>
+                    <li><a class="dropdown-item  text-dark" href="#">Statement</a></li>
                   </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -64,7 +65,7 @@
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link  text-dark" href="log">Log out</a>
+                  <a class="nav-link  text-dark" href="logout.php">Log out</a>
                 </li>
               </ul>
             </div>

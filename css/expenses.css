@@ -4,14 +4,14 @@
 }
 
 body{
-    background: #03506e;
-    color: #ffffff;
+    background: #f3f3f3;
+    color: #000000;
 }
 
 #top-section{
     width: 100%;
     height: 4rem;
-    background: #03506e;
+    background: #ffffff;
 }
 .success{
     background: rgba(84, 255, 62, 0.7);
@@ -74,10 +74,4 @@ body{
     color: #62faff;
     background: #03506e;
     box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#6cf8f1 0 -3px 0 inset;
-  }
-
-  .overflow-auto
-  {
-    height: 16rem;
-    overflow: auto;
   }
