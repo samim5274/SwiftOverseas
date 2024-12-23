@@ -26,7 +26,12 @@ include 'controller/session.php';
 
 <?php if(isset($_GET['success'])) {?>
 <h2 class="success text-center"><?php echo $_GET['success']; ?></h2> 
+
 <?php } if(isset($_GET['error'])) {?> <h2 class="error text-center"><?php echo $_GET['error']; ?></h2> <?php } ?>
+
+<?php } if(isset($_GET['error'])) {?> <h2 class="error text-center"><?php echo $_GET['error']; ?></h2> <?php }
+?>
+
 
 <section id="add-new-agency-section"  class="collapse text-light">
     <div class="container box inner-shadow" >
@@ -181,7 +186,11 @@ include 'controller/session.php';
                                     <td><?php echo $row['pleaseOfBirth'];?></td>
                                     <td><?php echo $row['phone'] ?></td>
                                     <td class="text-center"><?php echo $row['passportNumber'] ?></td>
+
                                     <td class="text-center"><a href="attachPicture.php?userid=<?php echo $uid; ?>"><button class="btn btn-outline-info btn-sm">Edit</button></a></td>                                    
+
+                                    <td class="text-center"><a href="attachPicture.php?userid=<?php echo $uid; ?>"><button class="btn btn-outline-info btn-sm">Attach</button></a></td>                                    
+
                                     <td class="text-center"><a href="ViewClient.php?userid=<?php echo $uid; ?>"><button class="btn btn-outline-warning btn-sm">View</button></a></td>                                    
                                 </tr>
                         <?php  $sl++;  }
