@@ -101,9 +101,11 @@
                     </thead>
                     <tbody><?php
                                 $i=1;
-                                $sqlDatam = "SELECT * FROM `ac_moneysentandreceived` WHERE date = '$toDate' AND sourceId = '$userId' ";
+                                $sqlDatam = "SELECT * FROM `ac_moneysentandreceived` WHERE date = '$toDate' AND sourceId = '$userId' OR destinationId = '$userId'";
                                 $sqlMResult = mysqli_query($conn, $sqlDatam);
                                 while($row = mysqli_fetch_array($sqlMResult)){
+                                    $type1 = $row['t_type_source'];
+                                    $type2 = $row['t_type_destination'];
                             ?>
                         <tr>
                             <th scope="row"><?php echo $i; ?></th>
@@ -117,14 +119,12 @@
                             <?php    }
                             ?>                            
                             <td><?php echo $amount = $row['amount']; ?>/-</td> 
-                            <?php 
-                                $type1 = $row['t_type_source']; 
-                                $type2 = $row['t_type_destination']; 
+                            <?php                                                                  
                                 if($type1 == 1)
                                 {?>
                                     <td><?php echo "Debit" ?></td>
                             <?php    } 
-                                elseif($type1 == 2)
+                                elseif($type2 == 2)
                                 {?>
                                     <td><?php echo "Credit" ?></td>
                             <?php    }
