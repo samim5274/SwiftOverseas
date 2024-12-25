@@ -19,6 +19,7 @@
 <body>
 
 <?php 
+
     include 'dashboardmenu.php'; 
     $toDate = date("Y/m/d");
 
@@ -101,54 +102,74 @@
                     </thead>
                     <tbody><?php
                                 $i=1;
-                                $sqlDatam = "SELECT * FROM `ac_moneysentandreceived` WHERE date = '$toDate' AND sourceId = '$userId' OR destinationId = '$userId'";
+                                $sqlDatam = "SELECT * FROM `ac_moneysentandreceived` WHERE date = '$toDate' AND sourceId = '$userId' OR destinationId = '$userId' ORDER BY id DESC";
                                 $sqlMResult = mysqli_query($conn, $sqlDatam);
                                 while($row = mysqli_fetch_array($sqlMResult)){
-                                    $type1 = $row['t_type_source'];
-                                    $type2 = $row['t_type_destination'];
+                                    $receive = $row['destinationId'];
                             ?>
                         <tr>
                             <th scope="row"><?php echo $i; ?></th>
                             <td><?php echo $row['date']; ?></td>
                             <?php 
-                                $recId = $row['destinationId']; 
-                                $sqlFindReceiver = "SELECT * FROM `tb_employee_details` WHERE id = '$recId'";
+                                $receive = $row['destinationId']; 
+                                $sendId = $row['sourceId']; 
+                                $sqlFindReceiver = "SELECT * FROM `tb_employee_details` WHERE id = '$receive'";
                                 $sqlFindReceiverResult = mysqli_query($conn, $sqlFindReceiver);
                                 while($rows = mysqli_fetch_array($sqlFindReceiverResult)){?>
                                     <td><?php echo $rows['firstName'].' '.$rows['lastName']; ?></td>
-                            <?php    }
-                            ?>                            
+                            <?php    }   ?>                            
                             <td><?php echo $amount = $row['amount']; ?>/-</td> 
-                            <?php                                                                  
-                                if($type1 == 1)
+                            
+                            <?php
+                                if($receive == $userId)
                                 {?>
-                                    <td><?php echo "Debit" ?></td>
-                            <?php    } 
-                                elseif($type2 == 2)
-                                {?>
-                                    <td><?php echo "Credit" ?></td>
-                            <?php    }
-                                elseif($type1 == 3)
-                                {?>
-                                    <td><?php echo "Diposit" ?></td>
-                            <?php    }
+                                    <td>Credit</td> 
+                                <?php }                                 
                                 else
                                 {?>
-                                    <td><?php echo "Not Aplicable" ?></td>
-                            <?php    }
-                            ?>                         
+                                    <td>Debit</td> 
+                                <?php }
+                            ?>                                         
                                                       
                         </tr>                        
                         <?php $i++; } ?>
                     </tbody>
-                </table>                
+                </table>                 
             </div>            
         </div>
     </div>
 </section>
 <br>
 <hr>
+<!-- 
+<?php
+    $toDate = date("Y/m/d");
 
+    $userId = "".$_SESSION['id'];
+    $userName = "".$_SESSION['username'];
+
+    $i=1;
+    $sqlDatam = "SELECT * FROM `ac_moneysentandreceived` WHERE date = '$toDate' AND sourceId = '$userId' OR destinationId = '$userId' ORDER BY id DESC";
+    $sqlMResult = mysqli_query($conn, $sqlDatam);
+
+    while($row = mysqli_fetch_array($sqlMResult))
+    { 
+        $receive = $row['destinationId'];
+
+        echo "Amount: ".$row['amount']."</br>";
+        echo "From: ".$row['sourceId']."</br>";
+        echo "To: ".$row['destinationId']."</br>";
+
+        if($receive == $userId)
+        {
+            echo "Credit Balence.</br></br>";
+        }
+        else
+        {
+            echo "Debit Balence.</br></br>";
+        }
+    }
+?>    -->
 
 
 
