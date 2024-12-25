@@ -44,10 +44,12 @@
 ?>
 <section id="top-section"> </section>
 
+<div class="custom-alert" id="customAlert">
 <?php if(isset($_GET['success'])) {?>
 <h2 class="success text-center"><?php echo $_GET['success']; ?></h2> 
 <?php } if(isset($_GET['error'])) {?> <h2 class="error text-center"><?php echo $_GET['error']; ?></h2> <?php } 
       if(isset($_GET['warning'])) {?> <h2 class="warning text-center"><?php echo $_GET['warning']; ?></h2> <?php } ?>
+</div>
 <br>
 
 <!--====================================== send money section====================================================== -->
@@ -176,5 +178,15 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    window.onload = function() {
+      const alertBox = document.getElementById('customAlert');
+      alertBox.style.display = 'block';
+
+      setTimeout(() => {
+        alertBox.style.display = 'none';
+      }, 5000);
+    };
+  </script>
 </body>
 </html>
