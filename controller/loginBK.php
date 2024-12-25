@@ -1,76 +1,52 @@
 <?php
 
-    include 'dbconfig.php';
-    session_start();
+include 'dbconfig.php';
+session_start();
 
-    $uname = $_POST['txtName'];
-    $pass = $_POST['txtPass'];
+    $uName = $_POST['username'];
+    $Pass = $_POST['password'];
     $status = 1;
 
-
-    $mess1 = "Username or mail is empty. Please fill the username or mail and try again!";
-    $mess2 = "Your password is empty. Please fill the password and try again!";
-    $mess3 = "Username & Password invalid. Please try again!!";
-    $mess4 = "Login Successfully.";
-    $mess5 = "Your account can not be activated. Please contact with SWIFT Overseas authority. Thank you.";
-    $mess6 = "Username and password not found. Please fill the currect username and password and try again!";
-
-
-    if(empty($uname))
-    {
-        header("Location: ../log.php?error=".$mess1);
+    if(empty($uName)){
+        header("Location: log.php?error=User name or mail is empty. Please fill the username or mail and try again!");
         exit();
     }
-    elseif(empty($pass))
-    {
-        header("Location: ../log.php?error=".$mess2);
+    if(empty($Pass)){
+        header("Location: log.php?error=Your password is empty. Please fill the password and try again!");
         exit();
     }
 
-    $sqlData = "SELECT * FROM tb_employee_details WHERE username = '$uname' AND password = '$pass' ";
-    $sqlResult = mysqli_query($conn, $sqlData);
+    $sqlData = "SELECT * FROM tb_employeeinfo WHERE E_Username = '$uName' AND E_Password = '$Pass'";
 
-    if(mysqli_num_rows($sqlResult) == 1)
+    $sqlResult = mysqli_query($conn,$sqlData);
+
+    if(mysqli_num_rows($sqlResult) === 1)
     {
         $row = mysqli_fetch_assoc($sqlResult);
-        $username = $row['username'];
-        $password = $row['password'];
-
-        if(empty($username))
-        {            
-            header("Location: ../log.php?error=".$mess6);
-            exit();
-        }
-        elseif(empty($password))
+        if($row['E_Username'] === $uName && $row['E_Password'] === $Pass)
         {
-            header("Location: ../log.php?error=".$mess6);
-            exit();
-        }
-
-        if( $username === $uname && $password === $pass)
-        {
-            if($row['status'] == $status)
+            if($row['E_Status'] == $status)
             {
-                $_SESSION['username'] = $row['username'];
-                $_SESSION['id'] = $row['id'];                
-                header("Location: ../dashboard.php?success=".$mess4);
+                $_SESSION['E_Name'] = $row['E_Name'];
+                $_SESSION['Id'] = $row['Id'];
+                header("Location: index.php?error=Login successfully.");
                 exit();
             }
             else
             {
-                header("Location: ../log.php?error=".$mess5);
+                header("Location: log.php?error=You don't have login permission. Please contact with Deegautex managment authority!");
                 exit();
             }
         }
         else
         {
-            header("Location ../log.php?error=".$mess3);
+            header("Location: log.php?error=User name and password invalid. Please try again!");
             exit();
         }
     }
-    elseif(mysqli_num_rows($sqlResult) == 0)
-    {   
-        header("Location ../log.php?error=".$mess3);
+    else
+    {
+        header("Location: log.php?error=User name and password invalid. Please try again!!");
         exit();
     }
 
