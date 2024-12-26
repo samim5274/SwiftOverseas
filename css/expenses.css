@@ -75,3 +75,22 @@ body{
     background: #03506e;
     box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#6cf8f1 0 -3px 0 inset;
   }
+
+  .overflow-auto
+  {
+    height: 28rem;
+    overflow: auto;
+  }
+
+  .custom-alert{
+    z-index: 1000;
+    display: none;
+    animation: fade-out 0.5s ease-in-out 4.5s forwards;
+  }
+
+  @keyframes fade-out {
+    to {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+  }

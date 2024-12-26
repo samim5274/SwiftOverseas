@@ -1,6 +1,7 @@
 <?php
 
    include 'dbconfig.php'; 
+   include 'session.php';
  
    if(isset($_GET['btnSubmit']))
    {
@@ -74,6 +75,41 @@
       $sqlUpdateResult = mysqli_query($conn, $sqlUpdateData);
       $message="Country data updated successfully.";
       header("Location: ../countryCost.php?success=$message");
+   }
+
+   if(isset($_GET['btnSubmitExpenses']))
+   {
+      $subGroup = $_GET['cbxSubGroup'];
+      $expenser = $_GET['cbxexpenser'];
+      $amount = $_GET['txtAmount'];
+      $purpose = $_GET['txtPurpose'];
+      $userId = $_SESSION['id'];
+      $toDate = date("Y/m/d");
+      $toDate2 = date("Ymd");
+
+      if(empty($subGroup) || empty($expenser) || empty($amount) || empty($purpose))
+      {
+         $mess = "Please fill all the fields and try again. Thank you!";
+         header("Location: ../dailyExpenses.php?warning=$mess");
+         exit();
+      }
+      
+      $group = "SELECT * FROM `ex_sub_group` WHERE id = $subGroup";
+      $groupResult = mysqli_query($conn,$group);
+      $groupRow = mysqli_fetch_assoc($groupResult);
+      $groupid = $groupRow['group_id'];
+
+      $sl = "SELECT COUNT(*) FROM `ex_daily_expenses` WHERE `date` = '$toDate' ";
+      $slResult = mysqli_query($conn,$sl);
+      $slRow = mysqli_fetch_assoc($slResult);
+      $slCount = $slRow['COUNT(*)']+1;
+
+      $invoice = "INV-".$toDate2 . $userId . $slCount;
+
+      $sqlData = "INSERT INTO `ex_daily_expenses`(`invoice`, `date`, `group_id`, `sub_group_id`, `senderId`,`receiverId`,`purpose`,`amount`) VALUES ('$invoice','$toDate','$groupid','$subGroup','$userId','$expenser','$purpose','$amount')";
+      $sqlResult = mysqli_query($conn,$sqlData);
+      $mess = "Daily expenses added successfully.";
+      header("Location: ../dailyExpenses.php?success=$mess");
    }
 
 ?>
