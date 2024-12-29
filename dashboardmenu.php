@@ -45,6 +45,7 @@
                   <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
                     <li><a class="dropdown-item  text-dark" href="account.php">Send Money</a></li>
                     <li><a class="dropdown-item  text-dark" href="dailyExpenses.php">Daily Expenses</a></li>
+                    <li><a class="dropdown-item  text-dark" href="dailyExpensesFiler.php">Expenses Filter</a></li>
                     <li><hr class="dropdown-divider"> </li>
                     <li><a class="dropdown-item  text-dark" href="#">Statement</a></li>
                   </ul>

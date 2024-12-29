@@ -146,7 +146,7 @@
 
 
 <section id="daily-expenses" class="expenses">
-<h2 class="display-4 text-center">Daily Expenses</h2><hr>
+    <h2 class="display-4 text-center">Daily Expenses</h2><hr>
     <div class="container ">
         <div class="row">
             <div class="span_1_of_2"><br>
@@ -178,6 +178,7 @@
                     <label for="Purpose">Purpose</label><br>
                     <textarea name="txtPurpose" id="Purpose" style="width:100%;" rows="4">N/A</textarea><br>
                     <input type="submit" name="btnSubmitExpenses" value="Save" class="button-30 mt-3 btnSubmit text-center">
+                    <a href="dailyExpensesFiler.php" class="button-30 mt-3 btnSubmit text-center">Filter</a>
                 </form>
             </div>
             <div class="span_1_of_2 ">
@@ -208,10 +209,11 @@
                                 while($row = mysqli_fetch_array($sqlResult)){
                             ?>
                             <tr>
-                                <td><?php echo $i; ?></td>   
+                                <td><?php echo  $i; ?></td>   
+                                <?php $costId = $row['id']; ?>   
                                 <td><?php echo $row['invoice']; ?></td>
                                 <td><?php echo $row['amount']; ?></td>
-                                <td><a href="#" class="text-dark">Edit</a></td>
+                                <td><a href="dailyExpensesEdit.php?costId=<?= $costId; ?>" class="text-dark">View</a></td>
                             </tr>
                             <?php $i++; } ?>
                         </tbody>
