@@ -39,7 +39,7 @@
                 $sqlResult = mysqli_query($conn, $sqlData);
                 while($rows = mysqli_fetch_array($sqlResult)) { ?>
 
-                <form action="controller/db_backend.php" method="GET" enctype="multipart/form-data">
+                <form action="controller/expenses.php" method="GET" enctype="multipart/form-data">
                     <label for="subgroup">Sub-Group</label>
                     <select name="cbxSubGroup" id="subgroup" class="form-control">  
                         <option disabled>Select sub-group</option>  

@@ -37,12 +37,25 @@
 
 
 <section id="daily-expenses" class="expenses">
-    <h2 class="display-4 text-center">Daily Expenses Filter</h2><hr>
+    <h2 class="display-4 text-center">Group wise daily expenses filter</h2><hr>
     <div class="container ">
         <div class="row">
             <div class="span_1_of_1"><br>
                 <form action="" method="GET" enctype="multipart/form-data">
                     <div class="row">
+                        <div class="span_1_of_1">
+                            <label for="Group">Group</label>
+                            <select name="cbxGroup" class="form-control" id="Group">                        
+                                <option selected disabled>Select Group</option>  
+                                <?php 
+                                    $sqlData = "SELECT * FROM `ex_group` ";
+                                    $sqlResult = mysqli_query($conn, $sqlData);
+                                    while($row = mysqli_fetch_array($sqlResult)){
+                                ?>                      
+                                <option value="<?php echo $row['id'];?>"><?php echo $row['group_name']; ?></option>
+                                <?php } ?>                        
+                            </select><br>
+                        </div>
                         <div class="span_1_of_2">
                             <label for="start">Start Date</label><br>
                             <input name="dtpStart" type="date" max="<?=date('Y-m-d')?>"><br>
@@ -69,6 +82,7 @@
                                 <th scope="col">Date</th>
                                 <th scope="col">Invoice</th>
                                 <th scope="col">Name</th>
+                                <th scope="col">Sub-group</th>
                                 <th scope="col">Amount</th>
                             </tr>
                         </thead>
@@ -79,10 +93,13 @@
                             $i = 1;
                             $dtpStart = $_GET['dtpStart'];
                             $dtpEnd = $_GET['dtpEnd'];
-                            if($dtpStart == "" || $dtpEnd == ""){
-                                echo "<script>alert('Please Select Duration Date')</script>";
+                            $cbxGroup = $_GET['cbxGroup'] ?? '0';
+                            
+                            if($dtpStart == "" || $dtpEnd == "" || $cbxGroup == ""){
+                                echo "<script>alert('Please Select duration date. Thank you!')</script>";
                             }
-                            $sqlData = "SELECT * FROM `ex_daily_expenses` WHERE date BETWEEN '$dtpStart' AND '$dtpEnd' ";
+
+                            $sqlData = "SELECT * FROM `ex_daily_expenses` WHERE  group_Id = '$cbxGroup' AND date BETWEEN '$dtpStart' AND '$dtpEnd'  ";
                             $sqlResult = mysqli_query($conn, $sqlData);
                             while($row = mysqli_fetch_array($sqlResult)){?>
                             <tr>
@@ -98,6 +115,14 @@
                                         <td><?php echo  $row1['firstName']." ".$row1['lastName']; ?></td>
                                         <?php    }
                                 ?>
+                                <?php
+                                     $subGroup = $row['sub_group_id'];
+                                    $sqlData2 = "SELECT * FROM `ex_sub_group` WHERE id = '$subGroup' ";
+                                    $sqlResult2 = mysqli_query($conn, $sqlData2);
+                                    while($row2 = mysqli_fetch_array($sqlResult2)){?>
+                                        <td><?php echo  $row2['sub_group_name']; ?></td>
+                                <?php      }
+                                   ?>
                                 <td><?php echo $row['amount']; ?></td>
                             </tr>
                             <?php $i++; } } ?>
