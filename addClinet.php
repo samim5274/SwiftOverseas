@@ -29,8 +29,6 @@ include 'controller/session.php';
 
 <?php } if(isset($_GET['error'])) {?> <h2 class="error text-center"><?php echo $_GET['error']; ?></h2> <?php } ?>
 
-<?php } if(isset($_GET['error'])) {?> <h2 class="error text-center"><?php echo $_GET['error']; ?></h2> <?php }
-?>
 
 
 <section id="add-new-agency-section"  class="collapse text-light">
